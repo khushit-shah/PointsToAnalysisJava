@@ -1,5 +1,5 @@
-BasicTest.fun1: in01: $r0:{new00}
-BasicTest.fun1: in02: $r0:{new00}
+BasicTest.fun1: in01: $r0: {new00}
+BasicTest.fun1: in02: $r0: {new00}
 BasicTest.fun1: in03: $r0: {new00}
 BasicTest.fun1: in03: $r1: {new00}
 BasicTest.fun1: in04: $r0: {new01}
