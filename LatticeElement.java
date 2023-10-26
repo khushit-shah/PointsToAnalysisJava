@@ -26,7 +26,6 @@ public interface LatticeElement
 
     public LatticeElement tf_condstmt(boolean b, Stmt  st);
 
-    public LatticeElement transder(Stmt st, boolean isConditional);
-
+    public LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken);
 }
 
