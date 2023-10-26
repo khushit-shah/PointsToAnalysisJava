@@ -12,7 +12,7 @@ import soot.jimple.Stmt;
 // LatticeElement and should work on any implementation of
 // LatticElement for any analysis.
 
-interface LatticeElement
+public interface LatticeElement
 {
 
     public LatticeElement join_op(LatticeElement r);
@@ -24,6 +24,9 @@ interface LatticeElement
 
     public LatticeElement tf_assignstmt(Stmt st);
 
-    public LatticeElement tf_condstmt(boolean b, Stmt st);
+    public LatticeElement tf_condstmt(boolean b, Stmt  st);
+
+    public LatticeElement transder(Stmt st, boolean isConditional);
+
 }
 
