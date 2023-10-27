@@ -3,7 +3,6 @@ import java.util.HashSet;
 public class Kildalls {
 
     public static LatticeElement[] run(Statement[] statements, LatticeElement d0, LatticeElement bot) {
-
         HashSet<Integer> marked = new HashSet<>();
         LatticeElement[] states = new LatticeElement[statements.length];
 
