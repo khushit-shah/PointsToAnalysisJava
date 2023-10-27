@@ -106,7 +106,7 @@ public class Analysis extends PAVBase {
                     @Override
                     public void caseAssignStmt(AssignStmt stmt) {
                         Value rightOp = stmt.getRightOp();
-
+                        System.out.println(Helper.getSimplifiedVarName(rightOp.toString()));
                         if (rightOp instanceof InvokeExpr) {
                             if (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType) {
                                 stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), RefType.v("java.lang.Object")));

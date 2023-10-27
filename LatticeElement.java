@@ -24,6 +24,8 @@ public interface LatticeElement
 
     public boolean equals(LatticeElement r);
 
+    public LatticeElement tf_identity_fn();
+
     public LatticeElement tf_assign_stmt(Stmt st);
     public LatticeElement tf_if_stmt(Stmt st, boolean b);
     public LatticeElement tf_goto_stmt(Stmt st);

@@ -55,6 +55,11 @@ public class PointsToLatticeElement implements  LatticeElement {
     }
 
     @Override
+    public LatticeElement tf_identity_fn() {
+        return new PointsToLatticeElement((HashMap<String, HashSet<String>>) state.clone());
+    }
+
+    @Override
     public LatticeElement tf_assign_stmt(Stmt st) {
         return null;
     }
