@@ -1,5 +1,7 @@
 import soot.jimple.Stmt;
 
+import javax.swing.plaf.nimbus.State;
+
 
 // Receiver object of LatticeElement possess the existing dataflow
 // fact at a programpoint.  x.join(y), here x, y are elements of type,
@@ -22,10 +24,6 @@ public interface LatticeElement
 
     public boolean equals(LatticeElement r);
 
-    public LatticeElement tf_assignstmt(Stmt st);
-
-    public LatticeElement tf_condstmt(boolean b, Stmt  st);
-
-    public LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken);
+    public LatticeElement transfer(Statement st, boolean isConditional, boolean conditionTaken);
 }
 

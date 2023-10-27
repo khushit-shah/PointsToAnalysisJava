@@ -54,13 +54,19 @@ public class PointsToLatticeElement implements  LatticeElement {
         return state.equals(((PointsToLatticeElement) r).state);
     }
 
-    @Override
-    public LatticeElement tf_assignstmt(Stmt st) {
+
+    public LatticeElement transfer_assignment_lhs_var(Statement st) {
+        return null;
+    }
+
+    public LatticeElement transfer_assignment_lhs_field(Statement st) {
+        // p.f = x
         return null;
     }
 
     @Override
-    public LatticeElement tf_condstmt(boolean b, Stmt st) {
+    public LatticeElement transfer(Statement st, boolean isConditional, boolean conditionTaken) {
         return null;
     }
+
 }

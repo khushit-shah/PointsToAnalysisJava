@@ -1,0 +1,12 @@
+- is the target of branch instruction always present?
+- Switch statements?
+- Atmost only 2 successors?
+
+
+
+
+
+# TODO 1 (sai): Tests cases for equals
+# TODO 2 (sai): Transfer functions for assignment
+# TODO 3 (khushit): parse jimple and convert to our Statement Class, update function calls with new00 when neccessary.
+
