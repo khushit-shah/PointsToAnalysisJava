@@ -24,6 +24,25 @@ public interface LatticeElement
 
     public boolean equals(LatticeElement r);
 
-    public LatticeElement transfer(Statement st, boolean isConditional, boolean conditionTaken);
+    public LatticeElement tf_assign_stmt(Stmt st);
+    public LatticeElement tf_if_stmt(Stmt st, boolean b);
+    public LatticeElement tf_goto_stmt(Stmt st);
+
+    public LatticeElement tf_nop_stmt(Stmt st);
+    public LatticeElement tf_identity_stmt(Stmt st);
+
+    public LatticeElement tf_table_switch_stmt(Stmt st);
+    public LatticeElement tf_lookup_switch_stmt(Stmt st);
+    public LatticeElement tf_invoke_stmt(Stmt st);
+    public LatticeElement tf_return_stmt(Stmt st);
+    public LatticeElement tf_return_void_stmt(Stmt st);
+    public LatticeElement tf_enter_monitor_stmt(Stmt st);
+    public LatticeElement tf_exit_monitor_stmt(Stmt st);
+
+    public LatticeElement tf_throw_stmt(Stmt st);
+
+    public LatticeElement tf_ret_stmt(Stmt st);
+
+    public LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken);
 }
 

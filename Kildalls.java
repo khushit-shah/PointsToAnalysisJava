@@ -26,18 +26,18 @@ public class Kildalls {
             if (statements[curPoint].type == Statement.StatementType.CONDITIONAL) {
                 // Propagate State to true branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, true);
+                    LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, true, true);
                     propagate(states, statements[curPoint].targetIndex, nextNewState, marked);
                 }
                 // Propagate state to false branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, false);
+                    LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, true, false);
                     if (statements[curPoint].hasNext) {
                         propagate(states, statements[curPoint].nextIndex, nextNewState, marked);
                     }
                 }
             } else {
-                LatticeElement nextNewState = curState.transfer(statements[curPoint], false, false);
+                LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, false, false);
                 if (statements[curPoint].hasNext) {
                     propagate(states, statements[curPoint].nextIndex, nextNewState, marked);
                 }

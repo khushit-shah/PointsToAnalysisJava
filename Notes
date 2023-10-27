@@ -1,7 +1,19 @@
+To Keep in mind:
+1) Method calls return reference to object is allocation sites;
+2) Ignore all other type of method calls;
+3) Ignore Exceptions control flow edges;
+4) Ignore static class fields; (what happens if there is static class field)
+5) Ignore non-pointer variables and non-pointer fields entirely (how are they represented in jimple?)
+6) How is Switch statement represented?
+7) What if a object reference is in the parameter?
+8) What if array of object is given?
+9) what if if(true) or if(false)?
+
+
 - is the target of branch instruction always present?
 - Switch statements?
-- Atmost only 2 successors?
-
+- At-most only 2 successors?
+- are hashset's okay? or the iteration order needs to fixed? use sortedset then.
 
 
 
