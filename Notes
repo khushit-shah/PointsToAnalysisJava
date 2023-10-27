@@ -10,3 +10,10 @@
 # TODO 2 (sai): Transfer functions for assignment
 # TODO 3 (khushit): parse jimple and convert to our Statement Class, update function calls with new00 when neccessary.
 
+
+
+
+To Run 
+
+- (Every time you open new terminal to run the program) export CLASSPATH=".:pkgs/soot-4.3.0-with-deps.jar"
+- javac TestJoin.java PointsToLatticeElement.java LatticeElement.java
