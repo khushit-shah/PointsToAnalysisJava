@@ -1,4 +1,4 @@
-public class MyTest{
+public class MyTest {
 	public static void fun1() {
             int j = 10;
             if(j!=0);

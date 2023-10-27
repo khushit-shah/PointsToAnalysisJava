@@ -1,8 +1,14 @@
+import soot.Unit;
+import soot.UnitBox;
+import soot.jimple.IfStmt;
+import soot.jimple.Stmt;
+
 import java.util.HashSet;
+import java.util.Map;
 
 public class Kildalls {
 
-    public static LatticeElement[] run(Statement[] statements, LatticeElement d0, LatticeElement bot) {
+    public static LatticeElement[] run(Stmt[] statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
         HashSet<Integer> marked = new HashSet<>();
         LatticeElement[] states = new LatticeElement[statements.length];
 
@@ -23,23 +29,31 @@ public class Kildalls {
 
             LatticeElement curState = states[curPoint];
 
-            if (statements[curPoint].type == Statement.StatementType.CONDITIONAL) {
+            if (statements[curPoint] instanceof IfStmt) {
                 // Propagate State to true branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, true, true);
-                    propagate(states, statements[curPoint].targetIndex, nextNewState, marked);
+                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, true);
+                    propagate(states, indices.get((Stmt) statements[curPoint].getUnitBoxes().get(0).getUnit()), nextNewState, marked);
                 }
                 // Propagate state to false branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, true, false);
-                    if (statements[curPoint].hasNext) {
-                        propagate(states, statements[curPoint].nextIndex, nextNewState, marked);
+                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, false);
+                    if (curPoint + 1 < statements.length) {
+                        propagate(states, curPoint + 1, nextNewState, marked);
                     }
                 }
             } else {
-                LatticeElement nextNewState = curState.transfer(statements[curPoint].stmt, false, false);
-                if (statements[curPoint].hasNext) {
-                    propagate(states, statements[curPoint].nextIndex, nextNewState, marked);
+                LatticeElement nextNewState = curState.transfer(statements[curPoint], false, false);
+
+                if (statements[curPoint].getUnitBoxes().isEmpty()) {
+                    if (curPoint + 1 < statements.length) {
+                        propagate(states, curPoint + 1, nextNewState, marked);
+                    }
+                } else {
+                    // goto or switch kind of statements.
+                    for (UnitBox u : statements[curPoint].getUnitBoxes()) {
+                        propagate(states, indices.get((Stmt) u.getUnit()), nextNewState, marked);
+                    }
                 }
             }
         }

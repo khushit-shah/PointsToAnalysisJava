@@ -129,11 +129,11 @@ public class PointsToLatticeElement implements  LatticeElement {
         return null;
     }
 
-    public LatticeElement transfer_assignment_lhs_var(Statement st) {
+    public LatticeElement transfer_assignment_lhs_var(Stmt st) {
         return null;
     }
 
-    public LatticeElement transfer_assignment_lhs_field(Statement st) {
+    public LatticeElement transfer_assignment_lhs_field(Stmt st) {
         // p.f = x
         return null;
     }
