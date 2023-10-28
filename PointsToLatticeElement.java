@@ -39,14 +39,14 @@ public class PointsToLatticeElement implements LatticeElement {
         HashMap<String, HashSet<String>> new_state = new HashMap<>();
 
         for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
-            HashSet<String> base = (HashSet<String>) entry.getValue().clone();
+            HashSet<String> base = clone(entry.getValue());
             base.addAll(other.state.getOrDefault(entry.getKey(), new HashSet<>()));
 
             new_state.put(entry.getKey(), base);
         }
 
         for (Map.Entry<String, HashSet<String>> entry : other.state.entrySet()) {
-            HashSet<String> base = (HashSet<String>) entry.getValue().clone();
+            HashSet<String> base = clone(entry.getValue());
             base.addAll(state.getOrDefault(entry.getKey(), new HashSet<>()));
 
             new_state.put(entry.getKey(), base);
@@ -62,7 +62,7 @@ public class PointsToLatticeElement implements LatticeElement {
 
     @Override
     public LatticeElement tf_identity_fn() {
-        return new PointsToLatticeElement((HashMap<String, HashSet<String>>) state.clone());
+        return new PointsToLatticeElement(clone(state));
     }
 
     @Override
@@ -102,14 +102,14 @@ public class PointsToLatticeElement implements LatticeElement {
                 newXX.add(rhsStr);
                 RhsPointsTo = newXX;
             } else if (rhsStr.equals("null")) {
-                RhsPointsTo = (HashSet<String>) nullOnlySet.clone();
+                RhsPointsTo = clone(nullOnlySet);
             } else {
-                RhsPointsTo = (HashSet<String>) state.getOrDefault(rhsStr, new HashSet<>()).clone();
+                RhsPointsTo = clone(state.getOrDefault(rhsStr, new HashSet<>()));
             }
 
             HashSet<String> varPointsTo = state.getOrDefault(lhsVarStr, new HashSet<>());
 
-            HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
+            HashMap<String, HashSet<String>> newState = clone(state);
 
             for (String p : varPointsTo) {
                 if (p.equals("null")) continue;
@@ -126,7 +126,7 @@ public class PointsToLatticeElement implements LatticeElement {
             return new PointsToLatticeElement(newState);
 
         } else if (rhsStr.contains(".")) {
-            HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
+            HashMap<String, HashSet<String>> newState = clone(state);
 
             String rhsVarStr = rhsStr.split("\\.")[0];
             String rhsFieldStr = rhsStr.split("\\.")[1];
@@ -147,9 +147,9 @@ public class PointsToLatticeElement implements LatticeElement {
             return new PointsToLatticeElement(newState);
         } else {
             // strong update always.
-            HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
+            HashMap<String, HashSet<String>> newState = clone(state);
             if (rhsStr.equals("null")) {
-                newState.put(lhsStr, (HashSet<String>) nullOnlySet.clone());
+                newState.put(lhsStr, clone(nullOnlySet));
             } else if (rhsStr.startsWith("new")) {
                 HashSet<String> newXX = new HashSet<>();
                 newXX.add(rhsStr);
@@ -210,12 +210,12 @@ public class PointsToLatticeElement implements LatticeElement {
             // v1 == null
             HashSet<String> RhsSet = new HashSet<>();
             if (op2Str.equals("null")) {
-                RhsSet = (HashSet<String>) nullOnlySet.clone();
+                RhsSet = clone(nullOnlySet);
             } else { // v1 = v2; We don't have v1 = v2.f possibility here.
                 RhsSet = state.getOrDefault(op2Str, new HashSet<>());
             }
 
-            HashSet<String> lhsSet = (HashSet<String>) state.getOrDefault(op1Str, new HashSet<>()).clone();
+            HashSet<String> lhsSet = clone(state.getOrDefault(op1Str, new HashSet<>()));
 
             lhsSet.retainAll(RhsSet);
 
@@ -223,7 +223,7 @@ public class PointsToLatticeElement implements LatticeElement {
                 // no common element in lhs and rhs pointing set.
                 return new PointsToLatticeElement();
             } else {
-                HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
+                HashMap<String, HashSet<String>> newState = clone(state);
 
                 newState.put(op1Str, lhsSet);
                 newState.put(op2Str, lhsSet);
@@ -236,7 +236,7 @@ public class PointsToLatticeElement implements LatticeElement {
             HashSet<String> op1Set = state.getOrDefault(op1Str, new HashSet<>());
             HashSet<String> op2Set;
             if (op2Str.equals("null")) {
-                op2Set = (HashSet<String>) nullOnlySet.clone();
+                op2Set = clone(nullOnlySet);
             } else {
                 op2Set = state.getOrDefault(op2Str, new HashSet<>());
             }
@@ -285,7 +285,21 @@ public class PointsToLatticeElement implements LatticeElement {
     }
 
     public PointsToLatticeElement clone() {
-        HashMap<String, HashSet<String>> clonedState = (HashMap<String, HashSet<String>>) state.clone();
+        HashMap<String, HashSet<String>> clonedState = clone(state);
         return new PointsToLatticeElement(clonedState);
+    }
+
+    public HashSet<String> clone(HashSet<String> x) {
+        return (HashSet<String>) x.clone();  // as String is immutable it is okay to shallow clone this.
+    }
+
+    public HashMap<String, HashSet<String>> clone(HashMap<String, HashSet<String>> x) {
+        HashMap<String, HashSet<String>> cloned = new HashMap<>();
+
+        for (Map.Entry<String, HashSet<String>> entry : x.entrySet()) {
+            cloned.put(entry.getKey(), clone(entry.getValue()));
+        }
+
+        return cloned;
     }
 }
