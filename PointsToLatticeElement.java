@@ -173,8 +173,7 @@ public class PointsToLatticeElement implements LatticeElement {
         Value condition = ifStmt.getCondition();
 
         if (condition instanceof EqExpr) {
-            if (!(((EqExpr) condition).getOp1().getType() instanceof RefType || ((EqExpr) condition).getOp1().getType() instanceof NullType)
-                    || !(((EqExpr) condition).getOp2().getType() instanceof RefType || ((EqExpr) condition).getOp2().getType() instanceof NullType)) {
+            if (!(((EqExpr) condition).getOp1().getType() instanceof RefType || ((EqExpr) condition).getOp1().getType() instanceof NullType) || !(((EqExpr) condition).getOp2().getType() instanceof RefType || ((EqExpr) condition).getOp2().getType() instanceof NullType)) {
                 return tf_identity_fn();
             }
 
@@ -189,19 +188,33 @@ public class PointsToLatticeElement implements LatticeElement {
                 return tf_identity_fn();
             }
 
+            if (op1Str.equals("null")) {
+                op1Str = op2Str;
+                op2Str = "null";
+            }
             if (b) { // if op1 == op2 is taken.
                 // v1 == null
+                HashSet<String> RhsSet = new HashSet<>();
                 if (op2Str.equals("null")) {
-                    op1Str = op2Str;
-                    op2Str = "null";
+                    RhsSet = (HashSet<String>) nullOnlySet.clone();
+                } else { // v1 = v2;
+                    RhsSet = state.getOrDefault(op2Str, new HashSet<>());
+                }
 
-                    // {} == null
+                HashSet<String> lhsSet = (HashSet<String>) state.getOrDefault(op1Str, new HashSet<>()).clone();
+
+                lhsSet.retainAll(RhsSet);
+
+                if (lhsSet.isEmpty()) {
+                    // no common element in lhs and rhs pointing set.
+                    return new PointsToLatticeElement(); // return bot.
+                } else {
                     HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
-                    newState.put(op1Str, (HashSet<String>) nullOnlySet.clone());
+
+                    newState.put(op1Str, lhsSet);
+                    newState.put(op2Str, lhsSet);
 
                     return new PointsToLatticeElement(newState);
-                } else { // v1 = v2;
-
                 }
             } else { // if op1 == op2 is not taken.
 
@@ -249,14 +262,5 @@ public class PointsToLatticeElement implements LatticeElement {
         };
         st.apply(stmtSwitch);
         return stmtSwitch.getResult();
-    }
-
-    public LatticeElement transfer_assignment_lhs_var(Stmt st) {
-        return null;
-    }
-
-    public LatticeElement transfer_assignment_lhs_field(Stmt st) {
-        // p.f = x
-        return null;
     }
 }
