@@ -1,5 +1,3 @@
-import fj.Hash;
-import org.omg.CORBA.portable.ResponseHandler;
 import soot.NullType;
 import soot.RefType;
 import soot.Value;
@@ -197,7 +195,7 @@ public class PointsToLatticeElement implements LatticeElement {
                 HashSet<String> RhsSet = new HashSet<>();
                 if (op2Str.equals("null")) {
                     RhsSet = (HashSet<String>) nullOnlySet.clone();
-                } else { // v1 = v2;
+                } else { // v1 = v2; We don't have v1 = v2.f possibility here.
                     RhsSet = state.getOrDefault(op2Str, new HashSet<>());
                 }
 
