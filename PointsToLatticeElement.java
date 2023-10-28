@@ -181,50 +181,78 @@ public class PointsToLatticeElement implements LatticeElement {
             String op1Str = Helper.getSimplifiedVarName(op1.toString());
             String op2Str = Helper.getSimplifiedVarName(op2.toString());
 
-            // null == null
-            if (op1Str.equals("null") && op2Str.equals("null")) {
+            return transfer_eq_eq(b, op1Str, op2Str);
+        } else if (condition instanceof NeExpr) {
+            if (!(((NeExpr) condition).getOp1().getType() instanceof RefType || ((NeExpr) condition).getOp1().getType() instanceof NullType) || !(((NeExpr) condition).getOp2().getType() instanceof RefType || ((NeExpr) condition).getOp2().getType() instanceof NullType)) {
                 return tf_identity_fn();
             }
+            Value op1 = ((NeExpr) condition).getOp1();
+            Value op2 = ((NeExpr) condition).getOp2();
 
-            if (op1Str.equals("null")) {
-                op1Str = op2Str;
-                op2Str = "null";
-            }
-            if (b) { // if op1 == op2 is taken.
-                // v1 == null
-                HashSet<String> RhsSet = new HashSet<>();
-                if (op2Str.equals("null")) {
-                    RhsSet = (HashSet<String>) nullOnlySet.clone();
-                } else { // v1 = v2; We don't have v1 = v2.f possibility here.
-                    RhsSet = state.getOrDefault(op2Str, new HashSet<>());
-                }
+            String op1Str = Helper.getSimplifiedVarName(op1.toString());
+            String op2Str = Helper.getSimplifiedVarName(op2.toString());
 
-                HashSet<String> lhsSet = (HashSet<String>) state.getOrDefault(op1Str, new HashSet<>()).clone();
-
-                lhsSet.retainAll(RhsSet);
-
-                if (lhsSet.isEmpty()) {
-                    // no common element in lhs and rhs pointing set.
-                    return new PointsToLatticeElement(); // return bot.
-                } else {
-                    HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
-
-                    newState.put(op1Str, lhsSet);
-                    newState.put(op2Str, lhsSet);
-
-                    return new PointsToLatticeElement(newState);
-                }
-            } else { // if op1 == op2 is not taken.
-
-            }
-
-        } else if (condition instanceof NeExpr) {
-
+            return transfer_eq_eq(!b, op1Str, op2Str);
         } else {
             return tf_identity_fn();
         }
+    }
 
-        return null;
+    private LatticeElement transfer_eq_eq(boolean b, String op1Str, String op2Str) {
+        // null == null
+        if (op1Str.equals("null") && op2Str.equals("null")) {
+            if (b) return tf_identity_fn();
+            else return new PointsToLatticeElement(); // bot.
+        }
+
+        if (op1Str.equals("null")) {
+            op1Str = op2Str;
+            op2Str = "null";
+        }
+        if (b) { // if op1 == op2 is taken.
+            // v1 == null
+            HashSet<String> RhsSet = new HashSet<>();
+            if (op2Str.equals("null")) {
+                RhsSet = (HashSet<String>) nullOnlySet.clone();
+            } else { // v1 = v2; We don't have v1 = v2.f possibility here.
+                RhsSet = state.getOrDefault(op2Str, new HashSet<>());
+            }
+
+            HashSet<String> lhsSet = (HashSet<String>) state.getOrDefault(op1Str, new HashSet<>()).clone();
+
+            lhsSet.retainAll(RhsSet);
+
+            if (lhsSet.isEmpty()) {
+                // no common element in lhs and rhs pointing set.
+                return new PointsToLatticeElement();
+            } else {
+                HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
+
+                newState.put(op1Str, lhsSet);
+                newState.put(op2Str, lhsSet);
+
+                return new PointsToLatticeElement(newState);
+            }
+        } else { // if op1 == op2 is not taken.
+            // only case we can determine is when both op1 and op2 are singleton and atleast one is null.
+
+            HashSet<String> op1Set = state.getOrDefault(op1Str, new HashSet<>());
+            HashSet<String> op2Set;
+            if (op2Str.equals("null")) {
+                op2Set = (HashSet<String>) nullOnlySet.clone();
+            } else {
+                op2Set = state.getOrDefault(op2Str, new HashSet<>());
+            }
+            if (op1Set.size() == 1 && op2Set.size() == 1) {
+                if (op1Set.equals(nullOnlySet) && op2Set.equals(nullOnlySet)) { // both of them are null, false branch is not legit.
+                    return new PointsToLatticeElement();
+                } else { // if one is null and one is not null or both are not null, identity fn is correct.
+                    return tf_identity_fn();
+                }
+            }
+
+            return tf_identity_fn();
+        }
     }
 
     @Override
