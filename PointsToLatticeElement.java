@@ -283,4 +283,9 @@ public class PointsToLatticeElement implements LatticeElement {
         st.apply(stmtSwitch);
         return stmtSwitch.getResult();
     }
+
+    public PointsToLatticeElement clone() {
+        HashMap<String, HashSet<String>> clonedState = (HashMap<String, HashSet<String>>) state.clone();
+        return new PointsToLatticeElement(clonedState);
+    }
 }
