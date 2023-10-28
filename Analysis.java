@@ -9,29 +9,23 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+import soot.*;
+import soot.jimple.*;
+import soot.options.Options;
+import soot.toolkits.graph.ExceptionalUnitGraph;
+import soot.util.cfgcmd.CFGToDotGraph;
+import soot.util.dot.DotGraph;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
 
 ////////////////////////////////////////////////////////////////////////////////
 
-import heros.flowfunc.Kill;
-import soot.*;
-import soot.jimple.*;
-import soot.options.Options;
-
-import soot.toolkits.graph.ExceptionalUnitGraph;
-import soot.toolkits.graph.ExceptionalBlockGraph;
-import soot.util.Switch;
-import soot.util.cfgcmd.CFGToDotGraph;
-import soot.util.dot.DotGraph;
-
-////////////////////////////////////////////////////////////////////////////////
-
 
 public class Analysis extends PAVBase {
-    private DotGraph dot = new DotGraph("callgraph");
-    private static HashMap<String, Boolean> visited = new HashMap<String, Boolean>();
+    private static final HashMap<String, Boolean> visited = new HashMap<String, Boolean>();
+    private final DotGraph dot = new DotGraph("callgraph");
 
     public Analysis() {
         /*************************************************************
@@ -221,7 +215,7 @@ public class Analysis extends PAVBase {
         UnitPrinter up = new NormalUnitPrinter(b);
         u.toString(up);
         String linenostr = String.format("%02d", lineno) + ": ";
-        System.out.println(linenostr + up.toString());
+        System.out.println(linenostr + up);
     }
 
 

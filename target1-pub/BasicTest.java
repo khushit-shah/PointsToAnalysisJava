@@ -88,6 +88,6 @@ public class BasicTest {
             v2.f = new BasicTest(); // reachable
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
     }
 }

@@ -1,5 +1,3 @@
-import soot.Value;
-
 public class Helper {
 
     public static String getSimplifiedVarName(String string) {
