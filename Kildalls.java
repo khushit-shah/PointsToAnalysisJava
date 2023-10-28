@@ -1,25 +1,24 @@
-import soot.Unit;
 import soot.UnitBox;
 import soot.jimple.IfStmt;
 import soot.jimple.Stmt;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
 public class Kildalls {
 
-    public static LatticeElement[] run(Stmt[] statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
+    public static ArrayList<LatticeElement> run(ArrayList<Stmt> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
         HashSet<Integer> marked = new HashSet<>();
-        LatticeElement[] states = new LatticeElement[statements.length];
+        ArrayList<LatticeElement> states = new ArrayList<>(statements.size());
 
         // set all states to bot, mark all points.
-        for (int i = 0; i < statements.length; i++) {
+        for (int i = 0; i < statements.size(); i++) {
             marked.add(i);
-            states[i] = bot;
+            states.add(i, bot);
         }
-
         // set initial point to d0
-        states[0] = d0;
+        states.set(0, d0);
 
         while (!marked.isEmpty()) {
             Integer curPoint = marked.iterator().next();
@@ -27,31 +26,30 @@ public class Kildalls {
             // unmark the current point.
             marked.remove(curPoint);
 
-            LatticeElement curState = states[curPoint];
+            LatticeElement curState = states.get(curPoint);
 
-            if (statements[curPoint] instanceof IfStmt) {
+            if (statements.get(curPoint) instanceof IfStmt) {
                 // Propagate State to true branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, true);
-                    propagate(states, indices.get((Stmt) statements[curPoint].getUnitBoxes().get(0).getUnit()), nextNewState, marked);
+                    LatticeElement nextNewState = curState.transfer(statements.get(curPoint), true, true);
+                    propagate(states, indices.get((Stmt) statements.get(curPoint).getUnitBoxes().get(0).getUnit()), nextNewState, marked);
                 }
                 // Propagate state to false branch.
                 {
-                    LatticeElement nextNewState = curState.transfer(statements[curPoint], true, false);
-                    if (curPoint + 1 < statements.length) {
+                    LatticeElement nextNewState = curState.transfer(statements.get(curPoint), true, false);
+                    if (curPoint + 1 < statements.size()) {
                         propagate(states, curPoint + 1, nextNewState, marked);
                     }
                 }
             } else {
-                LatticeElement nextNewState = curState.transfer(statements[curPoint], false, false);
-
-                if (statements[curPoint].getUnitBoxes().isEmpty()) {
-                    if (curPoint + 1 < statements.length) {
+                LatticeElement nextNewState = curState.transfer(statements.get(curPoint), false, false);
+                if (statements.get(curPoint).getUnitBoxes().isEmpty()) {
+                    if (curPoint + 1 < statements.size()) {
                         propagate(states, curPoint + 1, nextNewState, marked);
                     }
                 } else {
                     // goto or switch kind of statements.
-                    for (UnitBox u : statements[curPoint].getUnitBoxes()) {
+                    for (UnitBox u : statements.get(curPoint).getUnitBoxes()) {
                         propagate(states, indices.get((Stmt) u.getUnit()), nextNewState, marked);
                     }
                 }
@@ -61,14 +59,14 @@ public class Kildalls {
         return states;
     }
 
-    private static void propagate(LatticeElement[] states, int to, LatticeElement nextNewState, HashSet<Integer> marked) {
-        LatticeElement nextCurState = states[to];
+    private static void propagate(ArrayList<LatticeElement> states, int to, LatticeElement nextNewState, HashSet<Integer> marked) {
+        LatticeElement nextCurState = states.get(to);
 
         LatticeElement joined = nextNewState.join_op(nextCurState);
 
         if (!joined.equals(nextCurState)) {
             // update and mark.
-            states[to] = joined;
+            states.set(to, joined);
             marked.add(to);
         }
     }

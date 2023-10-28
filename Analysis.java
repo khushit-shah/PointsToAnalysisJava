@@ -13,6 +13,7 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////////////////////
 
+import heros.flowfunc.Kill;
 import soot.*;
 import soot.jimple.*;
 import soot.options.Options;
@@ -106,7 +107,7 @@ public class Analysis extends PAVBase {
                     @Override
                     public void caseAssignStmt(AssignStmt stmt) {
                         Value rightOp = stmt.getRightOp();
-                        System.out.println(Helper.getSimplifiedVarName(rightOp.toString()));
+//                        System.out.println(Helper.getSimplifiedVarName(rightOp.toString()));
                         if (rightOp instanceof InvokeExpr) {
                             if (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType) {
                                 stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), RefType.v("java.lang.Object")));
@@ -117,17 +118,35 @@ public class Analysis extends PAVBase {
                     }
                 });
 
-                System.out.println("Statement: " + u.toString());
-
-                System.out.println("Use Boxes: " + u.getUseBoxes());
-                System.out.println("Def Boxes: " + u.getDefBoxes());
-                System.out.println("Unit Boxes: " + u.getUnitBoxes());
+//                System.out.println("Statement: " + u.toString());
+//
+//                System.out.println("Use Boxes: " + u.getUseBoxes());
+//                System.out.println("Def Boxes: " + u.getDefBoxes());
+//                System.out.println("Unit Boxes: " + u.getUnitBoxes());
 
                 index++;
             }
 
             // Calculating next Statement Index and target Statement Index.
 
+            System.out.println(statements.size());
+            ArrayList<LatticeElement> output = Kildalls.run(statements, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
+
+            Set<ResultTuple> data = new HashSet<>();
+            index = 0;
+            for (LatticeElement e : output) {
+                PointsToLatticeElement e_ = (PointsToLatticeElement) e;
+                for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
+                    ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
+                    data.add(tuple);
+                }
+                index++;
+            }
+
+            String[] lines = fmtOutputData(data);
+            for (String line : lines) {
+                System.out.println(line);
+            }
 
             drawMethodDependenceGraph(targetMethod);
         } else {
@@ -176,6 +195,42 @@ public class Analysis extends PAVBase {
         }
     }
 
+    protected static String fmtOutputLine(ResultTuple tup, String prefix) {
+        String line = tup.m + ": " + tup.p + ": " + tup.v + ": " + "{";
+        List<String> pointerValues = tup.pV;
+        Collections.sort(pointerValues);
+        for (int i = 0; i < pointerValues.size(); i++) {
+            if (i != pointerValues.size() - 1)
+                line += pointerValues.get(i) + ", ";
+            else
+                line += pointerValues.get(i);
+        }
+        line = line + "}";
+        return (prefix + line);
+    }
+
+
+    protected static String fmtOutputLine(ResultTuple tup) {
+        return fmtOutputLine(tup, "");
+    }
+
+    protected static String[] fmtOutputData(Set<ResultTuple> data, String prefix) {
+
+        String[] outputlines = new String[data.size()];
+
+        int i = 0;
+        for (ResultTuple tup : data) {
+            outputlines[i] = fmtOutputLine(tup, prefix);
+            i++;
+        }
+
+        Arrays.sort(outputlines);
+        return outputlines;
+    }
+
+    protected static String[] fmtOutputData(Set<ResultTuple> data) {
+        return fmtOutputData(data, "");
+    }
 }
 
 

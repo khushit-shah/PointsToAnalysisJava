@@ -9,6 +9,7 @@ To Keep in mind:
 8) What if array of object is given?
 9) what if if(true) or if(false)?
 10) what if rhs is a string? do we consider it be a object?
+11) what if there is object fields?
 
 - is the target of branch instruction always present?
 - Switch statements?
