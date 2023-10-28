@@ -9,6 +9,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,8 +31,7 @@ import soot.util.dot.DotGraph;
 
 public class Analysis extends PAVBase {
     private DotGraph dot = new DotGraph("callgraph");
-    private static HashMap<String, Boolean> visited = new
-            HashMap<String, Boolean>();
+    private static HashMap<String, Boolean> visited = new HashMap<String, Boolean>();
 
     public Analysis() {
         /*************************************************************
@@ -130,11 +131,26 @@ public class Analysis extends PAVBase {
             // Calculating next Statement Index and target Statement Index.
 
             System.out.println(statements.size());
-            ArrayList<LatticeElement> output = Kildalls.run(statements, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
+            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(statements, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
 
+
+            writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
+            writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
+            drawMethodDependenceGraph(targetMethod);
+        } else {
+            System.out.println("Method not found: " + tMethod);
+        }
+
+        System.out.println("\n\n\n\n ----- \n");
+    }
+
+    private static void writeFullOutput(ArrayList<ArrayList<LatticeElement>> output, String targetDirectory, String tMethod) {
+        ArrayList<String> allLines = new ArrayList<>();
+
+        for (ArrayList<LatticeElement> iteration : output) {
+            int index = 0;
             Set<ResultTuple> data = new HashSet<>();
-            index = 0;
-            for (LatticeElement e : output) {
+            for (LatticeElement e : iteration) {
                 PointsToLatticeElement e_ = (PointsToLatticeElement) e;
                 for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
                     ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
@@ -144,16 +160,52 @@ public class Analysis extends PAVBase {
             }
 
             String[] lines = fmtOutputData(data);
+            allLines.addAll(Arrays.asList(lines));
+            allLines.add("");
+        }
+
+        try {
+            FileWriter writer = new FileWriter(targetDirectory + File.separator + tMethod + ".fulloutput.txt");
+            for (String line : allLines) {
+                writer.write(line + System.lineSeparator());
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.err.println("Can't write to the file:" + tMethod + ".fulloutput.txt");
+            System.out.println("Writing output to stdout:");
+            for (String line : allLines) {
+                System.out.println(line);
+            }
+        }
+    }
+
+    private static void writeFinalOutput(ArrayList<LatticeElement> output, String targetDirectory, String tMethod) {
+        Set<ResultTuple> data = new HashSet<>();
+        int index = 0;
+        for (LatticeElement e : output) {
+            PointsToLatticeElement e_ = (PointsToLatticeElement) e;
+            for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
+                ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
+                data.add(tuple);
+            }
+            index++;
+        }
+
+        String[] lines = fmtOutputData(data);
+
+        try {
+            FileWriter writer = new FileWriter(targetDirectory + "/" + tMethod + ".output.txt");
+            for (String line : lines) {
+                writer.write(line + System.lineSeparator());
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.err.println("Can't write to the file:" + tMethod + ".output.txt");
+            System.out.println("Writing output to stdout:");
             for (String line : lines) {
                 System.out.println(line);
             }
-
-            drawMethodDependenceGraph(targetMethod);
-        } else {
-            System.out.println("Method not found: " + tMethod);
         }
-
-        System.out.println("\n\n\n\n ----- \n");
     }
 
 
@@ -200,10 +252,8 @@ public class Analysis extends PAVBase {
         List<String> pointerValues = tup.pV;
         Collections.sort(pointerValues);
         for (int i = 0; i < pointerValues.size(); i++) {
-            if (i != pointerValues.size() - 1)
-                line += pointerValues.get(i) + ", ";
-            else
-                line += pointerValues.get(i);
+            if (i != pointerValues.size() - 1) line += pointerValues.get(i) + ", ";
+            else line += pointerValues.get(i);
         }
         line = line + "}";
         return (prefix + line);

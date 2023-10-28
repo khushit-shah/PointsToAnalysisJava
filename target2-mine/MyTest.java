@@ -49,4 +49,14 @@ public class MyTest {
         v2 = f1.f;
         v2.f = v1.f;
     }
+    public static void assign_check()
+    {
+        MyTest v1 = new MyTest();
+        MyTest v2 = new MyTest();
+        MyTest v3 = new MyTest();
+        v1.f=v3;
+        v1.f=v2;
+        v2.f = v1;
+        v2.f = v1.f;
+    }
 }

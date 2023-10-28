@@ -8,10 +8,10 @@ import java.util.Map;
 
 public class Kildalls {
 
-    public static ArrayList<LatticeElement> run(ArrayList<Stmt> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
+    public static ArrayList<ArrayList<LatticeElement>> run(ArrayList<Stmt> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
         HashSet<Integer> marked = new HashSet<>();
         ArrayList<LatticeElement> states = new ArrayList<>(statements.size());
-
+        ArrayList<ArrayList<LatticeElement>> returnValue = new ArrayList<>();
         // set all states to bot, mark all points.
         for (int i = 0; i < statements.size(); i++) {
             marked.add(i);
@@ -54,9 +54,11 @@ public class Kildalls {
                     }
                 }
             }
+
+            returnValue.add(new ArrayList<>(states)); // this is okay because we are not changing LatticeElement anywhere.
         }
 
-        return states;
+        return returnValue;
     }
 
     private static void propagate(ArrayList<LatticeElement> states, int to, LatticeElement nextNewState, HashSet<Integer> marked) {
