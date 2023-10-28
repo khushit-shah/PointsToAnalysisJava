@@ -128,11 +128,7 @@ public class Analysis extends PAVBase {
                 index++;
             }
 
-            // Calculating next Statement Index and target Statement Index.
-
-            System.out.println(statements.size());
             ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(statements, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
-
 
             writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
             writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
@@ -141,7 +137,6 @@ public class Analysis extends PAVBase {
             System.out.println("Method not found: " + tMethod);
         }
 
-        System.out.println("\n\n\n\n ----- \n");
     }
 
     private static void writeFullOutput(ArrayList<ArrayList<LatticeElement>> output, String targetDirectory, String tMethod) {

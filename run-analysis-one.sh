@@ -37,6 +37,14 @@ time \
 
 dot -Tpng -o cfg.png cfg.dot
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+if cmp --silent -- "$DIRNAME"/"$TARGETMETHOD"_output.txt "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD".output.txt; then
+  echo -e "${GREEN} ### Test Pass ${TARGETCLASS}.${TARGETMETHOD}  ###${NC}"
+else
+  echo -e "${RED} ### Test Failed ${TARGETCLASS}.${TARGETMETHOD}  ### ${NC}"
+fi
 
 errstatus=0
 function checkfile() {
