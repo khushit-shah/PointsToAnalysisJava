@@ -67,8 +67,6 @@ public class PointsToLatticeElement implements LatticeElement {
 
     @Override
     public LatticeElement tf_assign_stmt(Stmt st) {
-        System.out.println("State:" + toString());
-        System.out.println(st);
         AssignStmt assignStmt = (AssignStmt) st;
 
 
@@ -150,7 +148,6 @@ public class PointsToLatticeElement implements LatticeElement {
         } else {
             // strong update always.
             HashMap<String, HashSet<String>> newState = (HashMap<String, HashSet<String>>) state.clone();
-            System.out.println("." + rhsStr + ".");
             if (rhsStr.equals("null")) {
                 newState.put(lhsStr, (HashSet<String>) nullOnlySet.clone());
             } else if (rhsStr.startsWith("new")) {
@@ -266,8 +263,6 @@ public class PointsToLatticeElement implements LatticeElement {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
                 setResult(tf_assign_stmt(stmt));
-                System.out.println();
-                System.out.println("State After:" + getResult());
             }
 
             @Override
@@ -277,8 +272,7 @@ public class PointsToLatticeElement implements LatticeElement {
 
             @Override
             public void caseIfStmt(IfStmt stmt) {
-//                setResult(tf_if_stmt(stmt, conditionTaken));
-                setResult(tf_identity_fn());
+                setResult(tf_if_stmt(stmt, conditionTaken));
             }
 
             @Override
