@@ -226,7 +226,9 @@ public class PointsToLatticeElement implements LatticeElement {
                 HashMap<String, HashSet<String>> newState = clone(state);
 
                 newState.put(op1Str, lhsSet);
-                newState.put(op2Str, lhsSet);
+
+                if (!op2Str.equals("null"))
+                    newState.put(op2Str, lhsSet);
 
                 return new PointsToLatticeElement(newState);
             }

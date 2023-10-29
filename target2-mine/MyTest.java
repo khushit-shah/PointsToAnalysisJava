@@ -59,4 +59,15 @@ public class MyTest {
         v2.f = v1;
         v2.f = v1.f;
     }
+
+    public static void conditional_check() {
+        int i = 0;
+        MyTest v1 = new MyTest();
+        v1.f = null;
+        Object t1 = null;
+        Object t3 = null;
+        if (v1.f == t1) {
+            v1.f = null;
+        }
+    }
 }

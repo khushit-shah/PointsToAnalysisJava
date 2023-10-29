@@ -17,4 +17,5 @@ set -e
 ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun5"
 ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun6"
 ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assign_check"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check"
 
