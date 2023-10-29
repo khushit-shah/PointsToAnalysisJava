@@ -35,7 +35,7 @@ time \
     java -Xms800m -Xmx3g Analysis "$DIRNAME"  "$MAINCLASS"  "$TARGETCLASS"  "$TARGETMETHOD"
 
 
-dot -Tpng -o cfg.png cfg.dot
+dot -Tpng -o "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD".png "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD".dot
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

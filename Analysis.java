@@ -126,7 +126,7 @@ public class Analysis extends PAVBase {
 
             writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
             writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
-            drawMethodDependenceGraph(targetMethod);
+            drawMethodDependenceGraph(targetMethod, targetDirectory + File.separator + tClass + "." + tMethod);
         } else {
             System.out.println("Method not found: " + tMethod);
         }
@@ -198,7 +198,7 @@ public class Analysis extends PAVBase {
     }
 
 
-    private static void drawMethodDependenceGraph(SootMethod entryMethod) {
+    private static void drawMethodDependenceGraph(SootMethod entryMethod, String filename) {
         if (!entryMethod.isPhantom() && entryMethod.isConcrete()) {
             Body body = entryMethod.retrieveActiveBody();
             ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
@@ -207,7 +207,7 @@ public class Analysis extends PAVBase {
             CFGToDotGraph cfgForMethod = new CFGToDotGraph();
             cfgForMethod.drawCFG(graph);
             DotGraph cfgDot = cfgForMethod.drawCFG(graph);
-            cfgDot.plot("cfg.dot");
+            cfgDot.plot(filename + ".dot");
         }
     }
 
