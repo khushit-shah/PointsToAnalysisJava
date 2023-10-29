@@ -116,7 +116,7 @@ public class PointsToLatticeElement implements LatticeElement {
 
                 String newLhsStr = p + "." + lhsFieldStr;
 
-                HashSet<String> curSet = newState.getOrDefault(newLhsStr, new HashSet<String>());
+                HashSet<String> curSet = newState.getOrDefault(newLhsStr, new HashSet<>());
 
                 curSet.addAll(RhsPointsTo);
 
@@ -208,7 +208,7 @@ public class PointsToLatticeElement implements LatticeElement {
         }
         if (b) { // if op1 == op2 is taken.
             // v1 == null
-            HashSet<String> RhsSet = new HashSet<>();
+            HashSet<String> RhsSet;
             if (op2Str.equals("null")) {
                 RhsSet = clone(nullOnlySet);
             } else { // v1 = v2; We don't have v1 = v2.f possibility here.
