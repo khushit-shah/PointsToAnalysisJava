@@ -126,7 +126,7 @@ public class Analysis extends PAVBase {
 
             writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
             writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
-            drawMethodDependenceGraph(targetMethod, targetDirectory + File.separator + tClass + "." + tMethod);
+            drawMethodDependenceGraph(targetMethod, output.get(output.size() - 1), targetDirectory + File.separator + tClass + "." + tMethod);
         } else {
             System.out.println("Method not found: " + tMethod);
         }
@@ -174,8 +174,10 @@ public class Analysis extends PAVBase {
         for (LatticeElement e : output) {
             PointsToLatticeElement e_ = (PointsToLatticeElement) e;
             for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
-                ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
-                data.add(tuple);
+                if (entry.getValue().size() > 0) {
+                    ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
+                    data.add(tuple);
+                }
             }
             index++;
         }
@@ -198,10 +200,11 @@ public class Analysis extends PAVBase {
     }
 
 
-    private static void drawMethodDependenceGraph(SootMethod entryMethod, String filename) {
+    private static void drawMethodDependenceGraph(SootMethod entryMethod, ArrayList<LatticeElement> labels, String filename) {
         if (!entryMethod.isPhantom() && entryMethod.isConcrete()) {
             Body body = entryMethod.retrieveActiveBody();
             ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
+
             //ExceptionalBlockGraph  graph = new ExceptionalBlockGraph (body);
 
             CFGToDotGraph cfgForMethod = new CFGToDotGraph();
