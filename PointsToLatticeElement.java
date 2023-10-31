@@ -82,19 +82,20 @@ public class PointsToLatticeElement implements LatticeElement {
         String lhsStr = Helper.getSimplifiedVarName(lhs.toString());
         String rhsStr = Helper.getSimplifiedVarName(rhs.toString());
         /*
-            a = b;
-            a = newXX;
-            a = null;
-            a = b.f;
+         *  Following cases can occur.
+            - a = b;
+            - a = newXX;
+            - a = null;
+            - a = b.f;
 
-            a.f = b;
-            a.f = newXX;
-            a.f = null;
+            - a.f = b;
+            - a.f = newXX;
+            - a.f = null;
          */
 
-        if (lhsStr.contains(".")) {
-            String lhsVarStr = lhsStr.split("\\.")[0];
-            String lhsFieldStr = lhsStr.split("\\.")[1];
+        if (lhsStr.contains(".")) { // a.f = b
+            String lhsVarStr = lhsStr.split("\\.")[0]; // a
+            String lhsFieldStr = lhsStr.split("\\.")[1]; // f
 
             HashSet<String> RhsPointsTo;
             if (rhsStr.startsWith("new")) {
@@ -195,18 +196,24 @@ public class PointsToLatticeElement implements LatticeElement {
         }
     }
 
-    private LatticeElement transfer_eq_eq(boolean b, String op1Str, String op2Str) {
+    private LatticeElement transfer_eq_eq(boolean taken, String op1Str, String op2Str) {
         // null == null
         if (op1Str.equals("null") && op2Str.equals("null")) {
-            if (b) return tf_identity_fn();
+            if (taken) return tf_identity_fn();
             else return new PointsToLatticeElement(); // bot.
+        }
+        // both of the above conditions can be merged into one, but kept separate for readability.
+        // a == a
+        if (op1Str.equals(op2Str)) {
+            if (taken) return tf_identity_fn();
+            else return new PointsToLatticeElement(); // In every path, `a` will always be equal to `a`, so bot.
         }
 
         if (op1Str.equals("null")) {
             op1Str = op2Str;
             op2Str = "null";
         }
-        if (b) { // if op1 == op2 is taken.
+        if (taken) { // if op1 == op2 is taken.
             // v1 == null
             HashSet<String> RhsSet;
             if (op2Str.equals("null")) {
@@ -254,10 +261,6 @@ public class PointsToLatticeElement implements LatticeElement {
         }
     }
 
-    @Override
-    public LatticeElement tf_identity_stmt(Stmt st) {
-        return null;
-    }
 
     @Override
     public LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken) {
@@ -265,11 +268,6 @@ public class PointsToLatticeElement implements LatticeElement {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
                 setResult(tf_assign_stmt(stmt));
-            }
-
-            @Override
-            public void caseIdentityStmt(IdentityStmt stmt) {
-                setResult(tf_identity_fn());
             }
 
             @Override
@@ -292,7 +290,7 @@ public class PointsToLatticeElement implements LatticeElement {
     }
 
     public HashSet<String> clone(HashSet<String> x) {
-        return (HashSet<String>) x.clone();  // as String is immutable it is okay to shallow clone this.
+        return new HashSet<>(x);  // as String is immutable it is okay to shallow clone this.
     }
 
     public HashMap<String, HashSet<String>> clone(HashMap<String, HashSet<String>> x) {

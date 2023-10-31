@@ -32,8 +32,6 @@ public interface LatticeElement
 
     LatticeElement tf_if_stmt(Stmt st, boolean b);
 
-    LatticeElement tf_identity_stmt(Stmt st);
-
     LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken);
 }
 

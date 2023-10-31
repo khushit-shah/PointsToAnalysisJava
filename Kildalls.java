@@ -10,8 +10,10 @@ public class Kildalls {
 
     public static ArrayList<ArrayList<LatticeElement>> run(ArrayList<Stmt> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
         HashSet<Integer> marked = new HashSet<>();
+
         ArrayList<LatticeElement> states = new ArrayList<>(statements.size());
         ArrayList<ArrayList<LatticeElement>> returnValue = new ArrayList<>();
+
         // set all states to bot, mark all points.
         for (int i = 0; i < statements.size(); i++) {
             marked.add(i);
@@ -61,10 +63,10 @@ public class Kildalls {
         return returnValue;
     }
 
-    private static void propagate(ArrayList<LatticeElement> states, int to, LatticeElement nextNewState, HashSet<Integer> marked) {
-        LatticeElement nextCurState = states.get(to);
+    private static void propagate(ArrayList<LatticeElement> states, int to, LatticeElement statePropagated, HashSet<Integer> marked) {
+        LatticeElement nextCurState = states.get(to); // current state at `to` point.
 
-        LatticeElement joined = nextNewState.join_op(nextCurState);
+        LatticeElement joined = statePropagated.join_op(nextCurState);
 
         if (!joined.equals(nextCurState)) {
             // update and mark.

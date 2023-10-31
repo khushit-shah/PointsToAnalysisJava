@@ -24,8 +24,6 @@ import java.util.*;
 
 
 public class Analysis extends PAVBase {
-    private static final HashMap<String, Boolean> visited = new HashMap<String, Boolean>();
-    private final DotGraph dot = new DotGraph("callgraph");
 
     public Analysis() {
         /*************************************************************
@@ -102,7 +100,6 @@ public class Analysis extends PAVBase {
                     @Override
                     public void caseAssignStmt(AssignStmt stmt) {
                         Value rightOp = stmt.getRightOp();
-//                        System.out.println(Helper.getSimplifiedVarName(rightOp.toString()));
                         if (rightOp instanceof InvokeExpr) {
                             if (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType) {
                                 stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), RefType.v("java.lang.Object")));
@@ -112,13 +109,6 @@ public class Analysis extends PAVBase {
                         }
                     }
                 });
-
-//                System.out.println("Statement: " + u.toString());
-//
-//                System.out.println("Use Boxes: " + u.getUseBoxes());
-//                System.out.println("Def Boxes: " + u.getDefBoxes());
-//                System.out.println("Unit Boxes: " + u.getUnitBoxes());
-
                 index++;
             }
 
@@ -136,19 +126,22 @@ public class Analysis extends PAVBase {
     private static void writeFullOutput(ArrayList<ArrayList<LatticeElement>> output, String targetDirectory, String tMethod) {
         ArrayList<String> allLines = new ArrayList<>();
 
-        for (ArrayList<LatticeElement> iteration : output) {
-            int index = 0;
+        for (int i = 0; i < output.size(); i++) {
+            ArrayList<LatticeElement> iteration = output.get(i);
             Set<ResultTuple> data = new HashSet<>();
-            for (LatticeElement e : iteration) {
-                PointsToLatticeElement e_ = (PointsToLatticeElement) e;
+            for (int j = 0; j < iteration.size(); j++) {
+                PointsToLatticeElement e_ = (PointsToLatticeElement) iteration.get(j);
+                if (i != 0 && e_.equals(output.get(i - 1).get(j)))
+                    continue; // only output the states that changed from previous iterations.
                 for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
-                    ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
+                    if (entry.getValue().isEmpty()) continue;
+                    ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", j), entry.getKey(), new ArrayList<>(entry.getValue()));
                     data.add(tuple);
                 }
-                index++;
             }
 
             String[] lines = fmtOutputData(data);
+
             allLines.addAll(Arrays.asList(lines));
             allLines.add("");
         }
@@ -174,7 +167,7 @@ public class Analysis extends PAVBase {
         for (LatticeElement e : output) {
             PointsToLatticeElement e_ = (PointsToLatticeElement) e;
             for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
-                if (entry.getValue().size() > 0) {
+                if (!entry.getValue().isEmpty()) {
                     ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", index), entry.getKey(), new ArrayList<>(entry.getValue()));
                     data.add(tuple);
                 }
@@ -203,9 +196,9 @@ public class Analysis extends PAVBase {
     private static void drawMethodDependenceGraph(SootMethod entryMethod, ArrayList<LatticeElement> labels, String filename) {
         if (!entryMethod.isPhantom() && entryMethod.isConcrete()) {
             Body body = entryMethod.retrieveActiveBody();
-            ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
 
-            //ExceptionalBlockGraph  graph = new ExceptionalBlockGraph (body);
+            ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
+            // ExceptionalBlockGraph  graph = new ExceptionalBlockGraph (body);
 
             CFGToDotGraph cfgForMethod = new CFGToDotGraph();
             cfgForMethod.drawCFG(graph);
@@ -257,7 +250,6 @@ public class Analysis extends PAVBase {
     }
 
     protected static String[] fmtOutputData(Set<ResultTuple> data, String prefix) {
-
         String[] outputlines = new String[data.size()];
 
         int i = 0;
