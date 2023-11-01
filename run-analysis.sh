@@ -10,7 +10,6 @@ set -e
 
 
 # XXX you can add / delete / comment / uncomment lines below
-<<<<<<< HEAD
 # ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun1"
 # ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun2"
 # ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun3"
@@ -26,23 +25,12 @@ set -e
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "object_comparision"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "empty_function_check"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "empty_function_check"
-# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_bothNULL"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_bothNULL"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check5"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "non_static_function"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "implict_type_conversion"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "chained_assignments"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "compare_two_null_values"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
-./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
+# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
 
-=======
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun1"
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun2"
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun3"
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun4"
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun5"
-./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun6"
-./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assign_check"
-./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check"
-./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun1"
->>>>>>> df79e12314c002dd1f446590263fb88fa64f67f8
