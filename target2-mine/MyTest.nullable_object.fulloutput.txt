@@ -1,0 +1,39 @@
+MyTest.nullable_object: in01: $r0: {new00}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+MyTest.nullable_object: in03: $r0: {new00}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+MyTest.nullable_object: in03: $r0: {new00}
+MyTest.nullable_object: in04: $r0: {new00}
+MyTest.nullable_object: in04: new00.f: {null}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+MyTest.nullable_object: in03: $r0: {new00}
+MyTest.nullable_object: in04: $r0: {new00}
+MyTest.nullable_object: in04: new00.f: {null}
+MyTest.nullable_object: in06: $r0: {new00}
+MyTest.nullable_object: in06: new00.f: {null}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+MyTest.nullable_object: in03: $r0: {new00}
+MyTest.nullable_object: in04: $r0: {new00}
+MyTest.nullable_object: in04: new00.f: {null}
+MyTest.nullable_object: in06: $r0: {new00}
+MyTest.nullable_object: in06: new00.f: {null}
+
+MyTest.nullable_object: in01: $r0: {new00}
+MyTest.nullable_object: in02: $r0: {new00}
+MyTest.nullable_object: in03: $r0: {new00}
+MyTest.nullable_object: in04: $r0: {new00}
+MyTest.nullable_object: in04: new00.f: {null}
+MyTest.nullable_object: in06: $r0: {new00}
+MyTest.nullable_object: in06: new00.f: {null}
+

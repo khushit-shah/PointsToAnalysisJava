@@ -1,0 +1,79 @@
+MyTest.conditional_check3: in01: $r0: {new00}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+MyTest.conditional_check3: in06: $r0: {new00}
+MyTest.conditional_check3: in06: $r1: {new02}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+MyTest.conditional_check3: in06: $r0: {new00}
+MyTest.conditional_check3: in06: $r1: {new02}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+MyTest.conditional_check3: in06: $r0: {new00}
+MyTest.conditional_check3: in06: $r1: {new02}
+MyTest.conditional_check3: in07: $r0: {new00}
+MyTest.conditional_check3: in07: $r1: {new02}
+MyTest.conditional_check3: in07: $r2: {}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+MyTest.conditional_check3: in06: $r0: {new00}
+MyTest.conditional_check3: in06: $r1: {new02}
+MyTest.conditional_check3: in07: $r0: {new00}
+MyTest.conditional_check3: in07: $r1: {new02}
+MyTest.conditional_check3: in07: $r2: {}
+MyTest.conditional_check3: in08: $r0: {new00}
+MyTest.conditional_check3: in08: $r1: {new02}
+MyTest.conditional_check3: in08: $r2: {}
+MyTest.conditional_check3: in08: new00.f: {}
+
+MyTest.conditional_check3: in01: $r0: {new00}
+MyTest.conditional_check3: in02: $r0: {new00}
+MyTest.conditional_check3: in03: $r0: {new00}
+MyTest.conditional_check3: in03: $r1: {new02}
+MyTest.conditional_check3: in04: $r0: {new00}
+MyTest.conditional_check3: in04: $r1: {new02}
+MyTest.conditional_check3: in06: $r0: {new00}
+MyTest.conditional_check3: in06: $r1: {new02}
+MyTest.conditional_check3: in07: $r0: {new00}
+MyTest.conditional_check3: in07: $r1: {new02}
+MyTest.conditional_check3: in07: $r2: {}
+MyTest.conditional_check3: in08: $r0: {new00}
+MyTest.conditional_check3: in08: $r1: {new02}
+MyTest.conditional_check3: in08: $r2: {}
+MyTest.conditional_check3: in08: new00.f: {}
+

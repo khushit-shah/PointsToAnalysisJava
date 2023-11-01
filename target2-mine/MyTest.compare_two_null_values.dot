@@ -1,0 +1,27 @@
+digraph "void compare_two_null_values()" {
+    label="void compare_two_null_values()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 = new00",];
+    "1" [label="specialinvoke $r0.<init>()",];
+    "0"->"1" [color=black,];
+    "6" [style=invis,label="Esc",];
+    "0"->"6" [color=lightgray,label="\l+vmErrors",];
+    "2" [label="$r1 = new02",];
+    "1"->"2" [color=black,];
+    "7" [style=invis,label="Esc",];
+    "1"->"7" [color=lightgray,label="\l+(Throwable)",];
+    "3" [label="specialinvoke $r1.<init>()",];
+    "2"->"3" [color=black,];
+    "8" [style=invis,label="Esc",];
+    "2"->"8" [color=lightgray,label="\l+vmErrors",];
+    "4" [label="$r0.f = $r1",];
+    "3"->"4" [color=black,];
+    "9" [style=invis,label="Esc",];
+    "3"->"9" [color=lightgray,label="\l+(Throwable)",];
+    "5" [style=filled,fillcolor=lightgray,label="return",];
+    "4"->"5" [color=black,];
+    "10" [style=invis,label="Esc",];
+    "4"->"10" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
+    "11" [style=invis,label="Esc",];
+    "5"->"11" [color=lightgray,label="\l+vmErrors",];
+}
