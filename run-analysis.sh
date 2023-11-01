@@ -30,4 +30,3 @@ set -e
 ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "chained_assignments"
 ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "compare_two_null_values"
 ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
-
