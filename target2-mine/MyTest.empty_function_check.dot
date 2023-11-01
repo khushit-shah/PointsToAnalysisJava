@@ -1,7 +1,0 @@
-digraph "void empty_function_check()" {
-    label="void empty_function_check()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=lightgray,label="return",];
-    "1" [style=invis,label="Esc",];
-    "0"->"1" [color=lightgray,label="\l+vmErrors",];
-}

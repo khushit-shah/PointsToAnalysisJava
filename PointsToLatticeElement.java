@@ -189,7 +189,7 @@ public class PointsToLatticeElement implements LatticeElement {
 
             String op1Str = Helper.getSimplifiedVarName(op1.toString());
             String op2Str = Helper.getSimplifiedVarName(op2.toString());
-
+            System.out.println(op1Str + " " + op1Str + " " + !b);
             return transfer_eq_eq(!b, op1Str, op2Str);
         } else {
             return tf_identity_fn();

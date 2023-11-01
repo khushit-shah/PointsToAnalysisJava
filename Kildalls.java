@@ -1,6 +1,7 @@
 import soot.UnitBox;
 import soot.jimple.IfStmt;
 import soot.jimple.Stmt;
+import soot.jimple.ThrowStmt;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,7 +46,7 @@ public class Kildalls {
                 }
             } else {
                 LatticeElement nextNewState = curState.transfer(statements.get(curPoint), false, false);
-                if (statements.get(curPoint).getUnitBoxes().isEmpty()) {
+                if (statements.get(curPoint).getUnitBoxes().isEmpty() && !(statements.get(curPoint) instanceof ThrowStmt)) {
                     if (curPoint + 1 < statements.size()) {
                         propagate(states, curPoint + 1, nextNewState, marked);
                     }

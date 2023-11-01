@@ -33,6 +33,31 @@ public class MyTest {
         }
     }
 
+    static void SizeOneNULLTest() {
+        MyTest v1 = new MyTest();
+        MyTest v2 = new MyTest();
+        v1 = null;
+        v2 = null;
+
+        if (v2 == v1) {
+            v2 = new MyTest();
+        } else {
+            v1.f = v2;
+        }
+        v1 = v2 = v1.f;
+    }
+
+    static MyTest some_test() {
+        MyTest v1 = new MyTest();
+        MyTest v2 = new MyTest();
+        MyTest v3 = new MyTest();
+        v1.f = v2;
+        v2.f = v3;
+        v1.f = v2.f;
+        v1 = v3.f;
+        return v1;
+    }
+
     MyTest f;
     static MyTest f1;
 
@@ -81,13 +106,11 @@ public class MyTest {
             v2.f=null;
         }
         else v2.f=v1;
-        return ;
 
     }
 
     public static void empty_function_check()
     {
-        return ;
     }
 
     public static void assigning_object_to_field()
@@ -122,7 +145,6 @@ public class MyTest {
         } else {
             obj1=obj2;
         }
-        return;
     }
 
     public static void conditional_check1() {
@@ -217,16 +239,14 @@ public class MyTest {
         // we successfully propagated bot to else branch as in java we know null==null is true always
         MyTest v1= new MyTest();
         MyTest v2= new MyTest();
-        if(null==null )
+        if (null == null)
         {
             v1.f=v2;
-
         }
         else 
         {
             v2.f=v1;
         }
-
     }
 
     public static void nullable_object()
@@ -237,7 +257,6 @@ public class MyTest {
             v1.f = null;
         }
         else v1.f=v1;
-        return;
 
     }
      public static void conditional_check_bothNULL()
@@ -297,7 +316,6 @@ public class MyTest {
             }
         }
         v1.f=null;
-        return ;
     }
 
     public static void conditional_check_both_equal()
@@ -306,7 +324,6 @@ public class MyTest {
         MyTest v2= new MyTest();
         if(v1==v1)v1.f=v2;
         else v1.f=null;
-        return ;
     }
 
     
