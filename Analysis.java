@@ -243,7 +243,6 @@ public class Analysis extends PAVBase {
 
             DotGraph d = new DotGraph(filename);
 
-            int i = 0;
             for (Unit unit : graph) {
                 List<Unit> successors = graph.getSuccsOf(unit);
                 for (Unit succ : successors) {
@@ -273,7 +272,6 @@ public class Analysis extends PAVBase {
                 if (!(u instanceof Stmt)) {
                     continue;
                 }
-                Stmt s = (Stmt) u;
                 printUnit(lineno, body, u);
                 lineno++;
             }
