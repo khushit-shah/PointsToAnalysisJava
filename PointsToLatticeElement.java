@@ -1,4 +1,5 @@
 import soot.Local;
+import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
 
@@ -102,17 +103,16 @@ public class PointsToLatticeElement implements LatticeElement {
         Value rhs = assignStmt.getRightOp();
 
 
-        // if lhs or rhs is not RefType or NullType, then just return the identity function.
-        // for points to analysis other types of assignment statements does not matter.
-        if (!(lhs instanceof Local || lhs instanceof NullConstant || lhs instanceof FieldRef) || !(rhs instanceof Local || rhs instanceof NullConstant || rhs instanceof FieldRef)) {
+        // if lhs or rhs is not a valid type of value. return identity fn.
+        if (!is_val_valid(lhs) || !is_val_valid(rhs)) {
             return tf_identity_fn();
         }
 
         // Get the simplified name of lhs and rhs.
         // from a or a.<class: type f>
         // to a or a.f
-        String lhsStr = Helper.getSimplifiedVarName(lhs.toString());
-        String rhsStr = Helper.getSimplifiedVarName(rhs.toString());
+        String lhsStr = Helper.getSimplifiedVarName(lhs);
+        String rhsStr = Helper.getSimplifiedVarName(rhs);
 
         /*
          *  Following cases can occur.
@@ -224,17 +224,18 @@ public class PointsToLatticeElement implements LatticeElement {
         if (condition instanceof EqExpr) {
             Value op1 = ((EqExpr) condition).getOp1();
             Value op2 = ((EqExpr) condition).getOp2();
-            // if a or b is not RefType or null, just return identity function.
-            if (!(op1 instanceof Local || op1 instanceof NullConstant) || !(op2 instanceof Local || op2 instanceof NullConstant)) {
+
+            // check if both the operators are valid.
+            if (!is_val_valid(op1) || !is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
             //  NOTE: a.f or b.f can never occur as Jimple is 3 addresss code and if <a> op <b> goto <label>,  a, b, label are addresses
 
             // a
-            String op1Str = Helper.getSimplifiedVarName(op1.toString());
+            String op1Str = Helper.getSimplifiedVarName(op1);
             // b
-            String op2Str = Helper.getSimplifiedVarName(op2.toString());
+            String op2Str = Helper.getSimplifiedVarName(op2);
 
             return transfer_eq_eq(taken, op1Str, op2Str);
         } else if (condition instanceof NeExpr) { // if it's a != b
@@ -242,13 +243,12 @@ public class PointsToLatticeElement implements LatticeElement {
             Value op1 = ((NeExpr) condition).getOp1();
             Value op2 = ((NeExpr) condition).getOp2();
 
-            if (!(op1 instanceof Local || op1 instanceof NullConstant) || !(op2 instanceof Local || op2 instanceof NullConstant)) {
+            if (!is_val_valid(op1) || !is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
-
-            String op1Str = Helper.getSimplifiedVarName(op1.toString());
-            String op2Str = Helper.getSimplifiedVarName(op2.toString());
+            String op1Str = Helper.getSimplifiedVarName(op1);
+            String op2Str = Helper.getSimplifiedVarName(op2);
 
             // a != b, taken  === a == b, not taken.
             // a != b, not taken === a == b, taken.
@@ -398,5 +398,21 @@ public class PointsToLatticeElement implements LatticeElement {
         }
 
         return cloned;
+    }
+
+
+    /**
+     * If a value is Local or NullConstant or InstanceFieldRef or CastExpr with castType of RefType, returns true.
+     * else false.
+     * This ensure, all the operand we operate on is ref type.
+     *
+     * @param op
+     * @return
+     */
+    private boolean is_val_valid(Value op) {
+        if (op instanceof Local && op.getType() instanceof RefType) return true;
+        if (op instanceof NullConstant) return true;
+        if (op instanceof InstanceFieldRef) return true;
+        return op instanceof CastExpr && ((CastExpr) op).getCastType() instanceof RefType;
     }
 }
