@@ -1,5 +1,4 @@
-import soot.NullType;
-import soot.RefType;
+import soot.Local;
 import soot.Value;
 import soot.jimple.*;
 
@@ -105,7 +104,7 @@ public class PointsToLatticeElement implements LatticeElement {
 
         // if lhs or rhs is not RefType or NullType, then just return the identity function.
         // for points to analysis other types of assignment statements does not matter.
-        if ((lhs instanceof StringConstant) || (rhs instanceof StringConstant) || !(lhs.getType() instanceof RefType || lhs.getType() instanceof NullType) || !(rhs.getType() instanceof RefType || rhs.getType() instanceof NullType)) {
+        if (!(lhs instanceof Local || lhs instanceof NullConstant || lhs instanceof FieldRef) || !(rhs instanceof Local || rhs instanceof NullConstant || rhs instanceof FieldRef)) {
             return tf_identity_fn();
         }
 
@@ -223,13 +222,12 @@ public class PointsToLatticeElement implements LatticeElement {
 
         // if it's a == b.
         if (condition instanceof EqExpr) {
-            // if a or b is not RefType or null, just return identity function.
-            if (!(((EqExpr) condition).getOp1().getType() instanceof RefType || ((EqExpr) condition).getOp1().getType() instanceof NullType) || !(((EqExpr) condition).getOp2().getType() instanceof RefType || ((EqExpr) condition).getOp2().getType() instanceof NullType)) {
-                return tf_identity_fn();
-            }
-
             Value op1 = ((EqExpr) condition).getOp1();
             Value op2 = ((EqExpr) condition).getOp2();
+            // if a or b is not RefType or null, just return identity function.
+            if (!(op1 instanceof Local || op1 instanceof NullConstant) || !(op2 instanceof Local || op2 instanceof NullConstant)) {
+                return tf_identity_fn();
+            }
 
             //  NOTE: a.f or b.f can never occur as Jimple is 3 addresss code and if <a> op <b> goto <label>,  a, b, label are addresses
 
@@ -241,12 +239,13 @@ public class PointsToLatticeElement implements LatticeElement {
             return transfer_eq_eq(taken, op1Str, op2Str);
         } else if (condition instanceof NeExpr) { // if it's a != b
             // if a or b is not RefType or null, just return identity function.
-            if (!(((NeExpr) condition).getOp1().getType() instanceof RefType || ((NeExpr) condition).getOp1().getType() instanceof NullType) || !(((NeExpr) condition).getOp2().getType() instanceof RefType || ((NeExpr) condition).getOp2().getType() instanceof NullType)) {
+            Value op1 = ((NeExpr) condition).getOp1();
+            Value op2 = ((NeExpr) condition).getOp2();
+
+            if (!(op1 instanceof Local || op1 instanceof NullConstant) || !(op2 instanceof Local || op2 instanceof NullConstant)) {
                 return tf_identity_fn();
             }
 
-            Value op1 = ((NeExpr) condition).getOp1();
-            Value op2 = ((NeExpr) condition).getOp2();
 
             String op1Str = Helper.getSimplifiedVarName(op1.toString());
             String op2Str = Helper.getSimplifiedVarName(op2.toString());
