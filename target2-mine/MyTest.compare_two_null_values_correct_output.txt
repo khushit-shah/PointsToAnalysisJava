@@ -6,9 +6,4 @@ MyTest.compare_two_null_values: in04: $r0: {new00}
 MyTest.compare_two_null_values: in04: $r1: {new02}
 MyTest.compare_two_null_values: in05: $r0: {new00}
 MyTest.compare_two_null_values: in05: $r1: {new02}
-MyTest.compare_two_null_values: in06: $r0: {new00}
-MyTest.compare_two_null_values: in06: $r1: {new02}
-MyTest.compare_two_null_values: in06: new00.f: {new02}
-MyTest.compare_two_null_values: in08: $r0: {new00}
-MyTest.compare_two_null_values: in08: $r1: {new02}
-MyTest.compare_two_null_values: in08: new00.f: {new02}
+MyTest.compare_two_null_values: in05: new00.f: {new02}
