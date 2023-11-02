@@ -1,0 +1,9 @@
+MyTest.function_returns_int: in01: $r0: {new00}
+MyTest.function_returns_int: in02: $r0: {new00}
+MyTest.function_returns_int: in03: $r0: {new00}
+MyTest.function_returns_int: in04: $r0: {new00}
+MyTest.function_returns_int: in05: $r0: {new00}
+MyTest.function_returns_int: in05: new00.f: {new00}
+MyTest.function_returns_int: in06: $r0: {new00}
+MyTest.function_returns_int: in07: $r0: {new00}
+MyTest.function_returns_int: in07: new00.f: {new00, null}
