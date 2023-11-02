@@ -18,6 +18,7 @@ set -e
 # ./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun6"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assign_check"
 ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_early_returns"
+<<<<<<< HEAD
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_multiple_if"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_both_equal"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assignment_and_conditional_check"
@@ -31,3 +32,17 @@ set -e
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "compare_two_null_values"
 # ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
 
+=======
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_multiple_if"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_both_equal"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assignment_and_conditional_check"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assigning_object_to_field"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "object_comparision"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "empty_function_check"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_bothNULL"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "non_static_function"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "implict_type_conversion"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "chained_assignments"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "compare_two_null_values"
+./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "nullable_object"
+>>>>>>> 1116c1051ced19d6e39a4f6f880e2e6e37724ec7

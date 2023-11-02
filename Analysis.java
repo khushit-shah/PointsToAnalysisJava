@@ -12,8 +12,8 @@
 import soot.*;
 import soot.jimple.*;
 import soot.options.Options;
+import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
-import soot.util.cfgcmd.CFGToDotGraph;
 import soot.util.dot.DotGraph;
 
 import java.io.File;
@@ -112,11 +112,37 @@ public class Analysis extends PAVBase {
                 index++;
             }
 
-            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(statements, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
+            ArrayList<ProgramPoint> points = new ArrayList<>();
+            for (Stmt stmt : statements)
+                points.add(new ProgramPoint(stmt));
+
+            BriefUnitGraph cfg = new BriefUnitGraph(targetMethod.getActiveBody());
+
+            for (Unit unit : cfg) {
+                int i = statements.indexOf((Stmt) unit);
+                if (i == -1) continue;
+                List<Unit> successors = cfg.getSuccsOf(unit); // Get successors of the current unit
+                System.out.println("For: " + unit);
+                for (Unit successor : successors) {
+                    int j = statements.indexOf((Stmt) successor);
+                    if (j != -1) {
+                        System.out.println("\t: " + statements.get(j));
+                        points.get(i).successors.add(j);
+                    }
+                }
+            }
+
+            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(points, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
 
             writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
             writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
-            drawMethodDependenceGraph(targetMethod, output.get(output.size() - 1), targetDirectory + File.separator + tClass + "." + tMethod);
+
+            Map<Unit, LatticeElement> mp = new HashMap<>();
+            for (int i = 0; i < points.size(); i++) {
+                ProgramPoint p = points.get(i);
+                mp.put(p.stmt, output.get(output.size() - 1).get(i));
+            }
+            drawMethodDependenceGraph(targetMethod, mp, targetDirectory + File.separator + tClass + "." + tMethod);
         } else {
             System.out.println("Method not found: " + tMethod);
         }
@@ -193,17 +219,24 @@ public class Analysis extends PAVBase {
     }
 
 
-    private static void drawMethodDependenceGraph(SootMethod entryMethod, ArrayList<LatticeElement> labels, String filename) {
+    private static void drawMethodDependenceGraph(SootMethod entryMethod, Map<Unit, LatticeElement> labels, String filename) {
         if (!entryMethod.isPhantom() && entryMethod.isConcrete()) {
             Body body = entryMethod.retrieveActiveBody();
 
             ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
-            // ExceptionalBlockGraph  graph = new ExceptionalBlockGraph (body);
 
-            CFGToDotGraph cfgForMethod = new CFGToDotGraph();
-            cfgForMethod.drawCFG(graph);
-            DotGraph cfgDot = cfgForMethod.drawCFG(graph);
-            cfgDot.plot(filename + ".dot");
+            DotGraph d = new DotGraph(filename);
+
+            int i = 0;
+            for (Unit unit : graph) {
+                List<Unit> successors = graph.getSuccsOf(unit);
+                for (Unit succ : successors) {
+                    d.drawNode(labels.get(unit) + "\n" + unit.toString() + " hash: " + unit.hashCode());
+                    d.drawNode(labels.get(succ) + "\n" + succ.toString() + " hash: " + succ.hashCode());
+                    d.drawEdge(labels.get(unit) + "\n" + unit + " hash: " + unit.hashCode(), labels.get(succ) + "\n" + succ + " hash: " + succ.hashCode());
+                }
+            }
+            d.plot(filename + ".dot");
         }
     }
 

@@ -1,7 +1,4 @@
-import soot.UnitBox;
-import soot.jimple.IfStmt;
 import soot.jimple.Stmt;
-import soot.jimple.ThrowStmt;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,7 +6,7 @@ import java.util.Map;
 
 public class Kildalls {
 
-    public static ArrayList<ArrayList<LatticeElement>> run(ArrayList<Stmt> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
+    public static ArrayList<ArrayList<LatticeElement>> run(ArrayList<ProgramPoint> statements, Map<Stmt, Integer> indices, LatticeElement d0, LatticeElement bot) {
         HashSet<Integer> marked = new HashSet<>();
 
         ArrayList<LatticeElement> states = new ArrayList<>(statements.size());
@@ -25,37 +22,13 @@ public class Kildalls {
 
         while (!marked.isEmpty()) {
             Integer curPoint = marked.iterator().next();
-
             // unmark the current point.
             marked.remove(curPoint);
 
             LatticeElement curState = states.get(curPoint);
-
-            if (statements.get(curPoint) instanceof IfStmt) {
-                // Propagate State to true branch.
-                {
-                    LatticeElement nextNewState = curState.transfer(statements.get(curPoint), true, true);
-                    propagate(states, indices.get((Stmt) statements.get(curPoint).getUnitBoxes().get(0).getUnit()), nextNewState, marked);
-                }
-                // Propagate state to false branch.
-                {
-                    LatticeElement nextNewState = curState.transfer(statements.get(curPoint), true, false);
-                    if (curPoint + 1 < statements.size()) {
-                        propagate(states, curPoint + 1, nextNewState, marked);
-                    }
-                }
-            } else {
-                LatticeElement nextNewState = curState.transfer(statements.get(curPoint), false, false);
-                if (statements.get(curPoint).getUnitBoxes().isEmpty() && !(statements.get(curPoint) instanceof ThrowStmt)) {
-                    if (curPoint + 1 < statements.size()) {
-                        propagate(states, curPoint + 1, nextNewState, marked);
-                    }
-                } else {
-                    // goto or switch kind of statements.
-                    for (UnitBox u : statements.get(curPoint).getUnitBoxes()) {
-                        propagate(states, indices.get((Stmt) u.getUnit()), nextNewState, marked);
-                    }
-                }
+            for (int i = 0; i < statements.get(curPoint).successors.size(); i++) {
+                LatticeElement nextNewState = curState.transfer(statements.get(curPoint).stmt, statements.get(curPoint).stmt.branches(), i != 0);
+                propagate(states, statements.get(curPoint).successors.get(i), nextNewState, marked);
             }
 
             returnValue.add(new ArrayList<>(states)); // this is okay because we are not changing LatticeElement anywhere.
