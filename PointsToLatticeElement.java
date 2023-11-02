@@ -25,11 +25,11 @@ public class PointsToLatticeElement implements LatticeElement {
     }
 
     public String toString() {
-        StringBuilder ret = new StringBuilder();
+        StringBuilder ret = new StringBuilder("{");
         for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
             ret.append(entry.getKey()).append("=>").append(Arrays.toString(entry.getValue().toArray())).append("\n");
         }
-        return ret.toString();
+        return ret.append("}").toString();
     }
 
 
