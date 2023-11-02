@@ -33,7 +33,7 @@ public class MyTest {
         }
     }
 
-    static void SizeOneNULLTest() {
+    static void nullnullother() {
         MyTest v1 = new MyTest();
         MyTest v2 = new MyTest();
         v1 = null;
@@ -77,7 +77,6 @@ public class MyTest {
         v2.f = v1;
         v3.f = new MyTest();
         i++;
-        System.out.println(i);
 
         f1.f = v1;
         v2 = f1.f;

@@ -19,6 +19,7 @@ import soot.util.dot.DotGraph;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -26,9 +27,6 @@ import java.util.*;
 public class Analysis extends PAVBase {
 
     public Analysis() {
-        /*************************************************************
-         * XXX you can implement your analysis here
-         ************************************************************/
     }
 
     public static void main(String[] args) {
@@ -83,60 +81,60 @@ public class Analysis extends PAVBase {
 
             UnitPatchingChain units = targetMethod.getActiveBody().getUnits();
 
-            ArrayList<Stmt> statements = new ArrayList<>();
-            Map<Stmt, Integer> indices = new HashMap<>();
+            // for each Unit, represent it with ProgramPoint.
+            ArrayList<ProgramPoint> points = new ArrayList<>();
 
+            // Update each assignment statement containing new expr or InvokeExpr, then change it to newXX.
             int index = 0;
             for (Unit u : units) {
-
                 Stmt cur = (Stmt) u;
-
-                indices.put(cur, statements.size());
-
-                statements.add(cur);
 
                 int finalIndex = index;
                 cur.apply(new AbstractStmtSwitch() {
                     @Override
                     public void caseAssignStmt(AssignStmt stmt) {
                         Value rightOp = stmt.getRightOp();
+
+                        // x = fun().
+                        // fun() returns a object.
                         if (rightOp instanceof InvokeExpr) {
                             if (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType) {
-                                stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), RefType.v("java.lang.Object")));
+                                stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), ((InvokeExpr) rightOp).getMethod().getReturnType()));
                             }
-                        } else if (rightOp instanceof NewExpr) {
+                        } else if (rightOp instanceof NewExpr) { // x = new ...
                             stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), ((NewExpr) rightOp).getBaseType()));
                         }
                     }
                 });
+
+                // add the updated statement to program point.
+                points.add(new ProgramPoint(cur));
                 index++;
             }
 
-            ArrayList<ProgramPoint> points = new ArrayList<>();
-            for (Stmt stmt : statements)
-                points.add(new ProgramPoint(stmt));
-
+            // Build CFG to find successors.
             BriefUnitGraph cfg = new BriefUnitGraph(targetMethod.getActiveBody());
 
-            for (Unit unit : cfg) {
-                int i = statements.indexOf((Stmt) unit);
-                if (i == -1) continue;
-                List<Unit> successors = cfg.getSuccsOf(unit); // Get successors of the current unit
-                System.out.println("For: " + unit);
+            // for each statement, find the successors, and add the successor info to corresponding ProgramPoint info.
+            for (int i = 0; i < points.size(); i++) {
+                List<Unit> successors = cfg.getSuccsOf(points.get(i).stmt);
                 for (Unit successor : successors) {
-                    int j = statements.indexOf((Stmt) successor);
+                    int j = points.stream().map((ProgramPoint p) -> p.stmt).collect(Collectors.toList()).indexOf((Stmt) successor);
                     if (j != -1) {
-                        System.out.println("\t: " + statements.get(j));
                         points.get(i).successors.add(j);
                     }
                 }
             }
 
-            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(points, indices, new PointsToLatticeElement(), new PointsToLatticeElement());
+            // Run the Kildall's/
+            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(points, new PointsToLatticeElement(), new PointsToLatticeElement());
 
+            // Write the output files.
             writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
             writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
 
+
+            // Draw the CFG with states information to .dot file.
             Map<Unit, LatticeElement> mp = new HashMap<>();
             for (int i = 0; i < points.size(); i++) {
                 ProgramPoint p = points.get(i);
@@ -146,9 +144,19 @@ public class Analysis extends PAVBase {
         } else {
             System.out.println("Method not found: " + tMethod);
         }
-
     }
 
+    /**
+     * Write full output to targetDirectory/tMethod.fulloutput.txt, the output format is as follows.
+     * For each kildall's iterations, for each program point state which changed from previous iteration,
+     * that program point is added to the output, as follows:
+     * tMethod: inXX: var: {var_points_to}
+     * the lines are lexographically sorted.
+     *
+     * @param output          ArrayList<ArrayList> States of program elements.
+     * @param targetDirectory
+     * @param tMethod
+     */
     private static void writeFullOutput(ArrayList<ArrayList<LatticeElement>> output, String targetDirectory, String tMethod) {
         ArrayList<String> allLines = new ArrayList<>();
 
@@ -187,6 +195,14 @@ public class Analysis extends PAVBase {
         }
     }
 
+    /**
+     * Write the final states info of all program point to targetDirectory/tMethod.output.txt
+     * The output format is as mentioned.
+     *
+     * @param output          ArrayList of states of each program point in order of stmt.
+     * @param targetDirectory
+     * @param tMethod
+     */
     private static void writeFinalOutput(ArrayList<LatticeElement> output, String targetDirectory, String tMethod) {
         Set<ResultTuple> data = new HashSet<>();
         int index = 0;

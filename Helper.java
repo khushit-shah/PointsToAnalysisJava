@@ -1,5 +1,12 @@
 public class Helper {
 
+    /**
+     * given a or a.<class: type f>
+     * to,   a or a.f
+     *
+     * @param string
+     * @return
+     */
     public static String getSimplifiedVarName(String string) {
         // a or a.<class: type f>
         if (string.contains(".")) {

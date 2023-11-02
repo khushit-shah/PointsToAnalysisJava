@@ -1,98 +1,209 @@
-digraph "void conditional_check_multiple_if()" {
-    label="void conditional_check_multiple_if()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,label="$r0 = new00",];
-    "1" [label="specialinvoke $r0.<init>()",];
-    "0"->"1" [color=black,];
-    "23" [style=invis,label="Esc",];
-    "0"->"23" [color=lightgray,label="\l+vmErrors",];
-    "2" [label="r4 = $r0",];
-    "1"->"2" [color=black,];
-    "24" [style=invis,label="Esc",];
-    "1"->"24" [color=lightgray,label="\l+(Throwable)",];
-    "3" [label="$r1 = new03",];
-    "2"->"3" [color=black,];
-    "25" [style=invis,label="Esc",];
-    "2"->"25" [color=lightgray,label="\l+vmErrors",];
-    "4" [label="specialinvoke $r1.<init>()",];
-    "3"->"4" [color=black,];
-    "26" [style=invis,label="Esc",];
-    "3"->"26" [color=lightgray,label="\l+vmErrors",];
-    "5" [label="if $r0 == $r1 goto label1",];
-    "4"->"5" [color=black,];
-    "27" [style=invis,label="Esc",];
-    "4"->"27" [color=lightgray,label="\l+(Throwable)",];
-    "6" [style=filled,fillcolor=lightgray,label="return",];
-    "5"->"6" [color=black,];
-    "7" [label="label1: if $r0 != $r1 goto label2",];
-    "5"->"7" [color=black,];
-    "28" [style=invis,label="Esc",];
-    "5"->"28" [color=lightgray,label="\l+vmErrors",];
-    "29" [style=invis,label="Esc",];
-    "6"->"29" [color=lightgray,label="\l+vmErrors",];
-    "8" [style=filled,fillcolor=lightgray,label="return",];
-    "7"->"8" [color=black,];
-    "9" [label="label2: if $r0 != $r1 goto label4",];
-    "7"->"9" [color=black,];
-    "30" [style=invis,label="Esc",];
-    "7"->"30" [color=lightgray,label="\l+vmErrors",];
-    "31" [style=invis,label="Esc",];
-    "8"->"31" [color=lightgray,label="\l+vmErrors",];
-    "10" [label="if $r0 == $r1 goto label3",];
-    "9"->"10" [color=black,];
-    "17" [label="label4: if $r0 != $r1 goto label5",];
-    "9"->"17" [color=black,];
-    "32" [style=invis,label="Esc",];
-    "9"->"32" [color=lightgray,label="\l+vmErrors",];
-    "11" [label="$r3 = new11",];
-    "10"->"11" [color=black,];
-    "15" [label="label3: r4 = null",];
-    "10"->"15" [color=black,];
-    "33" [style=invis,label="Esc",];
-    "10"->"33" [color=lightgray,label="\l+vmErrors",];
-    "12" [label="specialinvoke $r3.<init>()",];
-    "11"->"12" [color=black,];
-    "34" [style=invis,label="Esc",];
-    "11"->"34" [color=lightgray,label="\l+vmErrors",];
-    "13" [label="r4 = $r3",];
-    "12"->"13" [color=black,];
-    "35" [style=invis,label="Esc",];
-    "12"->"35" [color=lightgray,label="\l+(Throwable)",];
-    "14" [label="goto label5",];
-    "13"->"14" [color=black,];
-    "36" [style=invis,label="Esc",];
-    "13"->"36" [color=lightgray,label="\l+vmErrors",];
-    "21" [label="label5: r4.f = null",];
-    "14"->"21" [color=black,];
-    "37" [style=invis,label="Esc",];
-    "14"->"37" [color=lightgray,label="\l+vmErrors",];
-    "16" [label="goto label5",];
-    "15"->"16" [color=black,];
-    "38" [style=invis,label="Esc",];
-    "15"->"38" [color=lightgray,label="\l+vmErrors",];
-    "16"->"21" [color=black,];
-    "39" [style=invis,label="Esc",];
-    "16"->"39" [color=lightgray,label="\l+vmErrors",];
-    "18" [label="$r2 = new18",];
-    "17"->"18" [color=black,];
-    "17"->"21" [color=black,];
-    "40" [style=invis,label="Esc",];
-    "17"->"40" [color=lightgray,label="\l+vmErrors",];
-    "19" [label="specialinvoke $r2.<init>()",];
-    "18"->"19" [color=black,];
-    "41" [style=invis,label="Esc",];
-    "18"->"41" [color=lightgray,label="\l+vmErrors",];
-    "20" [label="goto label5",];
-    "19"->"20" [color=black,];
-    "42" [style=invis,label="Esc",];
-    "19"->"42" [color=lightgray,label="\l+(Throwable)",];
-    "20"->"21" [color=black,];
-    "43" [style=invis,label="Esc",];
-    "20"->"43" [color=lightgray,label="\l+vmErrors",];
-    "22" [style=filled,fillcolor=lightgray,label="return",];
-    "21"->"22" [color=black,];
-    "44" [style=invis,label="Esc",];
-    "21"->"44" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "45" [style=invis,label="Esc",];
-    "22"->"45" [color=lightgray,label="\l+vmErrors",];
+digraph "./target2-mine/MyTest.conditional_check_multiple_if" {
+    "{}
+$r0 = new00 hash: 1106513402";
+    "{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 292158973";
+    "{}
+$r0 = new00 hash: 1106513402"->"{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 292158973";
+    "{$r0=>[new00]
+}
+r4 = $r0 hash: 1974325564";
+    "{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 292158973"->"{$r0=>[new00]
+}
+r4 = $r0 hash: 1974325564";
+    "{$r0=>[new00]
+r4=>[new00]
+}
+$r1 = new03 hash: 1158484171";
+    "{$r0=>[new00]
+}
+r4 = $r0 hash: 1974325564"->"{$r0=>[new00]
+r4=>[new00]
+}
+$r1 = new03 hash: 1158484171";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 6987253";
+    "{$r0=>[new00]
+r4=>[new00]
+}
+$r1 = new03 hash: 1158484171"->"{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 6987253";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+if $r0 == $r1 goto (branch) hash: 1391240208";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 6987253"->"{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+if $r0 == $r1 goto (branch) hash: 1391240208";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+return hash: 104664717";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+if $r0 == $r1 goto (branch) hash: 1391240208"->"{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+return hash: 104664717";
+    "{}
+if $r0 != $r1 goto (branch) hash: 500450241";
+    "{$r0=>[new00]
+r4=>[new00]
+$r1=>[new03]
+}
+if $r0 == $r1 goto (branch) hash: 1391240208"->"{}
+if $r0 != $r1 goto (branch) hash: 500450241";
+    "{}
+return hash: 716154959";
+    "{}
+if $r0 != $r1 goto (branch) hash: 500450241"->"{}
+return hash: 716154959";
+    "{}
+if $r0 != $r1 goto (branch) hash: 371637727";
+    "{}
+if $r0 != $r1 goto (branch) hash: 500450241"->"{}
+if $r0 != $r1 goto (branch) hash: 371637727";
+    "{}
+if $r0 == $r1 goto r4 = null hash: 2120816164";
+    "{}
+if $r0 != $r1 goto (branch) hash: 371637727"->"{}
+if $r0 == $r1 goto r4 = null hash: 2120816164";
+    "{}
+if $r0 != $r1 goto r4.<MyTest: MyTest f> = null hash: 602529144";
+    "{}
+if $r0 != $r1 goto (branch) hash: 371637727"->"{}
+if $r0 != $r1 goto r4.<MyTest: MyTest f> = null hash: 602529144";
+    "{}
+$r3 = new11 hash: 1570606662";
+    "{}
+if $r0 == $r1 goto r4 = null hash: 2120816164"->"{}
+$r3 = new11 hash: 1570606662";
+    "{}
+r4 = null hash: 1699756582";
+    "{}
+if $r0 == $r1 goto r4 = null hash: 2120816164"->"{}
+r4 = null hash: 1699756582";
+    "{$r3=>[new11]
+}
+specialinvoke $r3.<MyTest: void <init>()>() hash: 1533343601";
+    "{}
+$r3 = new11 hash: 1570606662"->"{$r3=>[new11]
+}
+specialinvoke $r3.<MyTest: void <init>()>() hash: 1533343601";
+    "{$r3=>[new11]
+}
+r4 = $r3 hash: 356279811";
+    "{$r3=>[new11]
+}
+specialinvoke $r3.<MyTest: void <init>()>() hash: 1533343601"->"{$r3=>[new11]
+}
+r4 = $r3 hash: 356279811";
+    "{r4=>[new11]
+$r3=>[new11]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 618804572";
+    "{$r3=>[new11]
+}
+r4 = $r3 hash: 356279811"->"{r4=>[new11]
+$r3=>[new11]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 618804572";
+    "{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358";
+    "{r4=>[new11]
+$r3=>[new11]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 618804572"->"{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358";
+    "{r4=>[null]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 329929969";
+    "{}
+r4 = null hash: 1699756582"->"{r4=>[null]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 329929969";
+    "{r4=>[null]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 329929969"->"{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358";
+    "{}
+$r2 = new18 hash: 104893413";
+    "{}
+if $r0 != $r1 goto r4.<MyTest: MyTest f> = null hash: 602529144"->"{}
+$r2 = new18 hash: 104893413";
+    "{}
+if $r0 != $r1 goto r4.<MyTest: MyTest f> = null hash: 602529144"->"{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358";
+    "{$r2=>[new18]
+}
+specialinvoke $r2.<MyTest: void <init>()>() hash: 1941482284";
+    "{}
+$r2 = new18 hash: 104893413"->"{$r2=>[new18]
+}
+specialinvoke $r2.<MyTest: void <init>()>() hash: 1941482284";
+    "{$r2=>[new18]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 1419580670";
+    "{$r2=>[new18]
+}
+specialinvoke $r2.<MyTest: void <init>()>() hash: 1941482284"->"{$r2=>[new18]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 1419580670";
+    "{$r2=>[new18]
+}
+goto [?= r4.<MyTest: MyTest f> = null] hash: 1419580670"->"{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358";
+    "{r4=>[null, new11]
+new11.f=>[null]
+$r2=>[new18]
+$r3=>[new11]
+}
+return hash: 1293369737";
+    "{r4=>[null, new11]
+$r2=>[new18]
+$r3=>[new11]
+}
+r4.<MyTest: MyTest f> = null hash: 1857031358"->"{r4=>[null, new11]
+new11.f=>[null]
+$r2=>[new18]
+$r3=>[new11]
+}
+return hash: 1293369737";
 }

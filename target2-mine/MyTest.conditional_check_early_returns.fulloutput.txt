@@ -57,30 +57,19 @@ MyTest.conditional_check_early_returns: in11: $r5: {null}
 MyTest.conditional_check_early_returns: in11: new00.f: {null}
 MyTest.conditional_check_early_returns: in11: new02.f: {new00, null}
 
-MyTest.conditional_check_early_returns: in12: $r0: {new00}
-MyTest.conditional_check_early_returns: in12: $r1: {new02}
-MyTest.conditional_check_early_returns: in12: $r2: {new00}
-MyTest.conditional_check_early_returns: in12: $r3: {new00}
-MyTest.conditional_check_early_returns: in12: $r5: {null}
-MyTest.conditional_check_early_returns: in12: new00.f: {null}
-MyTest.conditional_check_early_returns: in12: new02.f: {new00, null}
 
 MyTest.conditional_check_early_returns: in13: $r0: {new00}
 MyTest.conditional_check_early_returns: in13: $r1: {new02}
 MyTest.conditional_check_early_returns: in13: $r2: {new00}
 MyTest.conditional_check_early_returns: in13: $r3: {new00}
 MyTest.conditional_check_early_returns: in13: $r4: {new12}
-MyTest.conditional_check_early_returns: in13: $r5: {null}
-MyTest.conditional_check_early_returns: in13: new00.f: {null}
-MyTest.conditional_check_early_returns: in13: new02.f: {new00, null}
+MyTest.conditional_check_early_returns: in13: new02.f: {new00}
 
 MyTest.conditional_check_early_returns: in14: $r0: {new00}
 MyTest.conditional_check_early_returns: in14: $r1: {new02}
 MyTest.conditional_check_early_returns: in14: $r2: {new00}
 MyTest.conditional_check_early_returns: in14: $r3: {new00}
 MyTest.conditional_check_early_returns: in14: $r4: {new12}
-MyTest.conditional_check_early_returns: in14: $r5: {null}
-MyTest.conditional_check_early_returns: in14: new00.f: {null}
-MyTest.conditional_check_early_returns: in14: new02.f: {new00, null}
+MyTest.conditional_check_early_returns: in14: new02.f: {new00}
 
 

@@ -2,10 +2,13 @@ import soot.jimple.Stmt;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a program point.
+ */
 public class ProgramPoint {
     public Stmt stmt;
 
-    // first successor is always true branch in case of if statements.
+    // second successor is always true branch in case of if statements.
     public ArrayList<Integer> successors;
 
     ProgramPoint(Stmt stmt) {

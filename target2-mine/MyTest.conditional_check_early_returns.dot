@@ -1,63 +1,246 @@
-digraph "void conditional_check_early_returns()" {
-    label="void conditional_check_early_returns()";
-    node [shape=box];
-    "0" [style=filled,fillcolor=gray,label="$r0 = new00",];
-    "1" [label="specialinvoke $r0.<init>()",];
-    "0"->"1" [color=black,];
-    "15" [style=invis,label="Esc",];
-    "0"->"15" [color=lightgray,label="\l+vmErrors",];
-    "2" [label="$r1 = new02",];
-    "1"->"2" [color=black,];
-    "16" [style=invis,label="Esc",];
-    "1"->"16" [color=lightgray,label="\l+(Throwable)",];
-    "3" [label="specialinvoke $r1.<init>()",];
-    "2"->"3" [color=black,];
-    "17" [style=invis,label="Esc",];
-    "2"->"17" [color=lightgray,label="\l+vmErrors",];
-    "4" [label="$r1.f = $r0",];
-    "3"->"4" [color=black,];
-    "18" [style=invis,label="Esc",];
-    "3"->"18" [color=lightgray,label="\l+(Throwable)",];
-    "5" [label="$r3 = $r1.f",];
-    "4"->"5" [color=black,];
-    "19" [style=invis,label="Esc",];
-    "4"->"19" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "6" [label="$r2 = $r1.f",];
-    "5"->"6" [color=black,];
-    "20" [style=invis,label="Esc",];
-    "5"->"20" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "7" [label="if $r3 != $r2 goto label1",];
-    "6"->"7" [color=black,];
-    "21" [style=invis,label="Esc",];
-    "6"->"21" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "8" [label="$r0.f = null",];
-    "7"->"8" [color=black,];
-    "12" [label="label1: $r4 = new12",];
-    "7"->"12" [color=black,];
-    "22" [style=invis,label="Esc",];
-    "7"->"22" [color=lightgray,label="\l+vmErrors",];
-    "9" [label="$r5 = $r0.f",];
-    "8"->"9" [color=black,];
-    "23" [style=invis,label="Esc",];
-    "8"->"23" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "10" [label="$r1.f = $r5",];
-    "9"->"10" [color=black,];
-    "24" [style=invis,label="Esc",];
-    "9"->"24" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "11" [style=filled,fillcolor=lightgray,label="return",];
-    "10"->"11" [color=black,];
-    "25" [style=invis,label="Esc",];
-    "10"->"25" [color=lightgray,label="\l+vmErrors\l+ClassCircularityError\l+(ClassFormatError)\l+IllegalAccessError\l+IncompatibleClassChangeError\l+LinkageError\l+NoClassDefFoundError\l+NoSuchFieldError\l+NullPointer\l+VerifyError",];
-    "26" [style=invis,label="Esc",];
-    "11"->"26" [color=lightgray,label="\l+vmErrors",];
-    "13" [label="specialinvoke $r4.<init>()",];
-    "12"->"13" [color=black,];
-    "27" [style=invis,label="Esc",];
-    "12"->"27" [color=lightgray,label="\l+vmErrors",];
-    "14" [style=filled,fillcolor=lightgray,label="return",];
-    "13"->"14" [color=black,];
-    "28" [style=invis,label="Esc",];
-    "13"->"28" [color=lightgray,label="\l+(Throwable)",];
-    "29" [style=invis,label="Esc",];
-    "14"->"29" [color=lightgray,label="\l+vmErrors",];
+digraph "./target2-mine/MyTest.conditional_check_early_returns" {
+    "{}
+$r0 = new00 hash: 1277753726";
+    "{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 1966657510";
+    "{}
+$r0 = new00 hash: 1277753726"->"{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 1966657510";
+    "{$r0=>[new00]
+}
+$r1 = new02 hash: 457596841";
+    "{$r0=>[new00]
+}
+specialinvoke $r0.<MyTest: void <init>()>() hash: 1966657510"->"{$r0=>[new00]
+}
+$r1 = new02 hash: 457596841";
+    "{$r0=>[new00]
+$r1=>[new02]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 1502502072";
+    "{$r0=>[new00]
+}
+$r1 = new02 hash: 457596841"->"{$r0=>[new00]
+$r1=>[new02]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 1502502072";
+    "{$r0=>[new00]
+$r1=>[new02]
+}
+$r1.<MyTest: MyTest f> = $r0 hash: 262217690";
+    "{$r0=>[new00]
+$r1=>[new02]
+}
+specialinvoke $r1.<MyTest: void <init>()>() hash: 1502502072"->"{$r0=>[new00]
+$r1=>[new02]
+}
+$r1.<MyTest: MyTest f> = $r0 hash: 262217690";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+}
+$r3 = $r1.<MyTest: MyTest f> hash: 2106922602";
+    "{$r0=>[new00]
+$r1=>[new02]
+}
+$r1.<MyTest: MyTest f> = $r0 hash: 262217690"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+}
+$r3 = $r1.<MyTest: MyTest f> hash: 2106922602";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r3=>[new00]
+}
+$r2 = $r1.<MyTest: MyTest f> hash: 414440302";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+}
+$r3 = $r1.<MyTest: MyTest f> hash: 2106922602"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r3=>[new00]
+}
+$r2 = $r1.<MyTest: MyTest f> hash: 414440302";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+if $r3 != $r2 goto $r4 = new12 hash: 535517293";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r3=>[new00]
+}
+$r2 = $r1.<MyTest: MyTest f> hash: 414440302"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+if $r3 != $r2 goto $r4 = new12 hash: 535517293";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r0.<MyTest: MyTest f> = null hash: 1629105538";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+if $r3 != $r2 goto $r4 = new12 hash: 535517293"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r0.<MyTest: MyTest f> = null hash: 1629105538";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r4 = new12 hash: 625540097";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+if $r3 != $r2 goto $r4 = new12 hash: 535517293"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r4 = new12 hash: 625540097";
+    "{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r5 = $r0.<MyTest: MyTest f> hash: 580515543";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r0.<MyTest: MyTest f> = null hash: 1629105538"->"{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r5 = $r0.<MyTest: MyTest f> hash: 580515543";
+    "{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r5=>[null]
+}
+$r1.<MyTest: MyTest f> = $r5 hash: 1557594596";
+    "{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r5 = $r0.<MyTest: MyTest f> hash: 580515543"->"{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r5=>[null]
+}
+$r1.<MyTest: MyTest f> = $r5 hash: 1557594596";
+    "{new02.f=>[null, new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r5=>[null]
+}
+return hash: 741767653";
+    "{new02.f=>[new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r5=>[null]
+}
+$r1.<MyTest: MyTest f> = $r5 hash: 1557594596"->"{new02.f=>[null, new00]
+$r0=>[new00]
+new00.f=>[null]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r5=>[null]
+}
+return hash: 741767653";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r4=>[new12]
+}
+specialinvoke $r4.<MyTest: void <init>()>() hash: 1974325564";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+}
+$r4 = new12 hash: 625540097"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r4=>[new12]
+}
+specialinvoke $r4.<MyTest: void <init>()>() hash: 1974325564";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r4=>[new12]
+}
+return hash: 466983810";
+    "{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r4=>[new12]
+}
+specialinvoke $r4.<MyTest: void <init>()>() hash: 1974325564"->"{new02.f=>[new00]
+$r0=>[new00]
+$r1=>[new02]
+$r2=>[new00]
+$r3=>[new00]
+$r4=>[new12]
+}
+return hash: 466983810";
 }
