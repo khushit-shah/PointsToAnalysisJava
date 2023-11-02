@@ -1,4 +1,7 @@
 public class MyTest {
+    static MyTest f1;
+    MyTest f;
+
     public static void fun1(int x) {
         int j = 10;
         MyTest n = new MyTest();
@@ -57,9 +60,6 @@ public class MyTest {
         v1 = v3.f;
         return v1;
     }
-
-    MyTest f;
-    static MyTest f1;
 
     static MyTest getTest() {
         return null;
@@ -281,58 +281,52 @@ public class MyTest {
         }
         v1.f = null;
     }
-    public static MyTest get_object()
-    {
-        MyTest v2= new MyTest();
-        v2.f=v2;
+
+    public static MyTest get_object() {
+        MyTest v2 = new MyTest();
+        v2.f = v2;
         return v2;
     }
 
-     public static void function_returns_object1()
-    {
-        MyTest v1= new MyTest();
+    public static void function_returns_object1() {
+        MyTest v1 = new MyTest();
         int x;
-        v1=get_object().f;   
-        v1.f=null;
+        v1 = get_object().f;
+        v1.f = null;
     }
 
-    public static void function_returns_object2()
-    {
-        MyTest v1= new MyTest();
+    public static void function_returns_object2() {
+        MyTest v1 = new MyTest();
         int x;
-        v1.f=get_object().f;   
-        v1.f=null;
+        v1.f = get_object().f;
+        v1.f = null;
     }
 
-    public static void function_returns_object3()
-    {
-        MyTest v1= new MyTest();
+    public static void function_returns_object3() {
+        MyTest v1 = new MyTest();
         int x;
-        v1.f=get_object();   
-        v1.f=null;
+        v1.f = get_object();
+        v1.f = null;
     }
 
 
-    public static int get_int()
-    {
-        int a =10;
+    public static int get_int() {
+        int a = 10;
         return a;
     }
-   
-    public static void function_returns_int()
-    {
-        int x=1;
-        MyTest v1= new MyTest();
-        x=get_int();
-       
-        if(x==10)
-        {
-           v1.f=v1;
-        }
-        else
-        v1.f=null;
+
+    public static void function_returns_int() {
+        int x = 1;
+        MyTest v1 = new MyTest();
+        x = get_int();
+
+        if (x == 10) {
+            v1.f = v1;
+        } else
+            v1.f = null;
 
     }
+
     public static void conditional_check_both_equal() {
         MyTest v1 = new MyTest();
         MyTest v2 = new MyTest();
@@ -400,13 +394,33 @@ public class MyTest {
         return true;
     }
 
-    void non_static_function() {
+    static MyTest assign_test_2() {
+        MyTest v1 = new MyTest();
 
+        for (int i = 0; i < v1.hashCode(); i++) {
+            MyTest v2 = new MyTest();
+            v1.f = v2;
+            if (i < 10) {
+                v1.f = new MyTest();
+            } else if (i < 20) {
+                v1.f = new MyTest();
+            } else {
+                v1 = new MyTest();
+            }
+        }
+        MyTest v2 = v1.f;
+        v1.f = new MyTest();
+        v2.f = new MyTest();
+
+        return v1.f;
+
+    }
+
+    void non_static_function() {
         MyTest t1 = new MyTest();
         MyTest t2 = new MyTest();
         t1.f = t2.f = t1;
         if (t1.f == t2.f) t1.f = t2;
     }
-
 
 }

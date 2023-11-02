@@ -135,12 +135,14 @@ public class Analysis extends PAVBase {
 
 
             // Draw the CFG with states information to .dot file.
-            Map<Unit, LatticeElement> mp = new HashMap<>();
-            for (int i = 0; i < points.size(); i++) {
-                ProgramPoint p = points.get(i);
-                mp.put(p.stmt, output.get(output.size() - 1).get(i));
+            for (int j = 0; j < output.size(); j++) {
+                Map<Unit, LatticeElement> mp = new HashMap<>();
+                for (int i = 0; i < points.size(); i++) {
+                    ProgramPoint p = points.get(i);
+                    mp.put(p.stmt, output.get(j).get(i));
+                }
+                drawMethodDependenceGraph(targetMethod, mp, targetDirectory + File.separator + tClass + "." + tMethod + "-" + j);
             }
-            drawMethodDependenceGraph(targetMethod, mp, targetDirectory + File.separator + tClass + "." + tMethod);
         } else {
             System.out.println("Method not found: " + tMethod);
         }

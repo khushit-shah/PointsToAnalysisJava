@@ -7,12 +7,8 @@ set -e
 source environ.sh
 
 
-echo === building LatticeElement.java
-#javac -target 11 -g LatticeElement.java
-javac -g LatticeElement.java
-echo === building Analysis.java
-#javac -target 11 -g Analysis.java
-javac -g Analysis.java
+echo === building javac -g LatticeElement.java Analysis.java LatticeElement.java PointsToLatticeElement.java Helper.java ProgramPoint.java Kildalls.java
+javac -g LatticeElement.java Analysis.java LatticeElement.java PointsToLatticeElement.java Helper.java ProgramPoint.java Kildalls.java
 
 
 
