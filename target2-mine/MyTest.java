@@ -282,7 +282,58 @@ public class MyTest {
         }
         v1.f = null;
     }
+    public static MyTest get_object()
+    {
+        MyTest v2= new MyTest();
+        v2.f=v2;
+        return v2;
+    }
 
+     public static void function_returns_object1()
+    {
+        MyTest v1= new MyTest();
+        int x;
+        v1=get_object().f;   
+        v1.f=null;
+    }
+
+    public static void function_returns_object2()
+    {
+        MyTest v1= new MyTest();
+        int x;
+        v1.f=get_object().f;   
+        v1.f=null;
+    }
+
+    public static void function_returns_object3()
+    {
+        MyTest v1= new MyTest();
+        int x;
+        v1.f=get_object();   
+        v1.f=null;
+    }
+
+
+    public static int get_int()
+    {
+        int a =10;
+        return a;
+    }
+   
+    public static void function_returns_int()
+    {
+        int x=1;
+        MyTest v1= new MyTest();
+        x=get_int();
+       
+        if(x==10)
+        {
+           v1.f=v1;
+        }
+        else
+        v1.f=null;
+
+    }
     public static void conditional_check_both_equal() {
         MyTest v1 = new MyTest();
         MyTest v2 = new MyTest();
