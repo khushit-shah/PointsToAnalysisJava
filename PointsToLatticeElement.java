@@ -12,6 +12,8 @@ public class PointsToLatticeElement implements LatticeElement {
     // NOTE: In alot of places, we are using the function clone(),
     // it is extremely important to deep clone the current internal state and then create the new LatticeElement with the cloned internal state.
     // as otherwise, if the created LatticeElement is updated the internal state of this will also change.
+
+
     // the internal state, maps var or newXX.field to set of var union newXX.
     HashMap<String, HashSet<String>> state;
 
@@ -28,6 +30,7 @@ public class PointsToLatticeElement implements LatticeElement {
         nullOnlySet.add("null");
     }
 
+    // used for debugging.
     public String toString() {
         StringBuilder ret = new StringBuilder("{");
         for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {

@@ -126,7 +126,7 @@ public class Analysis extends PAVBase {
                 }
             }
 
-            // Run the Kildall's/
+            // Run the Kildall's
             ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(points, new PointsToLatticeElement(), new PointsToLatticeElement());
 
             // Write the output files.
@@ -135,6 +135,7 @@ public class Analysis extends PAVBase {
 
 
             // Draw the CFG with states information to .dot file.
+            // Stmt and ProgramPoint have one to one mapping.
             Map<Unit, LatticeElement> mp = new HashMap<>();
             for (int i = 0; i < points.size(); i++) {
                 ProgramPoint p = points.get(i);
@@ -165,8 +166,6 @@ public class Analysis extends PAVBase {
             Set<ResultTuple> data = new HashSet<>();
             for (int j = 0; j < iteration.size(); j++) {
                 PointsToLatticeElement e_ = (PointsToLatticeElement) iteration.get(j);
-                if (i != 0 && e_.equals(output.get(i - 1).get(j)))
-                    continue; // only output the states that changed from previous iterations.
                 for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
                     if (entry.getValue().isEmpty()) continue;
                     ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", j), entry.getKey(), new ArrayList<>(entry.getValue()));
