@@ -34,7 +34,11 @@ We have implemented around ~35 private tests, which reside in the MyTest file. `
 There might be some newline issues, as we used the Windows Subsystem of Linux for development.
 
 error-related newline might occur if you use our  `run-analysis.sh`  or `Makefile`. so, before running `make`,
-please run `dos2unix */*`, it converts Windows newline `CLRF` to unix newline`RF`.
+please run `dos2unix` and `dos2unix */*`, it converts Windows newline `CLRF` to unix newline`RF`.
+like the following error:
+```
+/usr/bin/env: ‘bash\r’: No such file or directory
+```
 
 ## Important files and methods
 `ProgramPoint` class represents a program point, It contains Stmt and list of index of it's `successors`.
