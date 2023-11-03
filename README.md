@@ -1,4 +1,3 @@
-
 # PAV Phase 1
 
   
@@ -24,7 +23,7 @@ The CFG of the program with states at each program point  is printed to the file
 
 Which is then converted to `.png` file with `dot` command in `run-analysis-one.sh`
 
-![z drawio (2)](https://github.com/khushit-shah/PAVPhase1/assets/42430171/4c755edc-7745-4c66-b667-0879575e922d)
+![z drawio (2)](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/z.drawio__2_.png)
 
 
 ## Running
@@ -70,22 +69,23 @@ null -> null
 
 We will try to mathematically define all the transfer functions we used, 
 Let,
-![Screenshot 2023-11-03 215908](https://github.com/khushit-shah/PAVPhase1/assets/42430171/a7fef5c3-7ea2-4d32-a510-a45cfc732c49)
+![Screenshot 2023-11-03 215908](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/Screenshot_2023-11-03_215908.png)
+
 here, `newXX` is the set of all dummy variables that represent allocation sites, `fields` returns all the fields that are accessed by the given dummy variable.
 
 Then the lattice is as follows.
-![image](https://github.com/khushit-shah/PAVPhase1/assets/42430171/ee52be6a-bd1e-4228-842e-a50ab7a8fac8)
+![image](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/Screenshot_2023-11-03_220545.png)
 
 ### Join operation is as follows
-![Screenshot 2023-11-03 215001](https://github.com/khushit-shah/PAVPhase1/assets/42430171/7d9ec0d2-da4f-4c27-8846-89f098437d61)
+![Screenshot 2023-11-03 215001](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/Screenshot_2023-11-03_215001.png)
 
 ### Transfer functions
 
 #### Assignment transfer function
-![Screenshot 2023-11-03 215342](https://github.com/khushit-shah/PAVPhase1/assets/42430171/8d69b810-6d50-49d4-a2b0-09e9ce9aff82)
+![Screenshot 2023-11-03 215342](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/Screenshot_2023-11-03_215342.png)
 
 #### Conditional transfer function
-![Screenshot 2023-11-03 215754](https://github.com/khushit-shah/PAVPhase1/assets/42430171/34932a66-1199-4709-a0bb-62439977b0b4)
+![Screenshot 2023-11-03 215754](https://gitlab.com/khushit_gnani/pav-2023-team-02/-/raw/master/doc-images/Screenshot_2023-11-03_215754.png)
 
 ## Different cases covered
 We are handling the following cases.
