@@ -1,4 +1,0 @@
-MyTest.get_object: in01: $r0: {new00}
-MyTest.get_object: in02: $r0: {new00}
-MyTest.get_object: in03: $r0: {new00}
-MyTest.get_object: in03: new00.f: {new00}

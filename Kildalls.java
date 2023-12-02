@@ -38,7 +38,7 @@ public class Kildalls {
             LatticeElement curState = states.get(curPoint);
             for (int i = 0; i < points.get(curPoint).successors.size(); i++) {
                 //  transfer the curState through the statement and get the new state.
-                LatticeElement nextNewState = curState.transfer(points.get(curPoint).stmt, points.get(curPoint).stmt.branches(), i != 0);
+                LatticeElement nextNewState = curState.transfer(points.get(curPoint), points.get(curPoint).stmt.branches(), i != 0, i);
                 // propagate the new state to the successor.
                 propagate(states, points.get(curPoint).successors.get(i), nextNewState, marked);
             }

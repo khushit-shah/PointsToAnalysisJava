@@ -1,6 +1,3 @@
-import soot.jimple.Stmt;
-
-
 // Receiver object of LatticeElement possess the existing dataflow
 // fact at a programpoint.  x.join(y), here x, y are elements of type,
 // LatticeElement and x is the receiver object.
@@ -22,18 +19,19 @@ public interface LatticeElement {
 
     // return true of "r" == "this"
     boolean equals(LatticeElement r);
+    boolean equals(Object o);
 
 
     // return new LatticeElement same as "this", but not the same object.
     LatticeElement tf_identity_fn();
 
     // return new LatticeElement with "this" applied to the given assignment statement.
-    LatticeElement tf_assign_stmt(Stmt st);
+    LatticeElement tf_assign_stmt(ProgramPoint st);
 
 
     // return new LatticeElement with "this" applied to the given if statement and branch.
-    LatticeElement tf_if_stmt(Stmt st, boolean b);
+    LatticeElement tf_if_stmt(ProgramPoint st, boolean b);
 
-    LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken);
+    LatticeElement transfer(ProgramPoint st, boolean isConditional, boolean conditionTaken, int edgeIndex);
 }
 

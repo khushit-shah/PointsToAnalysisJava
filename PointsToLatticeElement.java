@@ -1,12 +1,7 @@
-import soot.Local;
-import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class PointsToLatticeElement implements LatticeElement {
     // NOTE: In alot of places, we are using the function clone(),
@@ -49,20 +44,18 @@ public class PointsToLatticeElement implements LatticeElement {
     @Override
     public PointsToLatticeElement join_op(LatticeElement r) {
         PointsToLatticeElement other = (PointsToLatticeElement) r;
-        HashMap<String, HashSet<String>> new_state = new HashMap<>();
 
         // adds all entries in this to the new state.
-        for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
-            HashSet<String> base = clone(entry.getValue());
-            base.addAll(other.state.getOrDefault(entry.getKey(), new HashSet<>()));
+        HashMap<String, HashSet<String>> new_state = new HashMap<>(clone(this.state));
 
-            new_state.put(entry.getKey(), base);
-        }
 
         // adds all entries in r to the new state.
         for (Map.Entry<String, HashSet<String>> entry : other.state.entrySet()) {
             HashSet<String> base = clone(entry.getValue());
-            base.addAll(state.getOrDefault(entry.getKey(), new HashSet<>()));
+
+            // in the base add all the values in new_state that are already present.
+            // union.
+            base.addAll(clone(new_state.getOrDefault(entry.getKey(), new HashSet<>())));
 
             new_state.put(entry.getKey(), base);
         }
@@ -82,6 +75,12 @@ public class PointsToLatticeElement implements LatticeElement {
         return state.equals(((PointsToLatticeElement) r).state);
     }
 
+    public boolean equals(Object o)
+    {
+        if(!(o instanceof PointsToLatticeElement)) return false;
+        return equals((PointsToLatticeElement) o);
+    }
+
     /**
      * Returns new LatticeElement with the same internal states.
      *
@@ -95,11 +94,13 @@ public class PointsToLatticeElement implements LatticeElement {
     /**
      * Applies the assignment statement to "this"
      *
-     * @param st the Assignment statement to apply.
+     * @param pt the Assignment statement to apply.
      * @return new LatticeElement with internal state modified respectively.
      */
     @Override
-    public LatticeElement tf_assign_stmt(Stmt st) {
+    public LatticeElement tf_assign_stmt(ProgramPoint pt) {
+        Stmt st = pt.stmt;
+
         AssignStmt assignStmt = (AssignStmt) st;
 
         Value lhs = assignStmt.getLeftOp();
@@ -107,15 +108,15 @@ public class PointsToLatticeElement implements LatticeElement {
 
 
         // if lhs or rhs is not a valid type of value. return identity fn.
-        if (!is_val_valid(lhs) || !is_val_valid(rhs)) {
+        if (!Helper.is_val_valid(lhs) || !Helper.is_val_valid(rhs)) {
             return tf_identity_fn();
         }
 
         // Get the simplified name of lhs and rhs.
         // from a or a.<class: type f>
         // to a or a.f
-        String lhsStr = Helper.getSimplifiedVarName(lhs);
-        String rhsStr = Helper.getSimplifiedVarName(rhs);
+        String lhsStr = Helper.getSimplifiedVarName(lhs, pt.method);
+        String rhsStr = Helper.getSimplifiedVarName(rhs, pt.method);
 
         /*
          *  Following cases can occur.
@@ -212,12 +213,14 @@ public class PointsToLatticeElement implements LatticeElement {
     /**
      * Applies the if statement to "this"
      *
-     * @param st    IfStmt.
+     * @param pt    IfStmt.
      * @param taken branch taken or not.
      * @return
      */
     @Override
-    public LatticeElement tf_if_stmt(Stmt st, boolean taken) {
+    public LatticeElement tf_if_stmt(ProgramPoint pt, boolean taken) {
+        Stmt st = pt.stmt;
+
         IfStmt ifStmt = (IfStmt) st;
 
         // get the condition statement.
@@ -229,16 +232,16 @@ public class PointsToLatticeElement implements LatticeElement {
             Value op2 = ((EqExpr) condition).getOp2();
 
             // check if both the operators are valid.
-            if (!is_val_valid(op1) || !is_val_valid(op2)) {
+            if (!Helper.is_val_valid(op1) || !Helper.is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
             //  NOTE: a.f or b.f can never occur as Jimple is 3 addresss code and if <a> op <b> goto <label>,  a, b, label are addresses
 
             // a
-            String op1Str = Helper.getSimplifiedVarName(op1);
+            String op1Str = Helper.getSimplifiedVarName(op1, pt.method);
             // b
-            String op2Str = Helper.getSimplifiedVarName(op2);
+            String op2Str = Helper.getSimplifiedVarName(op2, pt.method);
 
             return transfer_eq_eq(taken, op1Str, op2Str);
         } else if (condition instanceof NeExpr) { // if it's a != b
@@ -246,12 +249,12 @@ public class PointsToLatticeElement implements LatticeElement {
             Value op1 = ((NeExpr) condition).getOp1();
             Value op2 = ((NeExpr) condition).getOp2();
 
-            if (!is_val_valid(op1) || !is_val_valid(op2)) {
+            if (!Helper.is_val_valid(op1) || !Helper.is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
-            String op1Str = Helper.getSimplifiedVarName(op1);
-            String op2Str = Helper.getSimplifiedVarName(op2);
+            String op1Str = Helper.getSimplifiedVarName(op1, pt.method);
+            String op2Str = Helper.getSimplifiedVarName(op2, pt.method);
 
             // a != b, taken  === a == b, not taken.
             // a != b, not taken === a == b, taken.
@@ -339,22 +342,24 @@ public class PointsToLatticeElement implements LatticeElement {
     /**
      * Given the statement, calls appriopiate transfer function and returns new LatticeElement with transfer function applied on "this"
      *
-     * @param st             Stmt
+     * @param pt             Stmt
      * @param isConditional  is it a conditional statement?
      * @param conditionTaken is the condition taken?
+     * @param edgeIndex
      * @return
      */
     @Override
-    public LatticeElement transfer(Stmt st, boolean isConditional, boolean conditionTaken) {
+    public LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex) {
+        Stmt st = pt.stmt;
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
-                setResult(tf_assign_stmt(stmt));
+                setResult(tf_assign_stmt(pt));
             }
 
             @Override
             public void caseIfStmt(IfStmt stmt) {
-                setResult(tf_if_stmt(stmt, conditionTaken));
+                setResult(tf_if_stmt(pt, conditionTaken));
             }
 
             @Override
@@ -401,21 +406,5 @@ public class PointsToLatticeElement implements LatticeElement {
         }
 
         return cloned;
-    }
-
-
-    /**
-     * If a value is Local or NullConstant or InstanceFieldRef or CastExpr with castType of RefType, returns true.
-     * else false.
-     * This ensure, all the operand we operate on is ref type.
-     *
-     * @param op
-     * @return
-     */
-    private boolean is_val_valid(Value op) {
-        if (op instanceof Local && op.getType() instanceof RefType) return true;
-        if (op instanceof NullConstant) return true;
-        if (op instanceof InstanceFieldRef) return true;
-        return op instanceof CastExpr && ((CastExpr) op).getCastType() instanceof RefType;
     }
 }

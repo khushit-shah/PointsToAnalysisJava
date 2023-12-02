@@ -35,6 +35,7 @@ time \
     java -Xms800m -Xmx3g Analysis "$DIRNAME"  "$MAINCLASS"  "$TARGETCLASS"  "$TARGETMETHOD"
 
 
+dot -Tpng -o "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD.intra.debug".png "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD.intra.debug".dot
 dot -Tpng -o "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD".png "$DIRNAME"/"$TARGETCLASS"."$TARGETMETHOD".dot
 
 RED='\033[0;31m'
