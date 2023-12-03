@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.res.XPATHMessages;
-import polyglot.ast.Assign;
 import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
@@ -14,9 +12,9 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     HashMap<LinkedList<String>, PointsToLatticeElement> state = new HashMap<>();
     HashMap<LinkedList<String>, ArrayList<HashSet<String>>> parameters = new HashMap<>();
 
-//  TODO: do we need this?
-//  HashMap<LinkedList<String>, InterProcPointsToLatticeElement> prevState = new HashMap<>();
-//  HashMap<LinkedList<String>, Integer> prevStateNonce = new HashMap<>();
+    //  TODO: do we need this?
+//    HashMap<LinkedList<String>, InterProcPointsToLatticeElement> prevState = new HashMap<>();
+//    HashMap<LinkedList<String>, Integer> prevStateNonce = new HashMap<>();
 
     InterProcPointsToLatticeElement() {
 
@@ -71,6 +69,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     }
 
 
+
     @Override
     public boolean equals(LatticeElement r) {
         // if both the HashMap and Parameter is equal then both are equal.
@@ -78,7 +77,13 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
         if (!(this.state.equals(other.state))) return false;
 
-        return this.parameters.equals(other.parameters);
+        return (this.parameters.equals(other.parameters));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof InterProcPointsToLatticeElement)) return false;
+        return equals((InterProcPointsToLatticeElement) o);
     }
 
     @Override
@@ -88,13 +93,19 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
 
     @Override
-    public LatticeElement tf_assign_stmt(ProgramPoint pt) {
+    public LatticeElement tf_assign_stmt(ProgramPoint pt, int edgeIndex) {
         Stmt st = pt.stmt;
-        if (st.containsInvokeExpr()) return tf_invoke_stmt(pt);
+        if (st.containsInvokeExpr()) {
+            if (edgeIndex == pt.callingEdge)
+                return tf_invoke_stmt(pt, edgeIndex);
+            else {
+                return tf_identity_fn();
+            }
+        }
 
         HashMap<LinkedList<String>, PointsToLatticeElement> newState = cloneX(this.state);
 
-        newState.replaceAll((k, v) -> (PointsToLatticeElement) v.tf_assign_stmt(pt));
+        newState.replaceAll((k, v) -> (PointsToLatticeElement) v.tf_assign_stmt(pt, edgeIndex));
 
         return new InterProcPointsToLatticeElement(newState, cloneX(this.parameters, 1));
     }
@@ -115,30 +126,44 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         Value leftOp = identityStmt.getLeftOp();
         Value rightOp = identityStmt.getRightOp();
 
+        System.out.println("here");
+
         // not the type of prarmaterRef.
-        if (!(leftOp instanceof ParameterRef param)) return tf_identity_fn();
+        if (!(rightOp instanceof ParameterRef)) return tf_identity_fn();
+
+        ParameterRef param = (ParameterRef) rightOp;
 
         if (!(param.getType() instanceof RefType)) return tf_identity_fn();
 
         int paramIndex = param.getIndex();
 
-        String rhsStr = Helper.getSimplifiedVarName(rightOp);
+        String lhsStr = Helper.getSimplifiedVarName(leftOp);
 
         HashMap<LinkedList<String>, PointsToLatticeElement> newState = new HashMap<>();
         HashMap<LinkedList<String>, ArrayList<HashSet<String>>> newParams = cloneX(this.parameters, 1);
 
+        System.out.println("here");
+        System.out.println(lhsStr);
+        System.out.println(this.parameters);
+
         for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
             ArrayList<HashSet<String>> paramList = this.parameters.getOrDefault(entry.getKey(), new ArrayList<>());
+
+            System.out.println(entry.getKey());
+            System.out.println(paramList);
 
             LinkedList<String> newKey = cloneX(entry.getKey());
             PointsToLatticeElement newVal = entry.getValue().clone();
 
-            if(paramList.size() <= paramIndex) {
+            System.out.println(newVal);
+            if (paramList.size() <= paramIndex) {
                 newState.put(newKey, new PointsToLatticeElement()); // empty set, this should not happen.
                 continue;
             }
 
-            newVal = newVal.put(rhsStr, paramList.get(paramIndex));
+            newVal = newVal.put(lhsStr, cloneX(paramList.get(paramIndex)));
+
+            System.out.println(newVal);
 
             newState.put(newKey, newVal);
         }
@@ -147,11 +172,16 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     }
 
 
-
-    public LatticeElement tf_invoke_stmt(ProgramPoint pt) {
+    public LatticeElement tf_invoke_stmt(ProgramPoint pt, int edgeIndex) {
         Stmt st = pt.stmt;
 
         InvokeExpr invokeCall = st.getInvokeExpr();
+
+        if (edgeIndex != pt.callingEdge) return tf_identity_fn();
+
+        // only process the static invokes.
+        if (!(invokeCall instanceof StaticInvokeExpr)) return tf_identity_fn();
+
         String callStringToAppend = Helper.getCallString(pt);
 
         List<Value> args = invokeCall.getArgs();
@@ -174,17 +204,30 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
             newState.put(newCallString, newValue);
 
+            System.out.println("here");
+            System.out.println(args);
             // add the param values.
             ArrayList<HashSet<String>> paramList = new ArrayList<>();
             for (Value v : args) {
-                if (!(v instanceof RefType)) {
+                if (!(v.getType() instanceof RefType)) {
                     paramList.add(new HashSet<>());
                 } else {
                     String argName = Helper.getSimplifiedVarName(v);
+                    System.out.println(argName);
                     paramList.add(entry.getValue().getFactOf(argName));
                 }
             }
-            newParams.put(cloneX(newCallString), paramList);
+            if(newParams.containsKey(newCallString)) {
+                ArrayList<HashSet<String>> cur = newParams.get(newCallString);
+                for(int i = 0;  i < cur.size(); i ++) {
+                    HashSet<String> x = cur.get(i);
+                    x.addAll(paramList.get(i));
+                    cur.set(i, x);
+                }
+                newParams.put(cloneX(newCallString), cur);
+            } else {
+                newParams.put(cloneX(newCallString), paramList);
+            }
         }
 
 
@@ -193,7 +236,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
     public LatticeElement tf_ret_void_stmt(ProgramPoint pt, int edgeIndex) {
         Stmt st = pt.stmt;
-        ReturnVoidStmt retStmt = (ReturnVoidStmt) st;
+//        ReturnVoidStmt retStmt = (ReturnVoidStmt) st;
 
         HashMap<LinkedList<String>, PointsToLatticeElement> newState = new HashMap<>();
         HashMap<LinkedList<String>, ArrayList<HashSet<String>>> newParams = new HashMap<>(); // send the empty params.
@@ -205,44 +248,54 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
             LinkedList<String> newKey = cloneX(entry.getKey());
 
-            if(newKey.isEmpty()) {
+            if (newKey.isEmpty()) {
                 // return on empty callstring is not possible.
                 continue; // don't add anything to the new state.
             }
 
-            if(!newKey.getLast().equals(callEdge)) {
+            if (!newKey.getLast().equals(callEdge)) {
                 // the ret edge does not match the callEdge.
                 continue; // don't add anything to the new state.
             }
 
+
             // get the possible pre callEdge of the first callEdge.
-            ProgramPoint retProgramPoint = Helper.pointFromCallString(callEdge);
+//            ProgramPoint retProgramPoint = Helper.pointFromCallString(callEdge);
 
-            InterProcPointsToLatticeElement wholePrevState = retProgramPoint.state;
-                                                                                           // first method that is called.
-            ArrayList<String> possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.get(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")));
+//            InterProcPointsToLatticeElement wholePrevState = (InterProcPointsToLatticeElement) retProgramPoint.state;
+            // first method that is called.
 
-            if (possiblePrevCallEdge.isEmpty())  {
+            newKey.removeLast();
+
+            ArrayList<String> possiblePrevCallEdge;
+
+            if (newKey.isEmpty()) {
+                possiblePrevCallEdge = new ArrayList<>();
+            } else {
+                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new ArrayList<>());
+            }
+
+            if (possiblePrevCallEdge.isEmpty()) {
                 LinkedList<String> newCallString = cloneX(newKey);
 
                 // get the state before call.
-                PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
+//                PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
                 // JOIN the prev state with the global vars of the current state.
-                PointsToLatticeElement newVal = prevState.join_op(entry.getValue().removeLocalVar());
+                PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
                 newState.put(newCallString, newVal);
             } else {
-                for(String preCallEdge : possiblePrevCallEdge) {
+                for (String preCallEdge : possiblePrevCallEdge) {
                     LinkedList<String> newCallString = cloneX(newKey);
 
                     newCallString.addFirst(preCallEdge);
 
                     // get the state before call.
-                    PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
+//                    PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
                     // JOIN the prev state with the global vars of the current state.
-                    PointsToLatticeElement newVal = prevState.join_op(entry.getValue().removeLocalVar());
+                    PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
                     newState.put(newCallString, newVal);
                 }
@@ -260,7 +313,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         Stmt st = pt.stmt;
         ReturnStmt retStmt = (ReturnStmt) st;
 
-        if(!(retStmt.getOp().getType() instanceof RefType)) return tf_ret_void_stmt(pt, edgeIndex);
+        if (!(retStmt.getOp().getType() instanceof RefType)) return tf_ret_void_stmt(pt, edgeIndex);
 
         // r0
         String retVal = Helper.getSimplifiedVarName(retStmt.getOp());
@@ -275,12 +328,12 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
             LinkedList<String> newKey = cloneX(entry.getKey());
 
-            if(newKey.isEmpty()) {
+            if (newKey.isEmpty()) {
                 // return on empty callstring is not possible.
                 continue; // don't add anything to the new state.
             }
 
-            if(!newKey.getLast().equals(callEdge)) {
+            if (!newKey.getLast().equals(callEdge)) {
                 // the ret edge does not match the callEdge.
                 continue; // don't add anything to the new state.
             }
@@ -288,41 +341,49 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             // get the calling program point.
             ProgramPoint retProgramPoint = Helper.pointFromCallString(callEdge);
             // TODO: think about whether this is true or not.
-            InterProcPointsToLatticeElement wholePrevState = retProgramPoint.state;
+//            InterProcPointsToLatticeElement wholePrevState = (InterProcPointsToLatticeElement) retProgramPoint.state;
 
             // TODO: Assuming only assignment statement can contain the call.
             // Assuming call is always the type of r1 = foo();
             // Or, Assuming call is always the type of r1.f = foo();
-            AssignStmt callStmt =  (AssignStmt) retProgramPoint.stmt;
-            String rhsStr = Helper.getSimplifiedVarName(callStmt.getRightOp()); //r1
+            AssignStmt callStmt = (AssignStmt) retProgramPoint.stmt;
+            String lhsStr = Helper.getSimplifiedVarName(callStmt.getLeftOp()); //r1
 
-            ArrayList<String> possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.get(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")));
+            newKey.removeLast();
 
-            if (possiblePrevCallEdge.isEmpty())  {
+            ArrayList<String> possiblePrevCallEdge;
+
+            if (newKey.isEmpty()) {
+                possiblePrevCallEdge = new ArrayList<>();
+            } else {
+                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new ArrayList<>());
+            }
+
+            if (possiblePrevCallEdge.isEmpty()) {
                 LinkedList<String> newCallString = cloneX(newKey);
 
                 // get the state before call.
-                PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
+//                PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
                 // JOIN the prev state with the global vars of the current state.
-                PointsToLatticeElement newVal = prevState.join_op(entry.getValue().removeLocalVar());
+                PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                newVal = newVal.assign(rhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
 
                 newState.put(newCallString, newVal);
             } else {
-                for(String preCallEdge : possiblePrevCallEdge) {
+                for (String preCallEdge : possiblePrevCallEdge) {
                     LinkedList<String> newCallString = cloneX(newKey);
 
                     newCallString.addFirst(preCallEdge);
 
                     // get the state before call.
-                    PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
+//                    PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
                     // JOIN the prev state with the global vars of the current state.
-                    PointsToLatticeElement newVal = prevState.join_op(entry.getValue().removeLocalVar());
+                    PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                    newVal = newVal.assign(rhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                    newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
 
                     newState.put(newCallString, newVal);
                 }
@@ -335,10 +396,17 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     @Override
     public LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex) {
         Stmt stmt = pt.stmt;
+
+        System.out.println("State:");
+        System.out.println(this.state);
+        System.out.println("Param:");
+        System.out.println(this.parameters);
+        System.out.println("Statement:");
+        System.out.println(stmt);
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
-                setResult(tf_assign_stmt(pt));
+                setResult(tf_assign_stmt(pt, edgeIndex));
             }
 
             @Override
@@ -348,7 +416,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
             @Override
             public void caseInvokeStmt(InvokeStmt stmt) {
-                setResult(tf_invoke_stmt(pt));
+                setResult(tf_invoke_stmt(pt, edgeIndex));
             }
 
             @Override
@@ -365,6 +433,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             public void caseIdentityStmt(IdentityStmt stmt) {
                 setResult(tf_identity_stmt(pt));
             }
+
             @Override
             public void defaultCase(Object obj) {
                 // for any other type of statement apply the identity function.
@@ -372,6 +441,13 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             }
         };
         stmt.apply(stmtSwitch);
+
+        System.out.println("New State:");
+        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).state);
+        System.out.println("New Param:");
+        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).parameters);
+
+        System.out.println("===========================================================================================");
         return stmtSwitch.getResult();
     }
 
@@ -411,5 +487,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             newState.put(cloneX(entry.getKey()), cloneX(entry.getValue()));
         }
         return newState;
+    }
+
+
+    @Override
+    public String toString() {
+        return this.state.toString() + "\n" + this.parameters.toString();
     }
 }

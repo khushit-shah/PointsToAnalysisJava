@@ -79,6 +79,11 @@ public class PointsToLatticeElement implements LatticeElement {
         return state.equals(((PointsToLatticeElement) r).state);
     }
 
+    public boolean equals(Object o) {
+        if (!(o instanceof PointsToLatticeElement)) return false;
+        return state.equals(((PointsToLatticeElement) o).state);
+    }
+
     /**
      * Returns new LatticeElement with the same internal states.
      *
@@ -92,11 +97,12 @@ public class PointsToLatticeElement implements LatticeElement {
     /**
      * Applies the assignment statement to "this"
      *
-     * @param pt the Assignment statement to apply.
+     * @param pt        the Assignment statement to apply.
+     * @param edgeIndex
      * @return new LatticeElement with internal state modified respectively.
      */
     @Override
-    public LatticeElement tf_assign_stmt(ProgramPoint pt) {
+    public LatticeElement tf_assign_stmt(ProgramPoint pt, int edgeIndex) {
         Stmt st = pt.stmt;
         AssignStmt assignStmt = (AssignStmt) st;
 
@@ -350,7 +356,7 @@ public class PointsToLatticeElement implements LatticeElement {
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
-                setResult(tf_assign_stmt(pt));
+                setResult(tf_assign_stmt(pt, edgeIndex));
             }
 
             @Override

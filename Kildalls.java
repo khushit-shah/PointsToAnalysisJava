@@ -15,19 +15,19 @@ public class Kildalls {
         // set of marked points.
         HashSet<Integer> marked = new HashSet<>();
 
-        ArrayList<LatticeElement> states = new ArrayList<>(points.size());
-
         // variable to store result of each iteration.
         ArrayList<ArrayList<LatticeElement>> returnValue = new ArrayList<>();
+
+        ArrayList<LatticeElement> states = new ArrayList<>();
 
         // set all states to bot, mark all points.
         for (int i = 0; i < points.size(); i++) {
             marked.add(i);
-            states.add(i, bot);
+            points.get(i).state = bot;
         }
 
         // set initial point to d0
-        states.set(0, d0);
+        points.get(0).state = d0;
 
         while (!marked.isEmpty()) {
             Integer curPoint = marked.iterator().next();
@@ -35,12 +35,16 @@ public class Kildalls {
             // unmark the current point.
             marked.remove(curPoint);
 
-            LatticeElement curState = states.get(curPoint);
+            LatticeElement curState = points.get(curPoint).state;
             for (int i = 0; i < points.get(curPoint).successors.size(); i++) {
                 //  transfer the curState through the statement and get the new state.
                 LatticeElement nextNewState = curState.transfer(points.get(curPoint), points.get(curPoint).stmt.branches(), i != 0, i);
                 // propagate the new state to the successor.
-                propagate(states, points.get(curPoint).successors.get(i), nextNewState, marked);
+                propagate(points, points.get(curPoint).successors.get(i), nextNewState, marked);
+            }
+            states.clear();
+            for (ProgramPoint point : points) {
+                states.add(point.state);
             }
 
             returnValue.add(new ArrayList<>(states)); // this is okay because we are not changing LatticeElement anywhere.
@@ -57,14 +61,14 @@ public class Kildalls {
      * @param statePropagated the new state to propagte.
      * @param marked          the  Set of marked points, which will be updated.
      */
-    private static void propagate(ArrayList<LatticeElement> states, int to, LatticeElement statePropagated, HashSet<Integer> marked) {
-        LatticeElement nextCurState = states.get(to); // current state at `to` point.
+    private static void propagate(ArrayList<ProgramPoint> points, int to, LatticeElement statePropagated, HashSet<Integer> marked) {
+        LatticeElement nextCurState = points.get(to).state; // current state at `to` point.
 
         LatticeElement joined = statePropagated.join_op(nextCurState); // join curState and stateToPropagate.
 
         if (!joined.equals(nextCurState)) { // if the nextCurState <= joined
             // update and mark.
-            states.set(to, joined); // set the new state.
+            points.get(to).state = joined; // set the new state.
             marked.add(to); // mark the point.
         }
     }

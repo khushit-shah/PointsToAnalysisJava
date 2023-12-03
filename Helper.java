@@ -1,4 +1,5 @@
 import soot.Local;
+import soot.SootMethod;
 import soot.Value;
 import soot.jimple.CastExpr;
 import soot.jimple.InstanceFieldRef;
@@ -30,5 +31,14 @@ public class Helper {
         int indexInMethod = Integer.parseInt(callString.substring(callString.lastIndexOf(".in") + 3));
         int methodStart = AnalysisInfo.methodStart.get(methodStr);
         return AnalysisInfo.points.get(methodStart + indexInMethod);
+    }
+
+    public static class Point {
+        public int index;
+        public SootMethod method;
+        public Point(int i, SootMethod invokedMethod) {
+            index = i;
+            method = invokedMethod;
+        }
     }
 }
