@@ -99,17 +99,34 @@ public class Analysis extends PAVBase {
 
                 int methodStartIndex = AnalysisInfo.methodStart.get(calledMethod.getName());
 
-//                AnalysisInfo.points.get(callingStatementIndex).successors.clear();
+                // We only want to add sudo edges if the successor is reachable from the called method..
+                // i.e. we can get to the successor with the return of the called method.
+                // run a bfs from the start of the calledMethod, check if the successor is reachable or not.
+
+                // so first remove the successors.
+                AnalysisInfo.points.get(callingStatementIndex).successors.clear();
+
+
                 AnalysisInfo.points.get(callingStatementIndex).successors.add(methodStartIndex);
                 AnalysisInfo.points.get(callingStatementIndex).callingEdge = AnalysisInfo.points.get(callingStatementIndex).successors.size() - 1;
 
                 ArrayList<Integer> methodEnds = AnalysisInfo.methodEnd.getOrDefault(calledMethod.getName(), new ArrayList<>());
 
+                // add the return edges.
                 for (Integer end : methodEnds) {
                     for (Integer succs : curSuccessors) {
                         AnalysisInfo.points.get(end).successors.add(succs);
                     }
                 }
+
+                // check  if we can reach the successor.
+                for (int succ : curSuccessors) {
+                    if (isSuccReachable(methodStartIndex, succ, AnalysisInfo.points)) {
+                        // add the sudo edge.
+                        AnalysisInfo.points.get(callingStatementIndex).successors.add(succ);
+                    }
+                }
+
                 for (Integer succs : curSuccessors) {
                     AnalysisInfo.points.get(succs).callEdge = AnalysisInfo.points.get(succs).method.getName() + ".in" + String.format("%02d", callingStatementIndex - AnalysisInfo.methodStart.get(AnalysisInfo.points.get(callingStatementIndex).method.getName()));
                 }
@@ -138,6 +155,28 @@ public class Analysis extends PAVBase {
         } else {
             System.out.println("Method not found: " + tMethod);
         }
+    }
+
+    private static boolean isSuccReachable(int methodStartIndex, int succ, ArrayList<ProgramPoint> points) {
+
+        HashSet<Integer> visited = new HashSet<>();
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(methodStartIndex);
+
+        while (!queue.isEmpty()) {
+            int cur = queue.remove();
+
+            if (visited.contains(cur)) continue;
+
+            visited.add(cur);
+
+            if (cur == succ) return true;
+
+            queue.addAll(points.get(cur).successors);
+        }
+
+        return visited.contains(succ);
     }
 
 
