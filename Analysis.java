@@ -26,9 +26,7 @@ import java.util.stream.Collectors;
 
 public class Analysis extends PAVBase {
 
-
     public Analysis() {
-
     }
 
     public static void main(String[] args) {
@@ -81,72 +79,67 @@ public class Analysis extends PAVBase {
         if (methodFound) {
             printInfo(targetMethod);
 
+            UnitPatchingChain units = targetMethod.getActiveBody().getUnits();
+
             // for each Unit, represent it with ProgramPoint.
+            ArrayList<ProgramPoint> points = new ArrayList<>();
 
+            // Update each assignment statement containing new expr or InvokeExpr, then change it to newXX.
+            int index = 0;
+            for (Unit u : units) {
+                Stmt cur = (Stmt) u;
 
-            ArrayList<Helper.Point> pendingMethodSuccessors = new ArrayList<>();
+                int finalIndex = index;
+                cur.apply(new AbstractStmtSwitch() {
+                    @Override
+                    public void caseAssignStmt(AssignStmt stmt) {
+                        Value rightOp = stmt.getRightOp();
+                        // x = fun().
+                        // fun() returns a object.
+                        if (rightOp instanceof InvokeExpr) {
+                            if (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType) {
+                                stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), ((InvokeExpr) rightOp).getMethod().getReturnType()));
+                            }
+                        } else if (rightOp instanceof NewExpr) { // x = new ...
+                            stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex), ((NewExpr) rightOp).getBaseType()));
+                        }
+                    }
+                });
 
-            Queue<SootMethod> queue = new LinkedList<>();
-            queue.add(targetMethod);
-
-
-            while (!queue.isEmpty()) {
-                SootMethod curMethod = queue.remove();
-                AnalysisInfo.processedMethods.add(curMethod);
-                preprocessMethod(AnalysisInfo.points, curMethod, queue, AnalysisInfo.processedMethods, pendingMethodSuccessors, AnalysisInfo.methodStart, AnalysisInfo.methodEnd);
+                // add the updated statement to program point.
+                points.add(new ProgramPoint(cur));
+                index++;
             }
 
-            for (int i = 0; i < pendingMethodSuccessors.size(); i++) {
-                ArrayList<Integer> curSuccessors = new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors);
+            // Build CFG to find successors.
+            BriefUnitGraph cfg = new BriefUnitGraph(targetMethod.getActiveBody());
 
-                int callingStatementIndex = pendingMethodSuccessors.get(i).index;
-                SootMethod calledMethod = pendingMethodSuccessors.get(i).method;
-
-                int methodStartIndex = AnalysisInfo.methodStart.get(calledMethod);
-
-                AnalysisInfo.points.get(callingStatementIndex).successors.clear();
-                AnalysisInfo.points.get(callingStatementIndex).successors.add(methodStartIndex);
-
-                ArrayList<Integer> methodEnds = AnalysisInfo.methodEnd.getOrDefault(calledMethod, new ArrayList<>());
-
-                for (Integer end : methodEnds) {
-                    for (Integer succs : curSuccessors) {
-                        AnalysisInfo.points.get(end).successors.add(succs);
+            // for each statement, find the successors, and add the successor info to corresponding ProgramPoint info.
+            for (int i = 0; i < points.size(); i++) {
+                List<Unit> successors = cfg.getSuccsOf(points.get(i).stmt);
+                for (Unit successor : successors) {
+                    int j = points.stream().map((ProgramPoint p) -> p.stmt).collect(Collectors.toList()).indexOf((Stmt) successor);
+                    if (j != -1) {
+                        points.get(i).successors.add(j);
                     }
                 }
-                for (Integer succs : curSuccessors) {
-                    AnalysisInfo.points.get(succs).correctEndCallString = AnalysisInfo.points.get(succs).method + ".in" + String.format("%02d", callingStatementIndex);
-                }
-                ArrayList<String> curPrefixes = AnalysisInfo.possiblePrefixes.getOrDefault(calledMethod.toString(), new ArrayList<>());
-
-                curPrefixes.add(AnalysisInfo.points.get(callingStatementIndex).method + ".in" + String.format("%02d", callingStatementIndex));
-
-                AnalysisInfo.possiblePrefixes.put(calledMethod.toString(), curPrefixes);
             }
 
-            drawIntraProceduralUnAnalyzedCFG(AnalysisInfo.points, targetDirectory + File.separator + tClass + "." + tMethod + ".intra.debug");
-
-            // Run the Kildall's
-
-            ApproximateCallStringLatticeElement d0 = new ApproximateCallStringLatticeElement();
-            d0.state.put(new ArrayDeque<>(), new PointsToLatticeElement());
-
-            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(AnalysisInfo.points, d0, new ApproximateCallStringLatticeElement());
-
+            // Run the Kildall's/
+            ArrayList<ArrayList<LatticeElement>> output = Kildalls.run(points, new PointsToLatticeElement(), new PointsToLatticeElement());
 
             // Write the output files.
-//            writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
-//            writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
-//
-//
-//            // Draw the CFG with states information to .dot file.
-//            // Stmt and ProgramPoint have one to one mapping.
+            writeFinalOutput(output.get(output.size() - 1), targetDirectory, tClass + "." + tMethod);
+            writeFullOutput(output, targetDirectory, tClass + "." + tMethod);
+
+
+            // Draw the CFG with states information to .dot file.
             Map<Unit, LatticeElement> mp = new HashMap<>();
-            for (int i = 0; i < AnalysisInfo.points.size(); i++) {
-                ProgramPoint p = AnalysisInfo.points.get(i);
+            for (int i = 0; i < points.size(); i++) {
+                ProgramPoint p = points.get(i);
                 mp.put(p.stmt, output.get(output.size() - 1).get(i));
             }
-            drawMethodDependenceGraph(targetMethod, AnalysisInfo.points, mp, targetDirectory + File.separator + tClass + "." + tMethod);
+            drawMethodDependenceGraph(targetMethod, mp, targetDirectory + File.separator + tClass + "." + tMethod);
         } else {
             System.out.println("Method not found: " + tMethod);
         }
@@ -171,6 +164,8 @@ public class Analysis extends PAVBase {
             Set<ResultTuple> data = new HashSet<>();
             for (int j = 0; j < iteration.size(); j++) {
                 PointsToLatticeElement e_ = (PointsToLatticeElement) iteration.get(j);
+                if (i != 0 && e_.equals(output.get(i - 1).get(j)))
+                    continue; // only output the states that changed from previous iterations.
                 for (Map.Entry<String, HashSet<String>> entry : e_.state.entrySet()) {
                     if (entry.getValue().isEmpty()) continue;
                     ResultTuple tuple = new ResultTuple(tMethod, "in" + String.format("%02d", j), entry.getKey(), new ArrayList<>(entry.getValue()));
@@ -239,24 +234,19 @@ public class Analysis extends PAVBase {
     }
 
 
-    private static void drawMethodDependenceGraph(SootMethod entryMethod, ArrayList<ProgramPoint> points, Map<Unit, LatticeElement> labels, String filename) {
+    private static void drawMethodDependenceGraph(SootMethod entryMethod, Map<Unit, LatticeElement> labels, String filename) {
         if (!entryMethod.isPhantom() && entryMethod.isConcrete()) {
             Body body = entryMethod.retrieveActiveBody();
 
             ExceptionalUnitGraph graph = new ExceptionalUnitGraph(body);
 
             DotGraph d = new DotGraph(filename);
-            for (int i = 0; i < points.size(); i++) {
-                Unit unit = points.get(i).stmt;
-                d.drawNode(labels.get(unit) + "\n" + unit.toString() + " hash: " + unit.hashCode());
-            }
-            for (int i = 0; i < points.size(); i++) {
-                Unit unit = points.get(i).stmt;
-                List<Integer> successors = points.get(i).successors;
-                for (Integer succIndex : successors) {
-                    Unit succ = points.get(succIndex).stmt;
-//                    d.drawNode(labels.get(unit) + "\n" + unit.toString() + " hash: " + unit.hashCode());
-//                    d.drawNode(labels.get(succ) + "\n" + succ.toString() + " hash: " + succ.hashCode());
+
+            for (Unit unit : graph) {
+                List<Unit> successors = graph.getSuccsOf(unit);
+                for (Unit succ : successors) {
+                    d.drawNode(labels.get(unit) + "\n" + unit.toString() + " hash: " + unit.hashCode());
+                    d.drawNode(labels.get(succ) + "\n" + succ.toString() + " hash: " + succ.hashCode());
                     d.drawEdge(labels.get(unit) + "\n" + unit + " hash: " + unit.hashCode(), labels.get(succ) + "\n" + succ + " hash: " + succ.hashCode());
                 }
             }
@@ -320,103 +310,6 @@ public class Analysis extends PAVBase {
 
     protected static String[] fmtOutputData(Set<ResultTuple> data) {
         return fmtOutputData(data, "");
-    }
-
-
-    private static void preprocessMethod(ArrayList<ProgramPoint> points, SootMethod method, Queue<SootMethod> methodsToPreprocess, ArrayList<SootMethod> processedMethods, ArrayList<Helper.Point> pendingMethodSuccessors, HashMap<SootMethod, Integer> methodStart, HashMap<SootMethod, ArrayList<Integer>> methodEnd) {
-        System.out.println("pre processing " + method);
-        int prevPointSize = points.size();
-
-        UnitPatchingChain units = method.retrieveActiveBody().getUnits();
-
-        // Update each assignment statement containing new expr or InvokeExpr, then change it to newXX.
-        int index = 0;
-        for (Unit u : units) {
-            Stmt cur = (Stmt) u;
-
-            // initialize the current program point.
-            ProgramPoint curPoint = new ProgramPoint(cur);
-            curPoint.indexInPoints = prevPointSize + index;
-            curPoint.method = method;
-
-            if (index == 0) {
-                methodStart.put(method, prevPointSize);
-            }
-            int finalIndex = index;
-            cur.apply(new AbstractStmtSwitch() {
-                @Override
-                public void caseAssignStmt(AssignStmt stmt) {
-                    Value rightOp = stmt.getRightOp();
-                    if (rightOp instanceof InvokeExpr) {
-                        SootMethod invokedMethod = ((InvokeExpr) rightOp).getMethod();
-                        // if the method of InvokeExpr not in methodsToPreProcess add it.
-                        if (!methodsToPreprocess.contains(invokedMethod) && !processedMethods.contains(invokedMethod)) {
-                            methodsToPreprocess.add(invokedMethod);
-                        }
-                        // add the index of this statement
-                        pendingMethodSuccessors.add(new Helper.Point(prevPointSize + finalIndex, invokedMethod));
-                    }
-                    if (rightOp instanceof NewExpr) { // x = new ...
-                        stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex) + "_" + method, ((NewExpr) rightOp).getBaseType()));
-                    }
-                }
-
-                @Override
-                public void caseInvokeStmt(InvokeStmt stmt) {
-                    if (stmt.getInvokeExpr() instanceof SpecialInvokeExpr) return;
-                    SootMethod invokedMethod = stmt.getInvokeExpr().getMethod();
-                    // if the method of InvokeExpr not in methodsToPreProcess add it.
-                    if (!methodsToPreprocess.contains(invokedMethod) && !processedMethods.contains(invokedMethod)) {
-                        methodsToPreprocess.add(invokedMethod);
-                    }
-                    // add the index of this statement
-                    pendingMethodSuccessors.add(new Helper.Point(prevPointSize + finalIndex, invokedMethod));
-                }
-            });
-
-            // add the updated statement to program point.
-            points.add(curPoint);
-            index++;
-        }
-
-        // Build CFG to find successors.
-        BriefUnitGraph cfg = new BriefUnitGraph(method.getActiveBody());
-
-        // for each statement, find the successors, and add the successor info to corresponding ProgramPoint info.
-        for (int i = prevPointSize; i < points.size(); i++) {
-            List<Unit> successors = cfg.getSuccsOf(points.get(i).stmt);
-            if (successors.isEmpty()) {
-                ArrayList<Integer> curEnds = methodEnd.getOrDefault(method, new ArrayList<>());
-                curEnds.add(i);
-                methodEnd.put(method, curEnds);
-            }
-            for (Unit successor : successors) {
-                int j = points.stream().map((ProgramPoint p) -> p.stmt).collect(Collectors.toList()).indexOf((Stmt) successor);
-                if (j != -1) {
-                    points.get(i).successors.add(j);
-                }
-            }
-        }
-    }
-
-
-    private static void drawIntraProceduralUnAnalyzedCFG(ArrayList<ProgramPoint> points, String filename) {
-
-        DotGraph d = new DotGraph(filename);
-
-        for (int i = 0; i < points.size(); i++) {
-            Unit unit = points.get(i).stmt;
-            d.drawNode(unit.toString() + " hash: " + unit.hashCode());
-        }
-        for (int i = 0; i < points.size(); i++) {
-            List<Integer> successors = points.get(i).successors;
-            Unit unit = points.get(i).stmt;
-            for (Integer succIndex : successors) {
-                Unit succ = points.get(succIndex).stmt;
-                d.drawEdge(unit + " hash: " + unit.hashCode(), succ + " hash: " + succ.hashCode());
-            }
-        }
-        d.plot(filename + ".dot");
     }
 }
 

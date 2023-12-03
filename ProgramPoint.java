@@ -1,9 +1,8 @@
+import jdk.nashorn.internal.ir.FunctionNode;
 import soot.SootMethod;
 import soot.jimple.Stmt;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Represents a program point.
@@ -13,13 +12,10 @@ public class ProgramPoint {
 
     // second successor is always true branch in case of if statements.
     public ArrayList<Integer> successors;
-    public String correctEndCallString = "";
-    // method in which the point resides.
+    public InterProcPointsToLatticeElement state;
+    public String callEdge;
     public SootMethod method;
-    int indexInPoints;
-    HashMap<ArrayDeque<String>, PointsToLatticeElement> callStringStates = new HashMap<>(); // used by the @parameter statements.
-    HashMap<ArrayDeque<String>, ArrayList<String>> callStringArgList = new HashMap<>();
-    ApproximateCallStringLatticeElement element;
+    public int indexInPoints;
 
     ProgramPoint(Stmt stmt) {
         this.stmt = stmt;

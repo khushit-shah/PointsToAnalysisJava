@@ -1,14 +1,17 @@
+import soot.Local;
+import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 public class PointsToLatticeElement implements LatticeElement {
     // NOTE: In alot of places, we are using the function clone(),
     // it is extremely important to deep clone the current internal state and then create the new LatticeElement with the cloned internal state.
     // as otherwise, if the created LatticeElement is updated the internal state of this will also change.
-
-
     // the internal state, maps var or newXX.field to set of var union newXX.
     HashMap<String, HashSet<String>> state;
 
@@ -25,7 +28,6 @@ public class PointsToLatticeElement implements LatticeElement {
         nullOnlySet.add("null");
     }
 
-    // used for debugging.
     public String toString() {
         StringBuilder ret = new StringBuilder("{");
         for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
@@ -44,18 +46,20 @@ public class PointsToLatticeElement implements LatticeElement {
     @Override
     public PointsToLatticeElement join_op(LatticeElement r) {
         PointsToLatticeElement other = (PointsToLatticeElement) r;
+        HashMap<String, HashSet<String>> new_state = new HashMap<>();
 
         // adds all entries in this to the new state.
-        HashMap<String, HashSet<String>> new_state = new HashMap<>(clone(this.state));
+        for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
+            HashSet<String> base = clone(entry.getValue());
+            base.addAll(other.state.getOrDefault(entry.getKey(), new HashSet<>()));
 
+            new_state.put(entry.getKey(), base);
+        }
 
         // adds all entries in r to the new state.
         for (Map.Entry<String, HashSet<String>> entry : other.state.entrySet()) {
             HashSet<String> base = clone(entry.getValue());
-
-            // in the base add all the values in new_state that are already present.
-            // union.
-            base.addAll(clone(new_state.getOrDefault(entry.getKey(), new HashSet<>())));
+            base.addAll(state.getOrDefault(entry.getKey(), new HashSet<>()));
 
             new_state.put(entry.getKey(), base);
         }
@@ -73,12 +77,6 @@ public class PointsToLatticeElement implements LatticeElement {
     @Override
     public boolean equals(LatticeElement r) {
         return state.equals(((PointsToLatticeElement) r).state);
-    }
-
-    public boolean equals(Object o)
-    {
-        if(!(o instanceof PointsToLatticeElement)) return false;
-        return equals((PointsToLatticeElement) o);
     }
 
     /**
@@ -100,7 +98,6 @@ public class PointsToLatticeElement implements LatticeElement {
     @Override
     public LatticeElement tf_assign_stmt(ProgramPoint pt) {
         Stmt st = pt.stmt;
-
         AssignStmt assignStmt = (AssignStmt) st;
 
         Value lhs = assignStmt.getLeftOp();
@@ -108,15 +105,15 @@ public class PointsToLatticeElement implements LatticeElement {
 
 
         // if lhs or rhs is not a valid type of value. return identity fn.
-        if (!Helper.is_val_valid(lhs) || !Helper.is_val_valid(rhs)) {
+        if (!is_val_valid(lhs) || !is_val_valid(rhs)) {
             return tf_identity_fn();
         }
 
         // Get the simplified name of lhs and rhs.
         // from a or a.<class: type f>
         // to a or a.f
-        String lhsStr = Helper.getSimplifiedVarName(lhs, pt.method);
-        String rhsStr = Helper.getSimplifiedVarName(rhs, pt.method);
+        String lhsStr = Helper.getSimplifiedVarName(lhs);
+        String rhsStr = Helper.getSimplifiedVarName(rhs);
 
         /*
          *  Following cases can occur.
@@ -220,7 +217,6 @@ public class PointsToLatticeElement implements LatticeElement {
     @Override
     public LatticeElement tf_if_stmt(ProgramPoint pt, boolean taken) {
         Stmt st = pt.stmt;
-
         IfStmt ifStmt = (IfStmt) st;
 
         // get the condition statement.
@@ -232,16 +228,16 @@ public class PointsToLatticeElement implements LatticeElement {
             Value op2 = ((EqExpr) condition).getOp2();
 
             // check if both the operators are valid.
-            if (!Helper.is_val_valid(op1) || !Helper.is_val_valid(op2)) {
+            if (!is_val_valid(op1) || !is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
             //  NOTE: a.f or b.f can never occur as Jimple is 3 addresss code and if <a> op <b> goto <label>,  a, b, label are addresses
 
             // a
-            String op1Str = Helper.getSimplifiedVarName(op1, pt.method);
+            String op1Str = Helper.getSimplifiedVarName(op1);
             // b
-            String op2Str = Helper.getSimplifiedVarName(op2, pt.method);
+            String op2Str = Helper.getSimplifiedVarName(op2);
 
             return transfer_eq_eq(taken, op1Str, op2Str);
         } else if (condition instanceof NeExpr) { // if it's a != b
@@ -249,12 +245,12 @@ public class PointsToLatticeElement implements LatticeElement {
             Value op1 = ((NeExpr) condition).getOp1();
             Value op2 = ((NeExpr) condition).getOp2();
 
-            if (!Helper.is_val_valid(op1) || !Helper.is_val_valid(op2)) {
+            if (!is_val_valid(op1) || !is_val_valid(op2)) {
                 return tf_identity_fn();
             }
 
-            String op1Str = Helper.getSimplifiedVarName(op1, pt.method);
-            String op2Str = Helper.getSimplifiedVarName(op2, pt.method);
+            String op1Str = Helper.getSimplifiedVarName(op1);
+            String op2Str = Helper.getSimplifiedVarName(op2);
 
             // a != b, taken  === a == b, not taken.
             // a != b, not taken === a == b, taken.
@@ -350,7 +346,7 @@ public class PointsToLatticeElement implements LatticeElement {
      */
     @Override
     public LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex) {
-        Stmt st = pt.stmt;
+        Stmt stmt = pt.stmt;
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
@@ -368,7 +364,7 @@ public class PointsToLatticeElement implements LatticeElement {
                 setResult(tf_identity_fn());
             }
         };
-        st.apply(stmtSwitch);
+        stmt.apply(stmtSwitch);
         return stmtSwitch.getResult();
     }
 
@@ -406,5 +402,79 @@ public class PointsToLatticeElement implements LatticeElement {
         }
 
         return cloned;
+    }
+
+
+    /**
+     * If a value is Local or NullConstant or InstanceFieldRef or CastExpr with castType of RefType, returns true.
+     * else false.
+     * This ensure, all the operand we operate on is ref type.
+     *
+     * @param op
+     * @return
+     */
+    private boolean is_val_valid(Value op) {
+        if (op instanceof Local && op.getType() instanceof RefType) return true;
+        if (op instanceof NullConstant) return true;
+        if (op instanceof InstanceFieldRef) return true;
+        return op instanceof CastExpr && ((CastExpr) op).getCastType() instanceof RefType;
+    }
+
+    public PointsToLatticeElement removeLocalVar() {
+        HashMap<String, HashSet<String>> newState = new HashMap<>();
+
+        for (Map.Entry<String, HashSet<String>> entry : this.state.entrySet()) {
+            HashSet<String> base = clone(entry.getValue());
+
+            if (entry.getKey().startsWith("new")) newState.put(entry.getKey(), base);
+        }
+
+        return new PointsToLatticeElement(newState);
+    }
+
+    public HashSet<String> getFactOf(String argName) {
+        if (argName.equals("null")) return clone(nullOnlySet);
+
+        return clone(this.state.getOrDefault(argName, new HashSet<>()));
+    }
+
+    public PointsToLatticeElement put(String rhsStr, HashSet<String> strings) {
+        HashMap<String, HashSet<String>> newState = clone(this.state);
+        newState.put(rhsStr, clone(strings));
+        return new PointsToLatticeElement(newState);
+    }
+
+    public PointsToLatticeElement assign(String lhsStr, HashSet<String> fact) {
+        if (lhsStr.contains(".")) { // a.f = b|newXX|null
+            String lhsVarStr = lhsStr.split("\\.")[0]; // a
+            String lhsFieldStr = lhsStr.split("\\.")[1]; // f
+
+            // whatever 'a' is pointing to.
+            HashSet<String> varPointsTo = state.getOrDefault(lhsVarStr, new HashSet<>());
+
+            // the new internal state.
+            HashMap<String, HashSet<String>> newState = clone(state);
+
+            for (String p : varPointsTo) {
+                if (p.equals("null")) continue;
+
+                String newLhsStr = p + "." + lhsFieldStr;
+
+                // get current pointsTo set of p.f.
+                HashSet<String> curSet = newState.getOrDefault(newLhsStr, new HashSet<>());
+
+                // union it with RhsPointsTO.
+                curSet.addAll(fact);
+
+                // add it to the newState.
+                newState.put(newLhsStr, curSet);
+            }
+
+            return new PointsToLatticeElement(newState);
+
+        } else { // a == (b|null|newXX)
+            // strong update always.
+            return put(lhsStr, fact);
+        }
     }
 }

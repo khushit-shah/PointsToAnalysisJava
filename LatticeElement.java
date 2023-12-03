@@ -9,6 +9,8 @@
 // LatticeElement and should work on any implementation of
 // LatticElement for any analysis.
 
+import java.util.HashSet;
+
 public interface LatticeElement {
 
     // represents: "this" JOIN "r"
@@ -19,19 +21,19 @@ public interface LatticeElement {
 
     // return true of "r" == "this"
     boolean equals(LatticeElement r);
-    boolean equals(Object o);
 
 
     // return new LatticeElement same as "this", but not the same object.
     LatticeElement tf_identity_fn();
 
     // return new LatticeElement with "this" applied to the given assignment statement.
-    LatticeElement tf_assign_stmt(ProgramPoint st);
+    LatticeElement tf_assign_stmt(ProgramPoint pt);
 
 
     // return new LatticeElement with "this" applied to the given if statement and branch.
-    LatticeElement tf_if_stmt(ProgramPoint st, boolean b);
+    LatticeElement tf_if_stmt(ProgramPoint pt, boolean b);
 
-    LatticeElement transfer(ProgramPoint st, boolean isConditional, boolean conditionTaken, int edgeIndex);
+    LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex);
+
 }
 
