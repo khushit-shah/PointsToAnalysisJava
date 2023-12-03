@@ -1,0 +1,212 @@
+digraph "./target2-mine/MyTest.non_static_function" {
+    "{[]={}}
+{[]=[]}
+non_static_function:r4 := @this: MyTest hash:2129636512";
+    "{[]={}}
+{[]=[]}
+non_static_function:$r0 = new01_non_static_function hash:504973670";
+    "{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r0.<MyTest: void <init>()>() hash:845442767";
+    "{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1 = new03_non_static_function hash:1039948229";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r1.<MyTest: void <init>()>() hash:190920427";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1.<MyTest: MyTest f> = $r0 hash:655068202";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r0 hash:2073830279";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r3 = $r0.<MyTest: MyTest f> hash:1315022947";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r2 = $r1.<MyTest: MyTest f> hash:904927065";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:if $r3 != $r2 goto return hash:803904123";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r1 hash:715160960";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function, new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:return hash:1555985081";
+    "{[]={}}
+{[]=[]}
+non_static_function:r4 := @this: MyTest hash:2129636512"->"{[]={}}
+{[]=[]}
+non_static_function:$r0 = new01_non_static_function hash:504973670";
+    "{[]={}}
+{[]=[]}
+non_static_function:$r0 = new01_non_static_function hash:504973670"->"{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r0.<MyTest: void <init>()>() hash:845442767";
+    "{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r0.<MyTest: void <init>()>() hash:845442767"->"{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1 = new03_non_static_function hash:1039948229";
+    "{[]={$r0=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1 = new03_non_static_function hash:1039948229"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r1.<MyTest: void <init>()>() hash:190920427";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:specialinvoke $r1.<MyTest: void <init>()>() hash:190920427"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1.<MyTest: MyTest f> = $r0 hash:655068202";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r1.<MyTest: MyTest f> = $r0 hash:655068202"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r0 hash:2073830279";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r0 hash:2073830279"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r3 = $r0.<MyTest: MyTest f> hash:1315022947";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r3 = $r0.<MyTest: MyTest f> hash:1315022947"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r2 = $r1.<MyTest: MyTest f> hash:904927065";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r2 = $r1.<MyTest: MyTest f> hash:904927065"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:if $r3 != $r2 goto return hash:803904123";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:if $r3 != $r2 goto return hash:803904123"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r1 hash:715160960";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:if $r3 != $r2 goto return hash:803904123"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function, new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:return hash:1555985081";
+    "{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:$r0.<MyTest: MyTest f> = $r1 hash:715160960"->"{[]={$r0=>[new01_non_static_function]
+$r1=>[new03_non_static_function]
+$r2=>[new01_non_static_function]
+$r3=>[new01_non_static_function]
+new01_non_static_function.f=>[new01_non_static_function, new03_non_static_function]
+new03_non_static_function.f=>[new01_non_static_function]
+}}
+{[]=[]}
+non_static_function:return hash:1555985081";
+}

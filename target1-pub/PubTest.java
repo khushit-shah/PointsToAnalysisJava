@@ -102,5 +102,27 @@ public class PubTest {
         return v1;
 
     }
+
+    static PubTest test6() {
+        PubTest k1 = new PubTest(); // first object
+        PubTest k2 = foo3(k1);
+        PubTest k3 = new PubTest(); // second object
+        PubTest k4 = foo3(k3);
+        PubTest k5 = null;
+        k4=null;
+        // k2 and k4 will point to both objects because the call depth was more than two
+        if (k4 == k4) {
+            k5 = k2;
+            k4=null;
+        }
+        return k5;
+    }
+
+    static PubTest foo3(PubTest k5) { // two contexts (both of length 1) reach here. In the first context, k5 points to first object. In the second context k5 points to second object.
+        // PubTest k7 = bar2(k5);
+        PubTest k7 = new PubTest();
+        // under both both contexts, k7 will point to both objects. (I think so. Abshishek and Devansh: Please confirm).
+        return k7;
+    }
 }
 

@@ -1,0 +1,3 @@
+digraph "./target2-mine/MyTest.get_int.intra.debug" {
+    "return 10 hash: 714734087";
+}

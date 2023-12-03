@@ -1,0 +1,91 @@
+digraph "./target2-mine/MyTest.ipc_check1" {
+    "{[]={}}
+{[]=[]}
+ipc_check1:$r0 = new00_ipc_check1 hash:2059515584";
+    "{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:91286940";
+    "{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:$r0.<MyTest: MyTest f> = null hash:503209425";
+    "{[]={$r0=>[new00_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1 = new03_ipc_check1 hash:1845590352";
+    "{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r1.<MyTest: void <init>()>() hash:1920554683";
+    "{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1.<MyTest: MyTest f> = $r0 hash:595239111";
+    "{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new03_ipc_check1.f=>[new00_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:return hash:725617616";
+    "{[]={}}
+{[]=[]}
+ipc_check1:$r0 = new00_ipc_check1 hash:2059515584"->"{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:91286940";
+    "{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:91286940"->"{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:$r0.<MyTest: MyTest f> = null hash:503209425";
+    "{[]={$r0=>[new00_ipc_check1]
+}}
+{[]=[]}
+ipc_check1:$r0.<MyTest: MyTest f> = null hash:503209425"->"{[]={$r0=>[new00_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1 = new03_ipc_check1 hash:1845590352";
+    "{[]={$r0=>[new00_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1 = new03_ipc_check1 hash:1845590352"->"{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r1.<MyTest: void <init>()>() hash:1920554683";
+    "{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:specialinvoke $r1.<MyTest: void <init>()>() hash:1920554683"->"{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1.<MyTest: MyTest f> = $r0 hash:595239111";
+    "{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:$r1.<MyTest: MyTest f> = $r0 hash:595239111"->"{[]={$r0=>[new00_ipc_check1]
+$r1=>[new03_ipc_check1]
+new03_ipc_check1.f=>[new00_ipc_check1]
+new00_ipc_check1.f=>[null]
+}}
+{[]=[]}
+ipc_check1:return hash:725617616";
+}

@@ -18,11 +18,13 @@ set -e
 #./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun6"
 #
 
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test1"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test2"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test3"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test4"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test5_rec"
+# ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test1"
+# ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test2"
+# ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test3"
+# ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test4"
+# ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test5_rec"
+./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test6"
+
 
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun1"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun2"
@@ -49,7 +51,7 @@ set -e
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "function_returns_object1"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "function_returns_object2"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "function_returns_object3"
-#./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "get_int"
+# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "get_int"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "function_returns_int"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_both_equal"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "conditional_check_multiple_conditionals_with_mixed_assignments"
@@ -59,7 +61,9 @@ set -e
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "condition3b"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "condition3c"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "assign_test_2"
-#./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "non_static_function"
+# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "non_static_function"
+# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "ipc_check1"
+# ./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "ipc_test2"
 
 
 

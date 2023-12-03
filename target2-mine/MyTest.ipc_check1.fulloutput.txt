@@ -1,0 +1,21 @@
+ipc_check1: in01: @ => $r0: {ipc_check1.new00}
+
+ipc_check1: in00: @ => $r0: {ipc_check1.new00}
+
+ipc_check1: in00: @ => $r0: {ipc_check1.new00}
+ipc_check1: in00: @ => ipc_check1.new00.f: {null}
+
+ipc_check1: in00: @ => $r0: {ipc_check1.new00}
+ipc_check1: in00: @ => $r1: {ipc_check1.new03}
+ipc_check1: in00: @ => ipc_check1.new00.f: {null}
+
+ipc_check1: in00: @ => $r0: {ipc_check1.new00}
+ipc_check1: in00: @ => $r1: {ipc_check1.new03}
+ipc_check1: in00: @ => ipc_check1.new00.f: {null}
+
+ipc_check1: in00: @ => $r0: {ipc_check1.new00}
+ipc_check1: in00: @ => $r1: {ipc_check1.new03}
+ipc_check1: in00: @ => ipc_check1.new00.f: {null}
+ipc_check1: in00: @ => ipc_check1.new03.f: {ipc_check1.new00}
+
+

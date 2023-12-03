@@ -334,6 +334,8 @@ public class MyTest {
         else v1.f = null;
     }
 
+
+
     public static void conditional_check_multiple_conditionals_with_mixed_assignments() {
         MyTest v1 = new MyTest();
         MyTest v2 = new MyTest();
@@ -421,6 +423,35 @@ public class MyTest {
         MyTest t2 = new MyTest();
         t1.f = t2.f = t1;
         if (t1.f == t2.f) t1.f = t2;
+    }
+
+    public static void ipc_check1(){
+        MyTest v1= new MyTest();
+        v1.f=null;
+        MyTest v2 = new MyTest();
+        v2.f=v1;
+    }
+    public static MyTest ipc_test2() {
+        MyTest k1 = new MyTest(); // first object
+        MyTest k2 = foo2(k1);
+        MyTest k3 = new MyTest(); // second object
+        MyTest k4 = foo2(k3);
+        MyTest k5 = null;
+        MyTest k6 =null;
+        // k2 and k4 will point to both objects because the call depth was more than two
+        if (k5==k6) {
+            k2=null;
+            k5 = k2;
+
+        }
+        return k5;
+    }
+
+    public static MyTest foo2(MyTest k5) { // two contexts (both of length 1) reach here. In the first context, k5 points to first object. In the second context k5 points to second object.
+        // MyTest k7 = foo2(k5);
+        MyTest k7 =new MyTest();
+        // under both both contexts, k7 will point to both objects. (I think so. Abshishek and Devansh: Please confirm).
+        return k7;
     }
 
 }

@@ -1,0 +1,26 @@
+digraph "./target2-mine/MyTest.non_static_function.intra.debug" {
+    "r4 := @this: MyTest hash: 2129636512";
+    "$r0 = new01_non_static_function hash: 504973670";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 845442767";
+    "$r1 = new03_non_static_function hash: 1039948229";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 190920427";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 655068202";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 2073830279";
+    "$r3 = $r0.<MyTest: MyTest f> hash: 1315022947";
+    "$r2 = $r1.<MyTest: MyTest f> hash: 904927065";
+    "if $r3 != $r2 goto return hash: 803904123";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 715160960";
+    "return hash: 1555985081";
+    "r4 := @this: MyTest hash: 2129636512"->"$r0 = new01_non_static_function hash: 504973670";
+    "$r0 = new01_non_static_function hash: 504973670"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 845442767";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 845442767"->"$r1 = new03_non_static_function hash: 1039948229";
+    "$r1 = new03_non_static_function hash: 1039948229"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 190920427";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 190920427"->"$r1.<MyTest: MyTest f> = $r0 hash: 655068202";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 655068202"->"$r0.<MyTest: MyTest f> = $r0 hash: 2073830279";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 2073830279"->"$r3 = $r0.<MyTest: MyTest f> hash: 1315022947";
+    "$r3 = $r0.<MyTest: MyTest f> hash: 1315022947"->"$r2 = $r1.<MyTest: MyTest f> hash: 904927065";
+    "$r2 = $r1.<MyTest: MyTest f> hash: 904927065"->"if $r3 != $r2 goto return hash: 803904123";
+    "if $r3 != $r2 goto return hash: 803904123"->"$r0.<MyTest: MyTest f> = $r1 hash: 715160960";
+    "if $r3 != $r2 goto return hash: 803904123"->"return hash: 1555985081";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 715160960"->"return hash: 1555985081";
+}

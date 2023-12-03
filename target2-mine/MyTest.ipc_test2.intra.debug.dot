@@ -1,0 +1,33 @@
+digraph "./target2-mine/MyTest.ipc_test2.intra.debug" {
+    "$r0 = new00_ipc_test2 hash: 735344652";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 884858691";
+    "$r1 = staticinvoke <MyTest: MyTest foo2(MyTest)>($r0) hash: 845442767";
+    "$r2 = new03_ipc_test2 hash: 1039948229";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 190920427";
+    "staticinvoke <MyTest: MyTest foo2(MyTest)>($r2) hash: 1234219829";
+    "r3 = null hash: 316863915";
+    "if null != null goto return r3 hash: 715160960";
+    "r3 = $r1 hash: 1555985081";
+    "return r3 hash: 1094627165";
+    "r1 := @parameter0: MyTest hash: 673231721";
+    "$r0 = new01_foo2 hash: 39296394";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 2116089059";
+    "return $r0 hash: 476238509";
+    "$r0 = new00_ipc_test2 hash: 735344652"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 884858691";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 884858691"->"$r1 = staticinvoke <MyTest: MyTest foo2(MyTest)>($r0) hash: 845442767";
+    "$r1 = staticinvoke <MyTest: MyTest foo2(MyTest)>($r0) hash: 845442767"->"$r2 = new03_ipc_test2 hash: 1039948229";
+    "$r1 = staticinvoke <MyTest: MyTest foo2(MyTest)>($r0) hash: 845442767"->"r1 := @parameter0: MyTest hash: 673231721";
+    "$r2 = new03_ipc_test2 hash: 1039948229"->"specialinvoke $r2.<MyTest: void <init>()>() hash: 190920427";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 190920427"->"staticinvoke <MyTest: MyTest foo2(MyTest)>($r2) hash: 1234219829";
+    "staticinvoke <MyTest: MyTest foo2(MyTest)>($r2) hash: 1234219829"->"r3 = null hash: 316863915";
+    "staticinvoke <MyTest: MyTest foo2(MyTest)>($r2) hash: 1234219829"->"r1 := @parameter0: MyTest hash: 673231721";
+    "r3 = null hash: 316863915"->"if null != null goto return r3 hash: 715160960";
+    "if null != null goto return r3 hash: 715160960"->"r3 = $r1 hash: 1555985081";
+    "if null != null goto return r3 hash: 715160960"->"return r3 hash: 1094627165";
+    "r3 = $r1 hash: 1555985081"->"return r3 hash: 1094627165";
+    "r1 := @parameter0: MyTest hash: 673231721"->"$r0 = new01_foo2 hash: 39296394";
+    "$r0 = new01_foo2 hash: 39296394"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 2116089059";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 2116089059"->"return $r0 hash: 476238509";
+    "return $r0 hash: 476238509"->"$r2 = new03_ipc_test2 hash: 1039948229";
+    "return $r0 hash: 476238509"->"r3 = null hash: 316863915";
+}

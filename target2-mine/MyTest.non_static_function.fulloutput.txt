@@ -1,0 +1,54 @@
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => non_static_function.new01.f: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => $r3: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new01.f: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => $r2: {non_static_function.new01}
+non_static_function: in00: @ => $r3: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new01.f: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => $r2: {non_static_function.new01}
+non_static_function: in00: @ => $r3: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new01.f: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+non_static_function: in01: @ => $r0: {non_static_function.new01}
+non_static_function: in01: @ => $r1: {non_static_function.new03}
+non_static_function: in01: @ => $r2: {non_static_function.new01}
+non_static_function: in01: @ => $r3: {non_static_function.new01}
+non_static_function: in01: @ => non_static_function.new01.f: {non_static_function.new01}
+non_static_function: in01: @ => non_static_function.new03.f: {non_static_function.new01}
+
+non_static_function: in00: @ => $r0: {non_static_function.new01}
+non_static_function: in00: @ => $r1: {non_static_function.new03}
+non_static_function: in00: @ => $r2: {non_static_function.new01}
+non_static_function: in00: @ => $r3: {non_static_function.new01}
+non_static_function: in00: @ => non_static_function.new01.f: {non_static_function.new01,non_static_function.new03}
+non_static_function: in00: @ => non_static_function.new03.f: {non_static_function.new01}
+
+

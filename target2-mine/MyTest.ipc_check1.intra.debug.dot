@@ -1,0 +1,15 @@
+digraph "./target2-mine/MyTest.ipc_check1.intra.debug" {
+    "$r0 = new00_ipc_check1 hash: 2059515584";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 91286940";
+    "$r0.<MyTest: MyTest f> = null hash: 503209425";
+    "$r1 = new03_ipc_check1 hash: 1845590352";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 1920554683";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 595239111";
+    "return hash: 725617616";
+    "$r0 = new00_ipc_check1 hash: 2059515584"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 91286940";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 91286940"->"$r0.<MyTest: MyTest f> = null hash: 503209425";
+    "$r0.<MyTest: MyTest f> = null hash: 503209425"->"$r1 = new03_ipc_check1 hash: 1845590352";
+    "$r1 = new03_ipc_check1 hash: 1845590352"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 1920554683";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 1920554683"->"$r1.<MyTest: MyTest f> = $r0 hash: 595239111";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 595239111"->"return hash: 725617616";
+}

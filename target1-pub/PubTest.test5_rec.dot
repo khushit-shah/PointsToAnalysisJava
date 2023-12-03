@@ -1,0 +1,131 @@
+digraph "./target1-pub/PubTest.test5_rec" {
+    "{[test5_rec.in03, test5_rec.in03]={}, []={}, [test5_rec.in03]={}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2 := @parameter0: PubTest hash:1563833544";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r0 := @parameter1: PubTest hash:1852287168";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2.<PubTest: PubTest f> = r0 hash:1943679038";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash:980751669";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1.<PubTest: PubTest f> = r0 hash:1486273013";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:return $r1 hash:1957019376";
+    "{[test5_rec.in03, test5_rec.in03]={}, []={}, [test5_rec.in03]={}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2 := @parameter0: PubTest hash:1563833544"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r0 := @parameter1: PubTest hash:1852287168";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r0 := @parameter1: PubTest hash:1852287168"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2.<PubTest: PubTest f> = r0 hash:1943679038";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2.<PubTest: PubTest f> = r0 hash:1943679038"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash:980751669";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash:980751669"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1.<PubTest: PubTest f> = r0 hash:1486273013";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+r0=>[]
+}, []={}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash:980751669"->"{[test5_rec.in03, test5_rec.in03]={}, []={}, [test5_rec.in03]={}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:r2 := @parameter0: PubTest hash:1563833544";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1.<PubTest: PubTest f> = r0 hash:1486273013"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:return $r1 hash:1957019376";
+    "{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:return $r1 hash:1957019376"->"{[test5_rec.in03, test5_rec.in03]={r2=>[]
+$r1=>[]
+r0=>[]
+}, []={$r1=>[]
+}, [test5_rec.in03]={r2=>[]
+r0=>[]
+}}
+{[test5_rec.in03, test5_rec.in03]=[[], []], []=[], [test5_rec.in03]=[[], []]}
+test5_rec:$r1.<PubTest: PubTest f> = r0 hash:1486273013";
+}
