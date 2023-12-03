@@ -60,8 +60,8 @@ public class PAVBase {
             if (varname.startsWith("new")) {
                 String f = varname.substring(varname.lastIndexOf(".") + 1);
                 String s = varname.substring(0, varname.lastIndexOf("."));
-                String md = s.substring(s.lastIndexOf("_") + 1);
-                String nn = s.substring(0, s.lastIndexOf("_"));
+                String md = s.substring(s.indexOf("_") + 1);
+                String nn = s.substring(0, s.indexOf("_"));
                 varname = md + "." + nn + "." + f;
             }
             this.v = varname;
@@ -69,8 +69,8 @@ public class PAVBase {
             ArrayList<String> pv_ = new ArrayList<>();
             for (String s : pointerValues) {
                 if (s.startsWith("new")) {
-                    String md = s.substring(s.lastIndexOf("_") + 1);
-                    String nn = s.substring(0, s.lastIndexOf("_"));
+                    String md = s.substring(s.indexOf("_") + 1);
+                    String nn = s.substring(0, s.indexOf("_"));
                     pv_.add(md + "." + nn);
                 } else {
                     pv_.add(s);

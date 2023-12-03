@@ -12,10 +12,6 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     HashMap<LinkedList<String>, PointsToLatticeElement> state = new HashMap<>();
     HashMap<LinkedList<String>, ArrayList<HashSet<String>>> parameters = new HashMap<>();
 
-    //  TODO: do we need this?
-//    HashMap<LinkedList<String>, InterProcPointsToLatticeElement> prevState = new HashMap<>();
-//    HashMap<LinkedList<String>, Integer> prevStateNonce = new HashMap<>();
-
     InterProcPointsToLatticeElement() {
 
     }

@@ -83,5 +83,24 @@ public class PubTest {
         // two contexts (both of length 2) reach here.  In the first context, k6 points to first object. In the second context k6 points to second object.
         return k6;
     }
+
+
+    static PubTest test4(PubTest v1, PubTest v2) {
+        v1.f = new PubTest();
+        v2 = v1;
+
+        return v2.f;
+    }
+
+    static PubTest test5_rec(PubTest v1, PubTest v2 ){
+        v1.f = v2;
+
+        v1 = test5_rec(v1, v2);
+
+        v1.f = v2;
+
+        return v1;
+
+    }
 }
 

@@ -21,6 +21,8 @@ set -e
 ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test1"
 ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test2"
 ./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test3"
+./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test4"
+./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test5_rec"
 
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun1"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun2"
