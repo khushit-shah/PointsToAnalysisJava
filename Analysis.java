@@ -18,6 +18,7 @@ import soot.util.dot.DotGraph;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -90,10 +91,11 @@ public class Analysis extends PAVBase {
                 AnalysisInfo.processedMethods.add(curMethod);
                 preprocessMethod(AnalysisInfo.points, curMethod, queue, AnalysisInfo.processedMethods, pendingMethodSuccessors, AnalysisInfo.methodStart, AnalysisInfo.methodEnd);
             }
-
+            ArrayList<ArrayList<Integer>> sudoSuccessors = new ArrayList<>();
             for (int i = 0; i < pendingMethodSuccessors.size(); i++) {
-                ArrayList<Integer> curSuccessors = new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors);
+                sudoSuccessors.add(new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors));
 
+                ArrayList<Integer> curSuccessors = new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors);
                 int callingStatementIndex = pendingMethodSuccessors.get(i).index;
                 SootMethod calledMethod = pendingMethodSuccessors.get(i).method;
 
@@ -119,13 +121,6 @@ public class Analysis extends PAVBase {
                     }
                 }
 
-                // check  if we can reach the successor.
-                for (int succ : curSuccessors) {
-                    if (isSuccReachable(methodStartIndex, succ, AnalysisInfo.points)) {
-                        // add the sudo edge.
-                        AnalysisInfo.points.get(callingStatementIndex).successors.add(succ);
-                    }
-                }
 
                 for (Integer succs : curSuccessors) {
                     AnalysisInfo.points.get(succs).callEdge = AnalysisInfo.points.get(succs).method.getName() + ".in" + String.format("%02d", callingStatementIndex - AnalysisInfo.methodStart.get(AnalysisInfo.points.get(callingStatementIndex).method.getName()));
@@ -135,6 +130,22 @@ public class Analysis extends PAVBase {
                 curPrefixes.add(AnalysisInfo.points.get(callingStatementIndex).method.getName() + ".in" + String.format("%02d", callingStatementIndex));
 
                 AnalysisInfo.possiblePrevCallEdge.put(calledMethod.getName(), curPrefixes);
+            }
+
+            for (int i = 0; i < sudoSuccessors.size(); i++) {
+                ArrayList<Integer> curSuccessors = sudoSuccessors.get(i);
+
+                int callingStatementIndex = pendingMethodSuccessors.get(i).index;
+                SootMethod calledMethod = pendingMethodSuccessors.get(i).method;
+                int methodStartIndex = AnalysisInfo.methodStart.get(calledMethod.getName());
+
+                // check  if we can reach the successor.
+                for (int succ : curSuccessors) {
+                    if (isSuccReachable(methodStartIndex, succ, AnalysisInfo.points)) {
+                        // add the sudo edge.
+                        AnalysisInfo.points.get(callingStatementIndex).successors.add(succ);
+                    }
+                }
             }
 
             drawIntraProceduralUnAnalyzedCFG(AnalysisInfo.points, targetDirectory + File.separator + tClass + "." + tMethod + ".intra.debug");
