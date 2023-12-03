@@ -326,7 +326,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         // Or, Assuming call is always the type of r1.f = foo();
 
         if(!(retProgramPoint.stmt instanceof AssignStmt)) {
-            return  tf_identity_fn();
+            return  tf_ret_void_stmt(pt, edgeIndex);
         }
 
         AssignStmt callStmt = (AssignStmt) retProgramPoint.stmt;
