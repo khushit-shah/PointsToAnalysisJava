@@ -106,23 +106,101 @@ public class PubTest {
     static PubTest test6() {
         PubTest k1 = new PubTest(); // first object
         PubTest k2 = foo3(k1);
-        PubTest k3 = new PubTest(); // second object
-        PubTest k4 = foo3(k3);
-        PubTest k5 = null;
-        k4=null;
+        // PubTest k3 = new PubTest(); // second object
+        PubTest k4 = foo3(k1);
+        PubTest k5 = k1;
         // k2 and k4 will point to both objects because the call depth was more than two
-        if (k4 == k4) {
+        if (k2 != k4) {
             k5 = k2;
             k4=null;
         }
         return k5;
     }
 
+
+
     static PubTest foo3(PubTest k5) { // two contexts (both of length 1) reach here. In the first context, k5 points to first object. In the second context k5 points to second object.
         // PubTest k7 = bar2(k5);
         PubTest k7 = new PubTest();
         // under both both contexts, k7 will point to both objects. (I think so. Abshishek and Devansh: Please confirm).
-        return k7;
+        // return k7;
+        return k5;
     }
+
+    static PubTest test7(){
+        PubTest v2= new PubTest();
+        v2.f=test7_foo2(v2);
+        PubTest v1=new PubTest();
+        v1=v2.f;
+        return v1;
+    }
+    static PubTest test7_foo2(PubTest v2)
+    {
+        return null;
+    }
+
+    static PubTest test8(){
+        PubTest v2= new PubTest();
+        v2.f=test8_foo2(v2);
+        PubTest v1=new PubTest();
+        v1.f=test8_foo1(v1,v2);
+        v1=v2.f;
+        return v1;
+    }
+    static PubTest test8_foo1(PubTest v1,PubTest v2)
+    {
+        v1=null;
+        return null;
+    }
+    static PubTest test8_foo2(PubTest v1)
+    {
+        v1.f=null;
+        return null;
+    }
+
+    static PubTest test9()
+    {
+        PubTest v1= new PubTest();
+        PubTest v2= new PubTest();
+        int a=10;
+        // v1=v2;
+        test9_fun1(v1,v2,a);
+         PubTest v3= new PubTest();
+         v2=null;
+        v3.f=v2;
+        return null;
+    }
+
+    static void test9_fun1(PubTest v1 , PubTest v2,int a )
+    {
+        if(a==10)
+        v1.f=v2.f=null;
+        PubTest v3= new PubTest();
+        v3.f=v3;
+        test9_fun2(v2,v1,v3);
+        
+    }
+
+    static void test9_fun2(PubTest v1, PubTest v2,PubTest v3)
+    {
+        PubTest v4= new PubTest();
+        v4.f=null;
+        test9_fun3();
+    }
+
+    static void test9_fun3()
+    {
+        PubTest v5=new PubTest();
+        v5.f=null;
+    }
+
+    static PubTest test10()
+    {
+        PubTest v1=new PubTest();
+        v1.f=null;
+        return v1.f;
+    }
+
+
 }
 

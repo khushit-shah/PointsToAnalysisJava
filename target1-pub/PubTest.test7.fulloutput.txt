@@ -1,0 +1,21 @@
+test7: in01: @ => $r0: {test7.new00}
+
+test7: in00: @ => $r0: {test7.new00}
+
+test7: in00: @ => $r0: {test7.new00}
+
+test7: in00: @ => $r0: {test7.new00}
+
+test7: in00: @ => $r0: {test7.new00}
+test7: in00: @ => $r2: {test7.new04}
+
+test7: in00: @ => $r0: {test7.new00}
+test7: in00: @ => $r2: {test7.new04}
+
+test7: in00: @ => $r0: {test7.new00}
+test7: in00: @ => $r2: {test7.new04}
+
+
+test7: in00: [test7.in02] => r0: {test7.new00}
+
+
