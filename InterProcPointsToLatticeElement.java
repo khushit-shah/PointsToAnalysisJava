@@ -319,6 +319,18 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
         String callEdge = AnalysisInfo.points.get(pt.successors.get(edgeIndex)).callEdge;
 
+        // get the calling program point.
+        ProgramPoint retProgramPoint = Helper.pointFromCallString(callEdge);
+        // TODO: Assuming only assignment statement can contain the call.
+        // Assuming call is always the type of r1 = foo();
+        // Or, Assuming call is always the type of r1.f = foo();
+
+        if(!(retProgramPoint.stmt instanceof AssignStmt)) {
+            return  tf_identity_fn();
+        }
+
+        AssignStmt callStmt = (AssignStmt) retProgramPoint.stmt;
+        String lhsStr = Helper.getSimplifiedVarName(callStmt.getLeftOp()); //r1
         // in the returned state all the new.. values must be there
         // all the values from the state before the return must be there.
         for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
@@ -334,16 +346,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                 continue; // don't add anything to the new state.
             }
 
-            // get the calling program point.
-            ProgramPoint retProgramPoint = Helper.pointFromCallString(callEdge);
-            // TODO: think about whether this is true or not.
-//            InterProcPointsToLatticeElement wholePrevState = (InterProcPointsToLatticeElement) retProgramPoint.state;
 
-            // TODO: Assuming only assignment statement can contain the call.
-            // Assuming call is always the type of r1 = foo();
-            // Or, Assuming call is always the type of r1.f = foo();
-            AssignStmt callStmt = (AssignStmt) retProgramPoint.stmt;
-            String lhsStr = Helper.getSimplifiedVarName(callStmt.getLeftOp()); //r1
 
             newKey.removeLast();
 
