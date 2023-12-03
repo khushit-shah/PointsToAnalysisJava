@@ -309,7 +309,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         Stmt st = pt.stmt;
         ReturnStmt retStmt = (ReturnStmt) st;
 
-        if (!(retStmt.getOp().getType() instanceof RefType)) return tf_ret_void_stmt(pt, edgeIndex);
+        if (!(retStmt.getOp().getType() instanceof RefType || retStmt.getOp() instanceof NullConstant)) return tf_ret_void_stmt(pt, edgeIndex);
 
         // r0
         String retVal = Helper.getSimplifiedVarName(retStmt.getOp());

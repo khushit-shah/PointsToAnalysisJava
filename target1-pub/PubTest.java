@@ -92,7 +92,7 @@ public class PubTest {
         return v2.f;
     }
 
-    static PubTest test5_rec(PubTest v1, PubTest v2 ){
+    static PubTest test5_rec(PubTest v1, PubTest v2) {
         v1.f = v2;
 
         v1 = test5_rec(v1, v2);
@@ -101,6 +101,46 @@ public class PubTest {
 
         return v1;
 
+    }
+
+    static PubTest fibonnaci(int i, PubTest p1, PubTest p2) {
+        PubTest p3 = new PubTest();
+        PubTest p4 = new PubTest();
+
+        if (p1 != null) {
+            p1.f = p3;
+        }
+        if (p2 != null) {
+            p2.f = p3;
+        }
+        if (i > 0) {
+            fibonnaci(i - 1, p1, p2);
+        }
+        return p1;
+    }
+
+    static PubTest fibonnaci1(int i, PubTest p1, PubTest p2) {
+        PubTest p3 = new PubTest();
+        PubTest p4 = new PubTest();
+
+        if (p1 != null) {
+            p1.f = p3;
+        }
+        if (p2 != null) {
+            p2.f = p3;
+        }
+        if (i > 0) {
+            fibonnaci1(i - 1, p3, p4);
+        }
+        return p1;
+    }
+
+    static PubTest MyTest2(PubTest v1, PubTest v2) {
+        v1 = new PubTest();
+        v2 = new PubTest();
+        MyTest2(v1, v2);
+        v1.f = v2;
+        return v1;
     }
 }
 
