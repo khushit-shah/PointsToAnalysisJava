@@ -65,7 +65,6 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     }
 
 
-
     @Override
     public boolean equals(LatticeElement r) {
         // if both the HashMap and Parameter is equal then both are equal.
@@ -205,7 +204,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             // add the param values.
             ArrayList<HashSet<String>> paramList = new ArrayList<>();
             for (Value v : args) {
-                if (!(v.getType() instanceof RefType)) {
+                if (!(v.getType() instanceof RefType || v instanceof NullConstant)) {
                     paramList.add(new HashSet<>());
                 } else {
                     String argName = Helper.getSimplifiedVarName(v);
@@ -213,9 +212,9 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                     paramList.add(entry.getValue().getFactOf(argName));
                 }
             }
-            if(newParams.containsKey(newCallString)) {
+            if (newParams.containsKey(newCallString)) {
                 ArrayList<HashSet<String>> cur = newParams.get(newCallString);
-                for(int i = 0;  i < cur.size(); i ++) {
+                for (int i = 0; i < cur.size(); i++) {
                     HashSet<String> x = cur.get(i);
                     x.addAll(paramList.get(i));
                     cur.set(i, x);
@@ -309,7 +308,8 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         Stmt st = pt.stmt;
         ReturnStmt retStmt = (ReturnStmt) st;
 
-        if (!(retStmt.getOp().getType() instanceof RefType || retStmt.getOp() instanceof NullConstant)) return tf_ret_void_stmt(pt, edgeIndex);
+        if (!(retStmt.getOp().getType() instanceof RefType || retStmt.getOp() instanceof NullConstant))
+            return tf_ret_void_stmt(pt, edgeIndex);
 
         // r0
         String retVal = Helper.getSimplifiedVarName(retStmt.getOp());
@@ -325,8 +325,8 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         // Assuming call is always the type of r1 = foo();
         // Or, Assuming call is always the type of r1.f = foo();
 
-        if(!(retProgramPoint.stmt instanceof AssignStmt)) {
-            return  tf_ret_void_stmt(pt, edgeIndex);
+        if (!(retProgramPoint.stmt instanceof AssignStmt)) {
+            return tf_ret_void_stmt(pt, edgeIndex);
         }
 
         AssignStmt callStmt = (AssignStmt) retProgramPoint.stmt;
@@ -345,7 +345,6 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                 // the ret edge does not match the callEdge.
                 continue; // don't add anything to the new state.
             }
-
 
 
             newKey.removeLast();

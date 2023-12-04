@@ -17,15 +17,16 @@ set -e
 #./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun5"
 #./run-analysis-one.sh "./target1-pub" "BasicTest"   "BasicTest"   "fun6"
 #
-
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test1"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test2"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test3"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test4"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test5_rec"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "fibonnaci"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "fibonnaci1"
-./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "MyTest2"
+#
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test1"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test2"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test3"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test4"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test5_rec"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "fibonnaci"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "fibonnaci1"
+#./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "MyTest2"
+./run-analysis-one.sh "./target1-pub" "PubTest"   "PubTest"   "test11"
 
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun1"
 #./run-analysis-one.sh "./target2-mine" "MyTest"   "MyTest"   "fun2"
