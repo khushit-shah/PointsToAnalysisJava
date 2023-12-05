@@ -1,0 +1,68 @@
+chained_assignments: in01: @ => $r0: {chained_assignments.new00}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+chained_assignments: in00: @ => chained_assignments.new04.f: {null}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+chained_assignments: in00: @ => chained_assignments.new02.f: {null}
+chained_assignments: in00: @ => chained_assignments.new04.f: {null}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+chained_assignments: in00: @ => chained_assignments.new00.f: {null}
+chained_assignments: in00: @ => chained_assignments.new02.f: {null}
+chained_assignments: in00: @ => chained_assignments.new04.f: {null}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+chained_assignments: in00: @ => chained_assignments.new00.f: {null}
+chained_assignments: in00: @ => chained_assignments.new02.f: {null}
+chained_assignments: in00: @ => chained_assignments.new04.f: {null}
+chained_assignments: in00: @ => r4: {null}
+
+chained_assignments: in00: @ => $r0: {chained_assignments.new00}
+chained_assignments: in00: @ => $r1: {chained_assignments.new02}
+chained_assignments: in00: @ => $r2: {chained_assignments.new04}
+chained_assignments: in00: @ => $r3: {chained_assignments.new06}
+chained_assignments: in00: @ => chained_assignments.new00.f: {null}
+chained_assignments: in00: @ => chained_assignments.new02.f: {null}
+chained_assignments: in00: @ => chained_assignments.new04.f: {null}
+chained_assignments: in00: @ => r4: {null}
+
+

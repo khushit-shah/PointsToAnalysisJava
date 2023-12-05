@@ -1,0 +1,346 @@
+digraph "./target2-mine/MyTest.fun2" {
+    "{[]={}}
+{[]=[]}
+fun2:staticinvoke <MyTest: int getInt()>() hash:1051786632";
+    "{[]={}}
+{[]=[]}
+fun2:$r0 = new01_fun2 hash:1005591041";
+    "{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r0.<MyTest: void <init>()>() hash:1819665340";
+    "{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:$r1 = new03_fun2 hash:1878814375";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r1.<MyTest: void <init>()>() hash:1341785997";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:$r2 = staticinvoke <MyTest: MyTest getTest()>() hash:1445443819";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r1.<MyTest: MyTest f> = $r0 hash:1810419227";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r3 = new07_fun2 hash:964301023";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r3.<MyTest: void <init>()>() hash:337509625";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r2.<MyTest: MyTest f> = $r3 hash:175881660";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4 = <MyTest: MyTest f1> hash:894584137";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4.<MyTest: MyTest f> = $r0 hash:602694575";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r5 = <MyTest: MyTest f1> hash:1459038473";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:r7 = $r5.<MyTest: MyTest f> hash:1898469011";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+}}
+{[]=[]}
+fun2:$r6 = $r0.<MyTest: MyTest f> hash:1921417851";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+$r6=>[]
+}}
+{[]=[]}
+fun2:r7.<MyTest: MyTest f> = $r6 hash:500580931";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+$r6=>[]
+}}
+{[]=[]}
+fun2:return hash:1376533963";
+    "{[fun2.in00]={}}
+{[fun2.in00]=[]}
+getInt:return 0 hash:1175347198";
+    "{[fun2.in05]={}}
+{[fun2.in05]=[]}
+getTest:return null hash:1398327546";
+    "{[]={}}
+{[]=[]}
+fun2:staticinvoke <MyTest: int getInt()>() hash:1051786632"->"{[fun2.in00]={}}
+{[fun2.in00]=[]}
+getInt:return 0 hash:1175347198";
+    "{[]={}}
+{[]=[]}
+fun2:staticinvoke <MyTest: int getInt()>() hash:1051786632"->"{[]={}}
+{[]=[]}
+fun2:$r0 = new01_fun2 hash:1005591041";
+    "{[]={}}
+{[]=[]}
+fun2:$r0 = new01_fun2 hash:1005591041"->"{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r0.<MyTest: void <init>()>() hash:1819665340";
+    "{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r0.<MyTest: void <init>()>() hash:1819665340"->"{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:$r1 = new03_fun2 hash:1878814375";
+    "{[]={$r0=>[new01_fun2]
+}}
+{[]=[]}
+fun2:$r1 = new03_fun2 hash:1878814375"->"{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r1.<MyTest: void <init>()>() hash:1341785997";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r1.<MyTest: void <init>()>() hash:1341785997"->"{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:$r2 = staticinvoke <MyTest: MyTest getTest()>() hash:1445443819";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:$r2 = staticinvoke <MyTest: MyTest getTest()>() hash:1445443819"->"{[fun2.in05]={}}
+{[fun2.in05]=[]}
+getTest:return null hash:1398327546";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+}}
+{[]=[]}
+fun2:$r2 = staticinvoke <MyTest: MyTest getTest()>() hash:1445443819"->"{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r1.<MyTest: MyTest f> = $r0 hash:1810419227";
+    "{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r1.<MyTest: MyTest f> = $r0 hash:1810419227"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r3 = new07_fun2 hash:964301023";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r3 = new07_fun2 hash:964301023"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r3.<MyTest: void <init>()>() hash:337509625";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:specialinvoke $r3.<MyTest: void <init>()>() hash:337509625"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r2.<MyTest: MyTest f> = $r3 hash:175881660";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r2.<MyTest: MyTest f> = $r3 hash:175881660"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4 = <MyTest: MyTest f1> hash:894584137";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4 = <MyTest: MyTest f1> hash:894584137"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4.<MyTest: MyTest f> = $r0 hash:602694575";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r4.<MyTest: MyTest f> = $r0 hash:602694575"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r5 = <MyTest: MyTest f1> hash:1459038473";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:$r5 = <MyTest: MyTest f1> hash:1459038473"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:r7 = $r5.<MyTest: MyTest f> hash:1898469011";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+}}
+{[]=[]}
+fun2:r7 = $r5.<MyTest: MyTest f> hash:1898469011"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+}}
+{[]=[]}
+fun2:$r6 = $r0.<MyTest: MyTest f> hash:1921417851";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+}}
+{[]=[]}
+fun2:$r6 = $r0.<MyTest: MyTest f> hash:1921417851"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+$r6=>[]
+}}
+{[]=[]}
+fun2:r7.<MyTest: MyTest f> = $r6 hash:500580931";
+    "{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+$r6=>[]
+}}
+{[]=[]}
+fun2:r7.<MyTest: MyTest f> = $r6 hash:500580931"->"{[]={$r0=>[new01_fun2]
+new03_fun2.f=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+$r3=>[new07_fun2]
+r7=>[]
+$r6=>[]
+}}
+{[]=[]}
+fun2:return hash:1376533963";
+    "{[fun2.in00]={}}
+{[fun2.in00]=[]}
+getInt:return 0 hash:1175347198"->"{[]={}}
+{[]=[]}
+fun2:$r0 = new01_fun2 hash:1005591041";
+    "{[fun2.in05]={}}
+{[fun2.in05]=[]}
+getTest:return null hash:1398327546"->"{[]={$r0=>[new01_fun2]
+$r1=>[new03_fun2]
+$r2=>[null]
+}}
+{[]=[]}
+fun2:$r1.<MyTest: MyTest f> = $r0 hash:1810419227";
+}

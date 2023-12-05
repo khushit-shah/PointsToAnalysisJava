@@ -1,0 +1,121 @@
+digraph "./target2-mine/MyTest.comaprison_of_object_references" {
+    "{[]={}}
+{[]=[]}
+comaprison_of_object_references:$r0 = new00_comaprison_of_object_references hash:1109622904";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1241385933";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r1 = new02_comaprison_of_object_references hash:14926701";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r1.<MyTest: void <init>()>() hash:967337409";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash:1676585156";
+    "{[]={}}
+{[]=[]}
+comaprison_of_object_references:goto [?= return] hash:894584137";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r2 = $r1.<MyTest: MyTest f> hash:671967776";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:$r0.<MyTest: MyTest f> = $r2 hash:1376533963";
+    "{[]={new00_comaprison_of_object_references.f=>[]
+$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:return hash:993293369";
+    "{[]={}}
+{[]=[]}
+comaprison_of_object_references:$r0 = new00_comaprison_of_object_references hash:1109622904"->"{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1241385933";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1241385933"->"{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r1 = new02_comaprison_of_object_references hash:14926701";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r1 = new02_comaprison_of_object_references hash:14926701"->"{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r1.<MyTest: void <init>()>() hash:967337409";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:specialinvoke $r1.<MyTest: void <init>()>() hash:967337409"->"{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash:1676585156";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash:1676585156"->"{[]={}}
+{[]=[]}
+comaprison_of_object_references:goto [?= return] hash:894584137";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash:1676585156"->"{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r2 = $r1.<MyTest: MyTest f> hash:671967776";
+    "{[]={}}
+{[]=[]}
+comaprison_of_object_references:goto [?= return] hash:894584137"->"{[]={new00_comaprison_of_object_references.f=>[]
+$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:return hash:993293369";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+}}
+{[]=[]}
+comaprison_of_object_references:$r2 = $r1.<MyTest: MyTest f> hash:671967776"->"{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:$r0.<MyTest: MyTest f> = $r2 hash:1376533963";
+    "{[]={$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:$r0.<MyTest: MyTest f> = $r2 hash:1376533963"->"{[]={new00_comaprison_of_object_references.f=>[]
+$r0=>[new00_comaprison_of_object_references]
+$r1=>[new02_comaprison_of_object_references]
+$r2=>[]
+}}
+{[]=[]}
+comaprison_of_object_references:return hash:993293369";
+}

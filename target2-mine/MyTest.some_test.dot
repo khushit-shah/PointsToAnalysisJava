@@ -1,0 +1,206 @@
+digraph "./target2-mine/MyTest.some_test" {
+    "{[]={}}
+{[]=[]}
+some_test:$r0 = new00_some_test hash:1411932985";
+    "{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r0.<MyTest: void <init>()>() hash:1140430871";
+    "{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:$r1 = new02_some_test hash:837923432";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r1.<MyTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r2 = new04_some_test hash:1256806576";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r2.<MyTest: void <init>()>() hash:1341158560";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r1 hash:159851247";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r1.<MyTest: MyTest f> = $r2 hash:265722243";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r3 = $r1.<MyTest: MyTest f> hash:308434156";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r3 hash:660144865";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new04_some_test, new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:r4 = $r2.<MyTest: MyTest f> hash:719068804";
+    "{[]={$r0=>[new00_some_test]
+r4=>[]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new04_some_test, new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:return r4 hash:1169734591";
+    "{[]={}}
+{[]=[]}
+some_test:$r0 = new00_some_test hash:1411932985"->"{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r0.<MyTest: void <init>()>() hash:1140430871";
+    "{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r0.<MyTest: void <init>()>() hash:1140430871"->"{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:$r1 = new02_some_test hash:837923432";
+    "{[]={$r0=>[new00_some_test]
+}}
+{[]=[]}
+some_test:$r1 = new02_some_test hash:837923432"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r1.<MyTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r1.<MyTest: void <init>()>() hash:674480275"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r2 = new04_some_test hash:1256806576";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r2 = new04_some_test hash:1256806576"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r2.<MyTest: void <init>()>() hash:1341158560";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:specialinvoke $r2.<MyTest: void <init>()>() hash:1341158560"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r1 hash:159851247";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r1 hash:159851247"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r1.<MyTest: MyTest f> = $r2 hash:265722243";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+}}
+{[]=[]}
+some_test:$r1.<MyTest: MyTest f> = $r2 hash:265722243"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r3 = $r1.<MyTest: MyTest f> hash:308434156";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r3 = $r1.<MyTest: MyTest f> hash:308434156"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r3 hash:660144865";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:$r0.<MyTest: MyTest f> = $r3 hash:660144865"->"{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new04_some_test, new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:r4 = $r2.<MyTest: MyTest f> hash:719068804";
+    "{[]={$r0=>[new00_some_test]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new04_some_test, new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:r4 = $r2.<MyTest: MyTest f> hash:719068804"->"{[]={$r0=>[new00_some_test]
+r4=>[]
+$r1=>[new02_some_test]
+$r2=>[new04_some_test]
+$r3=>[new04_some_test]
+new00_some_test.f=>[new04_some_test, new02_some_test]
+new02_some_test.f=>[new04_some_test]
+}}
+{[]=[]}
+some_test:return r4 hash:1169734591";
+}

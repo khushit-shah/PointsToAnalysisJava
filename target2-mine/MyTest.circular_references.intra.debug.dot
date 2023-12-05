@@ -1,0 +1,29 @@
+digraph "./target2-mine/MyTest.circular_references.intra.debug" {
+    "$r0 = new00_circular_references hash: 1898469011";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1563833544";
+    "$r1 = new02_circular_references hash: 488322592";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 580212331";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 478238740";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 1943679038";
+    "$r2 = $r0.<MyTest: MyTest f> hash: 2138562661";
+    "if $r2 != null goto return hash: 1868914109";
+    "$r0.<MyTest: MyTest f> = null hash: 2059515584";
+    "if $r0 == $r0 goto return hash: 1486273013";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 1957019376";
+    "$r0.<MyTest: MyTest f> = $r3 hash: 1757718624";
+    "return hash: 155129334";
+    "$r0 = new00_circular_references hash: 1898469011"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1563833544";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1563833544"->"$r1 = new02_circular_references hash: 488322592";
+    "$r1 = new02_circular_references hash: 488322592"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 580212331";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 580212331"->"$r0.<MyTest: MyTest f> = $r0 hash: 478238740";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 478238740"->"$r1.<MyTest: MyTest f> = $r0 hash: 1943679038";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 1943679038"->"$r2 = $r0.<MyTest: MyTest f> hash: 2138562661";
+    "$r2 = $r0.<MyTest: MyTest f> hash: 2138562661"->"if $r2 != null goto return hash: 1868914109";
+    "if $r2 != null goto return hash: 1868914109"->"$r0.<MyTest: MyTest f> = null hash: 2059515584";
+    "if $r2 != null goto return hash: 1868914109"->"return hash: 155129334";
+    "$r0.<MyTest: MyTest f> = null hash: 2059515584"->"if $r0 == $r0 goto return hash: 1486273013";
+    "if $r0 == $r0 goto return hash: 1486273013"->"$r3 = $r1.<MyTest: MyTest f> hash: 1957019376";
+    "if $r0 == $r0 goto return hash: 1486273013"->"return hash: 155129334";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 1957019376"->"$r0.<MyTest: MyTest f> = $r3 hash: 1757718624";
+    "$r0.<MyTest: MyTest f> = $r3 hash: 1757718624"->"return hash: 155129334";
+}

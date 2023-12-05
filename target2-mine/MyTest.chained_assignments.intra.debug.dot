@@ -1,0 +1,29 @@
+digraph "./target2-mine/MyTest.chained_assignments.intra.debug" {
+    "$r0 = new00_chained_assignments hash: 1622945931";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1972950645";
+    "$r1 = new02_chained_assignments hash: 2087202342";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 873447850";
+    "$r2 = new04_chained_assignments hash: 1167987211";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 574790161";
+    "$r3 = new06_chained_assignments hash: 477662472";
+    "specialinvoke $r3.<MyTest: void <init>()>() hash: 714734087";
+    "$r2.<MyTest: MyTest f> = null hash: 853264965";
+    "$r1.<MyTest: MyTest f> = null hash: 1749755575";
+    "$r0.<MyTest: MyTest f> = null hash: 770164810";
+    "r4 = $r2.<MyTest: MyTest f> hash: 2006056784";
+    "r4.<MyTest: MyTest f> = null hash: 1432888450";
+    "return hash: 2040509534";
+    "$r0 = new00_chained_assignments hash: 1622945931"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1972950645";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1972950645"->"$r1 = new02_chained_assignments hash: 2087202342";
+    "$r1 = new02_chained_assignments hash: 2087202342"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 873447850";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 873447850"->"$r2 = new04_chained_assignments hash: 1167987211";
+    "$r2 = new04_chained_assignments hash: 1167987211"->"specialinvoke $r2.<MyTest: void <init>()>() hash: 574790161";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 574790161"->"$r3 = new06_chained_assignments hash: 477662472";
+    "$r3 = new06_chained_assignments hash: 477662472"->"specialinvoke $r3.<MyTest: void <init>()>() hash: 714734087";
+    "specialinvoke $r3.<MyTest: void <init>()>() hash: 714734087"->"$r2.<MyTest: MyTest f> = null hash: 853264965";
+    "$r2.<MyTest: MyTest f> = null hash: 853264965"->"$r1.<MyTest: MyTest f> = null hash: 1749755575";
+    "$r1.<MyTest: MyTest f> = null hash: 1749755575"->"$r0.<MyTest: MyTest f> = null hash: 770164810";
+    "$r0.<MyTest: MyTest f> = null hash: 770164810"->"r4 = $r2.<MyTest: MyTest f> hash: 2006056784";
+    "r4 = $r2.<MyTest: MyTest f> hash: 2006056784"->"r4.<MyTest: MyTest f> = null hash: 1432888450";
+    "r4.<MyTest: MyTest f> = null hash: 1432888450"->"return hash: 2040509534";
+}

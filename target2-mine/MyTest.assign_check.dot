@@ -1,0 +1,198 @@
+digraph "./target2-mine/MyTest.assign_check" {
+    "{[]={}}
+{[]=[]}
+assign_check:$r0 = new00_assign_check hash:1120917396";
+    "{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r0.<MyTest: void <init>()>() hash:340017397";
+    "{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:$r1 = new02_assign_check hash:1622945931";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r1.<MyTest: void <init>()>() hash:1140430871";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r2 = new04_assign_check hash:837923432";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r2.<MyTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r2 hash:1256806576";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r1 hash:1341158560";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r0 hash:883110723";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r3 = $r0.<MyTest: MyTest f> hash:1167987211";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+$r3=>[new04_assign_check, new02_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r3 hash:265722243";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new04_assign_check, new00_assign_check, new02_assign_check]
+$r3=>[new04_assign_check, new02_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:return hash:308434156";
+    "{[]={}}
+{[]=[]}
+assign_check:$r0 = new00_assign_check hash:1120917396"->"{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r0.<MyTest: void <init>()>() hash:340017397";
+    "{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r0.<MyTest: void <init>()>() hash:340017397"->"{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:$r1 = new02_assign_check hash:1622945931";
+    "{[]={$r0=>[new00_assign_check]
+}}
+{[]=[]}
+assign_check:$r1 = new02_assign_check hash:1622945931"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r1.<MyTest: void <init>()>() hash:1140430871";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r1.<MyTest: void <init>()>() hash:1140430871"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r2 = new04_assign_check hash:837923432";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r2 = new04_assign_check hash:837923432"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r2.<MyTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:specialinvoke $r2.<MyTest: void <init>()>() hash:674480275"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r2 hash:1256806576";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r2 hash:1256806576"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r1 hash:1341158560";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check]
+}}
+{[]=[]}
+assign_check:$r0.<MyTest: MyTest f> = $r1 hash:1341158560"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r0 hash:883110723";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r0 hash:883110723"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r3 = $r0.<MyTest: MyTest f> hash:1167987211";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r3 = $r0.<MyTest: MyTest f> hash:1167987211"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+$r3=>[new04_assign_check, new02_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r3 hash:265722243";
+    "{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new00_assign_check]
+$r3=>[new04_assign_check, new02_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:$r1.<MyTest: MyTest f> = $r3 hash:265722243"->"{[]={$r0=>[new00_assign_check]
+$r1=>[new02_assign_check]
+$r2=>[new04_assign_check]
+new02_assign_check.f=>[new04_assign_check, new00_assign_check, new02_assign_check]
+$r3=>[new04_assign_check, new02_assign_check]
+new00_assign_check.f=>[new04_assign_check, new02_assign_check]
+}}
+{[]=[]}
+assign_check:return hash:308434156";
+}

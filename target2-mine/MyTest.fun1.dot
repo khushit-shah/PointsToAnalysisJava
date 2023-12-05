@@ -1,0 +1,746 @@
+digraph "./target2-mine/MyTest.fun1" {
+    "{[]={}}
+{[]=[]}
+fun1:i1 := @parameter0: int hash:919541414";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = 10 hash:1039948229";
+    "{[]={}}
+{[]=[]}
+fun1:$r0 = new02_fun1 hash:316863915";
+    "{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r0.<MyTest: void <init>()>() hash:904927065";
+    "{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r0 hash:803904123";
+    "{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r0 != null goto $r1 = new07_fun1 hash:1774316039";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = 11 hash:670827031";
+    "{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r1 = new07_fun1 hash:1752069395";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r1.<MyTest: void <init>()>() hash:12691277";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r1 != $r0 goto (branch) hash:1559898821";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = i2 + 1 hash:1094627165";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if i2 != 0 goto r2 = \"Red\" hash:1004271827";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= r2 = \"Red\"] hash:255996780";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r2 = \"Red\" hash:1126780571";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r9 = \"Red\" hash:1003412230";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r8 = \"Red\" hash:1850630389";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = -1 hash:1517860139";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r5 = \"Red\" hash:1269528782";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$i0 = virtualinvoke $r5.<java.lang.String: int hashCode()>() hash:1124055734";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch($i0) {     case 82033: goto $z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\");     case 2073722: goto $z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\");     default: goto lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; }; } hash:1987221006";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\") hash:1773970438";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z0 == 0 goto (branch) hash:2042744055";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 0 hash:1179968371";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= (branch)] hash:611639121";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\") hash:677696333";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z1 == 0 goto (branch) hash:1605702850";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 1 hash:1050360636";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r4 = new28_fun1 hash:677521178";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r4.<MyTest: void <init>()>() hash:2029744843";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r4 hash:965121190";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:goto [?= $r7 = new35_fun1] hash:1801732766";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r3 = new32_fun1 hash:629289362";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r3.<MyTest: void <init>()>() hash:1545984685";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r3 hash:1876700598";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:$r7 = new35_fun1 hash:838733029";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r7.<MyTest: void <init>()>() hash:1795925655";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:r6.<MyTest: MyTest f> = $r7 hash:710088247";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+new02_fun1.f=>[new35_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+new28_fun1.f=>[new35_fun1]
+$r7=>[new35_fun1]
+new32_fun1.f=>[new35_fun1]
+}}
+{[]=[]}
+fun1:return hash:447059608";
+    "{[]={}}
+{[]=[]}
+fun1:i1 := @parameter0: int hash:919541414"->"{[]={}}
+{[]=[]}
+fun1:i2 = 10 hash:1039948229";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = 10 hash:1039948229"->"{[]={}}
+{[]=[]}
+fun1:$r0 = new02_fun1 hash:316863915";
+    "{[]={}}
+{[]=[]}
+fun1:$r0 = new02_fun1 hash:316863915"->"{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r0.<MyTest: void <init>()>() hash:904927065";
+    "{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r0.<MyTest: void <init>()>() hash:904927065"->"{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r0 hash:803904123";
+    "{[]={$r0=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r0 hash:803904123"->"{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r0 != null goto $r1 = new07_fun1 hash:1774316039";
+    "{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r0 != null goto $r1 = new07_fun1 hash:1774316039"->"{[]={}}
+{[]=[]}
+fun1:i2 = 11 hash:670827031";
+    "{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r0 != null goto $r1 = new07_fun1 hash:1774316039"->"{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r1 = new07_fun1 hash:1752069395";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = 11 hash:670827031"->"{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r1 = new07_fun1 hash:1752069395";
+    "{[]={$r0=>[new02_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r1 = new07_fun1 hash:1752069395"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r1.<MyTest: void <init>()>() hash:12691277";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r1.<MyTest: void <init>()>() hash:12691277"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r1 != $r0 goto (branch) hash:1559898821";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r1 != $r0 goto (branch) hash:1559898821"->"{[]={}}
+{[]=[]}
+fun1:i2 = i2 + 1 hash:1094627165";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $r1 != $r0 goto (branch) hash:1559898821"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if i2 != 0 goto r2 = \"Red\" hash:1004271827";
+    "{[]={}}
+{[]=[]}
+fun1:i2 = i2 + 1 hash:1094627165"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if i2 != 0 goto r2 = \"Red\" hash:1004271827";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if i2 != 0 goto r2 = \"Red\" hash:1004271827"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= r2 = \"Red\"] hash:255996780";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if i2 != 0 goto r2 = \"Red\" hash:1004271827"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r2 = \"Red\" hash:1126780571";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= r2 = \"Red\"] hash:255996780"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r2 = \"Red\" hash:1126780571";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r2 = \"Red\" hash:1126780571"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r9 = \"Red\" hash:1003412230";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r9 = \"Red\" hash:1003412230"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r8 = \"Red\" hash:1850630389";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:r8 = \"Red\" hash:1850630389"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = -1 hash:1517860139";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = -1 hash:1517860139"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r5 = \"Red\" hash:1269528782";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r5 = \"Red\" hash:1269528782"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$i0 = virtualinvoke $r5.<java.lang.String: int hashCode()>() hash:1124055734";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$i0 = virtualinvoke $r5.<java.lang.String: int hashCode()>() hash:1124055734"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch($i0) {     case 82033: goto $z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\");     case 2073722: goto $z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\");     default: goto lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; }; } hash:1987221006";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch($i0) {     case 82033: goto $z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\");     case 2073722: goto $z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\");     default: goto lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; }; } hash:1987221006"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\") hash:677696333";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch($i0) {     case 82033: goto $z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\");     case 2073722: goto $z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\");     default: goto lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; }; } hash:1987221006"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\") hash:1773970438";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch($i0) {     case 82033: goto $z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\");     case 2073722: goto $z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\");     default: goto lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; }; } hash:1987221006"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z0 = virtualinvoke r8.<java.lang.String: boolean equals(java.lang.Object)>(\"Blue\") hash:1773970438"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z0 == 0 goto (branch) hash:2042744055";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z0 == 0 goto (branch) hash:2042744055"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 0 hash:1179968371";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z0 == 0 goto (branch) hash:2042744055"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 0 hash:1179968371"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= (branch)] hash:611639121";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:goto [?= (branch)] hash:611639121"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$z1 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(\"Red\") hash:677696333"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z1 == 0 goto (branch) hash:1605702850";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z1 == 0 goto (branch) hash:1605702850"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 1 hash:1050360636";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:if $z1 == 0 goto (branch) hash:1605702850"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:b3 = 1 hash:1050360636"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r4 = new28_fun1 hash:677521178";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r3 = new32_fun1 hash:629289362";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:lookupswitch(b3) {     case 0: goto $r4 = new28_fun1;     case 1: goto $r3 = new32_fun1;     default: goto $r7 = new35_fun1; } hash:1981943537"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:$r7 = new35_fun1 hash:838733029";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r4 = new28_fun1 hash:677521178"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r4.<MyTest: void <init>()>() hash:2029744843";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r4.<MyTest: void <init>()>() hash:2029744843"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r4 hash:965121190";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r4 hash:965121190"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:goto [?= $r7 = new35_fun1] hash:1801732766";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:goto [?= $r7 = new35_fun1] hash:1801732766"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:$r7 = new35_fun1 hash:838733029";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+}}
+{[]=[]}
+fun1:$r3 = new32_fun1 hash:629289362"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r3.<MyTest: void <init>()>() hash:1545984685";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r3.<MyTest: void <init>()>() hash:1545984685"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r3 hash:1876700598";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new02_fun1]
+$r3=>[new32_fun1]
+}}
+{[]=[]}
+fun1:r6 = $r3 hash:1876700598"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:$r7 = new35_fun1 hash:838733029";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+}}
+{[]=[]}
+fun1:$r7 = new35_fun1 hash:838733029"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r7.<MyTest: void <init>()>() hash:1795925655";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:specialinvoke $r7.<MyTest: void <init>()>() hash:1795925655"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:r6.<MyTest: MyTest f> = $r7 hash:710088247";
+    "{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+$r7=>[new35_fun1]
+}}
+{[]=[]}
+fun1:r6.<MyTest: MyTest f> = $r7 hash:710088247"->"{[]={$r0=>[new02_fun1]
+$r1=>[new07_fun1]
+new02_fun1.f=>[new35_fun1]
+r6=>[new28_fun1, new32_fun1, new02_fun1]
+$r3=>[new32_fun1]
+$r4=>[new28_fun1]
+new28_fun1.f=>[new35_fun1]
+$r7=>[new35_fun1]
+new32_fun1.f=>[new35_fun1]
+}}
+{[]=[]}
+fun1:return hash:447059608";
+}

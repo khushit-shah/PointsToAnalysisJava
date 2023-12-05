@@ -1,0 +1,29 @@
+digraph "./target2-mine/MyTest.nullnullother.intra.debug" {
+    "$r0 = new00_nullnullother hash: 890681473";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 429018901";
+    "$r1 = new02_nullnullother hash: 602694575";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 1459038473";
+    "if null != null goto r3 = new08_nullnullother hash: 341829803";
+    "$r2 = new05_nullnullother hash: 1563833544";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 93720343";
+    "goto [?= r4 = new11_nullnullother] hash: 1911013695";
+    "r3 = new08_nullnullother hash: 1958168955";
+    "specialinvoke r3.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: v1#3.<MyTest: MyTest f> = null\") hash: 1823577333";
+    "throw r3 hash: 18392277";
+    "r4 = new11_nullnullother hash: 508047053";
+    "specialinvoke r4.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: $stack4 = $stack6.<MyTest: MyTest f>\") hash: 1358584120";
+    "throw r4 hash: 814507488";
+    "$r0 = new00_nullnullother hash: 890681473"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 429018901";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 429018901"->"$r1 = new02_nullnullother hash: 602694575";
+    "$r1 = new02_nullnullother hash: 602694575"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 1459038473";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 1459038473"->"if null != null goto r3 = new08_nullnullother hash: 341829803";
+    "if null != null goto r3 = new08_nullnullother hash: 341829803"->"$r2 = new05_nullnullother hash: 1563833544";
+    "if null != null goto r3 = new08_nullnullother hash: 341829803"->"r3 = new08_nullnullother hash: 1958168955";
+    "$r2 = new05_nullnullother hash: 1563833544"->"specialinvoke $r2.<MyTest: void <init>()>() hash: 93720343";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 93720343"->"goto [?= r4 = new11_nullnullother] hash: 1911013695";
+    "goto [?= r4 = new11_nullnullother] hash: 1911013695"->"r4 = new11_nullnullother hash: 508047053";
+    "r3 = new08_nullnullother hash: 1958168955"->"specialinvoke r3.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: v1#3.<MyTest: MyTest f> = null\") hash: 1823577333";
+    "specialinvoke r3.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: v1#3.<MyTest: MyTest f> = null\") hash: 1823577333"->"throw r3 hash: 18392277";
+    "r4 = new11_nullnullother hash: 508047053"->"specialinvoke r4.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: $stack4 = $stack6.<MyTest: MyTest f>\") hash: 1358584120";
+    "specialinvoke r4.<java.lang.NullPointerException: void <init>(java.lang.String)>(\"This statement would have triggered an Exception: $stack4 = $stack6.<MyTest: MyTest f>\") hash: 1358584120"->"throw r4 hash: 814507488";
+}

@@ -1,0 +1,16 @@
+digraph "./target2-mine/MyTest.conditional_check1.intra.debug" {
+    "$r0 = new00_conditional_check1 hash: 1188958603";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 698133256";
+    "$r0.<MyTest: MyTest f> = null hash: 594822442";
+    "$r1 = $r0.<MyTest: MyTest f> hash: 1311135309";
+    "if $r1 != null goto return hash: 1109622904";
+    "$r0.<MyTest: MyTest f> = null hash: 1241385933";
+    "return hash: 1810419227";
+    "$r0 = new00_conditional_check1 hash: 1188958603"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 698133256";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 698133256"->"$r0.<MyTest: MyTest f> = null hash: 594822442";
+    "$r0.<MyTest: MyTest f> = null hash: 594822442"->"$r1 = $r0.<MyTest: MyTest f> hash: 1311135309";
+    "$r1 = $r0.<MyTest: MyTest f> hash: 1311135309"->"if $r1 != null goto return hash: 1109622904";
+    "if $r1 != null goto return hash: 1109622904"->"$r0.<MyTest: MyTest f> = null hash: 1241385933";
+    "if $r1 != null goto return hash: 1109622904"->"return hash: 1810419227";
+    "$r0.<MyTest: MyTest f> = null hash: 1241385933"->"return hash: 1810419227";
+}

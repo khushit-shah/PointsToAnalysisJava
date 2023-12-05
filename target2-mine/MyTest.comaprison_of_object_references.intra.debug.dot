@@ -1,0 +1,20 @@
+digraph "./target2-mine/MyTest.comaprison_of_object_references.intra.debug" {
+    "$r0 = new00_comaprison_of_object_references hash: 1109622904";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1241385933";
+    "$r1 = new02_comaprison_of_object_references hash: 14926701";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 967337409";
+    "if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash: 1676585156";
+    "goto [?= return] hash: 894584137";
+    "$r2 = $r1.<MyTest: MyTest f> hash: 671967776";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 1376533963";
+    "return hash: 993293369";
+    "$r0 = new00_comaprison_of_object_references hash: 1109622904"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1241385933";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1241385933"->"$r1 = new02_comaprison_of_object_references hash: 14926701";
+    "$r1 = new02_comaprison_of_object_references hash: 14926701"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 967337409";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 967337409"->"if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash: 1676585156";
+    "if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash: 1676585156"->"goto [?= return] hash: 894584137";
+    "if $r0 != $r1 goto $r2 = $r1.<MyTest: MyTest f> hash: 1676585156"->"$r2 = $r1.<MyTest: MyTest f> hash: 671967776";
+    "goto [?= return] hash: 894584137"->"return hash: 993293369";
+    "$r2 = $r1.<MyTest: MyTest f> hash: 671967776"->"$r0.<MyTest: MyTest f> = $r2 hash: 1376533963";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 1376533963"->"return hash: 993293369";
+}

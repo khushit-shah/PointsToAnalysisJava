@@ -1,0 +1,49 @@
+assign_check: in01: @ => $r0: {assign_check.new00}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+assign_check: in00: @ => assign_check.new00.f: {assign_check.new04}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+assign_check: in00: @ => assign_check.new00.f: {assign_check.new02,assign_check.new04}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+assign_check: in00: @ => assign_check.new00.f: {assign_check.new02,assign_check.new04}
+assign_check: in00: @ => assign_check.new02.f: {assign_check.new00}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+assign_check: in00: @ => $r3: {assign_check.new02,assign_check.new04}
+assign_check: in00: @ => assign_check.new00.f: {assign_check.new02,assign_check.new04}
+assign_check: in00: @ => assign_check.new02.f: {assign_check.new00}
+
+assign_check: in00: @ => $r0: {assign_check.new00}
+assign_check: in00: @ => $r1: {assign_check.new02}
+assign_check: in00: @ => $r2: {assign_check.new04}
+assign_check: in00: @ => $r3: {assign_check.new02,assign_check.new04}
+assign_check: in00: @ => assign_check.new00.f: {assign_check.new02,assign_check.new04}
+assign_check: in00: @ => assign_check.new02.f: {assign_check.new00,assign_check.new02,assign_check.new04}
+
+

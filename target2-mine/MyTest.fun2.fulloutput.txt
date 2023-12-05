@@ -1,0 +1,129 @@
+
+fun2: in00: @ => $r0: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+fun2: in00: @ => $r0: {fun2.new01}
+fun2: in00: @ => $r1: {fun2.new03}
+fun2: in00: @ => $r2: {null}
+fun2: in00: @ => $r3: {fun2.new07}
+fun2: in00: @ => fun2.new03.f: {fun2.new01}
+
+

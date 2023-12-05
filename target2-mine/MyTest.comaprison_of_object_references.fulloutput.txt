@@ -1,0 +1,21 @@
+comaprison_of_object_references: in01: @ => $r0: {comaprison_of_object_references.new00}
+
+comaprison_of_object_references: in00: @ => $r0: {comaprison_of_object_references.new00}
+
+comaprison_of_object_references: in00: @ => $r0: {comaprison_of_object_references.new00}
+comaprison_of_object_references: in00: @ => $r1: {comaprison_of_object_references.new02}
+
+comaprison_of_object_references: in00: @ => $r0: {comaprison_of_object_references.new00}
+comaprison_of_object_references: in00: @ => $r1: {comaprison_of_object_references.new02}
+
+comaprison_of_object_references: in01: @ => $r0: {comaprison_of_object_references.new00}
+comaprison_of_object_references: in01: @ => $r1: {comaprison_of_object_references.new02}
+
+
+comaprison_of_object_references: in00: @ => $r0: {comaprison_of_object_references.new00}
+comaprison_of_object_references: in00: @ => $r1: {comaprison_of_object_references.new02}
+
+comaprison_of_object_references: in00: @ => $r0: {comaprison_of_object_references.new00}
+comaprison_of_object_references: in00: @ => $r1: {comaprison_of_object_references.new02}
+
+

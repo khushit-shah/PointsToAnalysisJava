@@ -1,0 +1,5 @@
+digraph "./target2-mine/MyTest.empty_function_check" {
+    "{[]={}}
+{[]=[]}
+empty_function_check:return hash:353786333";
+}

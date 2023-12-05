@@ -1,0 +1,184 @@
+digraph "./target2-mine/MyTest.object_comparision" {
+    "{[]={}}
+{[]=[]}
+object_comparision:$r0 = new00_object_comparision hash:1241385933";
+    "{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r0.<java.lang.Object: void <init>()>() hash:1676585156";
+    "{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r1 = new02_object_comparision hash:894584137";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r1.<java.lang.Object: void <init>()>() hash:671967776";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r2 = new04_object_comparision hash:832152066";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r2.<java.lang.Object: void <init>()>() hash:500580931";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash:341829803";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $z0 == 0 goto (branch) hash:993293369";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:goto [?= (branch)] hash:93720343";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $r0 != $r1 goto return hash:2138562661";
+    "{[]={}}
+{[]=[]}
+object_comparision:goto [?= return] hash:2059515584";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:return hash:1486273013";
+    "{[]={}}
+{[]=[]}
+object_comparision:$r0 = new00_object_comparision hash:1241385933"->"{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r0.<java.lang.Object: void <init>()>() hash:1676585156";
+    "{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r0.<java.lang.Object: void <init>()>() hash:1676585156"->"{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r1 = new02_object_comparision hash:894584137";
+    "{[]={$r0=>[new00_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r1 = new02_object_comparision hash:894584137"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r1.<java.lang.Object: void <init>()>() hash:671967776";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r1.<java.lang.Object: void <init>()>() hash:671967776"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r2 = new04_object_comparision hash:832152066";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+}}
+{[]=[]}
+object_comparision:$r2 = new04_object_comparision hash:832152066"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r2.<java.lang.Object: void <init>()>() hash:500580931";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:specialinvoke $r2.<java.lang.Object: void <init>()>() hash:500580931"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash:341829803";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash:341829803"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $z0 == 0 goto (branch) hash:993293369";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $z0 == 0 goto (branch) hash:993293369"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:goto [?= (branch)] hash:93720343";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $z0 == 0 goto (branch) hash:993293369"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $r0 != $r1 goto return hash:2138562661";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:goto [?= (branch)] hash:93720343"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $r0 != $r1 goto return hash:2138562661";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $r0 != $r1 goto return hash:2138562661"->"{[]={}}
+{[]=[]}
+object_comparision:goto [?= return] hash:2059515584";
+    "{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:if $r0 != $r1 goto return hash:2138562661"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:return hash:1486273013";
+    "{[]={}}
+{[]=[]}
+object_comparision:goto [?= return] hash:2059515584"->"{[]={$r0=>[new00_object_comparision]
+$r1=>[new02_object_comparision]
+$r2=>[new04_object_comparision]
+}}
+{[]=[]}
+object_comparision:return hash:1486273013";
+}

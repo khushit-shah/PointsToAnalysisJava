@@ -1,0 +1,51 @@
+some_test: in01: @ => $r0: {some_test.new00}
+
+some_test: in00: @ => $r0: {some_test.new00}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+some_test: in00: @ => some_test.new00.f: {some_test.new02}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+some_test: in00: @ => some_test.new00.f: {some_test.new02}
+some_test: in00: @ => some_test.new02.f: {some_test.new04}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+some_test: in00: @ => $r3: {some_test.new04}
+some_test: in00: @ => some_test.new00.f: {some_test.new02}
+some_test: in00: @ => some_test.new02.f: {some_test.new04}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+some_test: in00: @ => $r3: {some_test.new04}
+some_test: in00: @ => some_test.new00.f: {some_test.new02,some_test.new04}
+some_test: in00: @ => some_test.new02.f: {some_test.new04}
+
+some_test: in00: @ => $r0: {some_test.new00}
+some_test: in00: @ => $r1: {some_test.new02}
+some_test: in00: @ => $r2: {some_test.new04}
+some_test: in00: @ => $r3: {some_test.new04}
+some_test: in00: @ => some_test.new00.f: {some_test.new02,some_test.new04}
+some_test: in00: @ => some_test.new02.f: {some_test.new04}
+
+

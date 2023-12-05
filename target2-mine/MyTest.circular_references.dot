@@ -1,0 +1,197 @@
+digraph "./target2-mine/MyTest.circular_references" {
+    "{[]={}}
+{[]=[]}
+circular_references:$r0 = new00_circular_references hash:1898469011";
+    "{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1563833544";
+    "{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1 = new02_circular_references hash:488322592";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r1.<MyTest: void <init>()>() hash:580212331";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r0 hash:478238740";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1.<MyTest: MyTest f> = $r0 hash:1943679038";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r2 = $r0.<MyTest: MyTest f> hash:2138562661";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:if $r2 != null goto return hash:1868914109";
+    "{[]={}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = null hash:2059515584";
+    "{[]={}}
+{[]=[]}
+circular_references:if $r0 == $r0 goto return hash:1486273013";
+    "{[]={}}
+{[]=[]}
+circular_references:$r3 = $r1.<MyTest: MyTest f> hash:1957019376";
+    "{[]={$r3=>[]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r3 hash:1757718624";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+$r3=>[]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:return hash:155129334";
+    "{[]={}}
+{[]=[]}
+circular_references:$r0 = new00_circular_references hash:1898469011"->"{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1563833544";
+    "{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r0.<MyTest: void <init>()>() hash:1563833544"->"{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1 = new02_circular_references hash:488322592";
+    "{[]={$r0=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1 = new02_circular_references hash:488322592"->"{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r1.<MyTest: void <init>()>() hash:580212331";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:specialinvoke $r1.<MyTest: void <init>()>() hash:580212331"->"{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r0 hash:478238740";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r0 hash:478238740"->"{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1.<MyTest: MyTest f> = $r0 hash:1943679038";
+    "{[]={$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r1.<MyTest: MyTest f> = $r0 hash:1943679038"->"{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r2 = $r0.<MyTest: MyTest f> hash:2138562661";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:$r2 = $r0.<MyTest: MyTest f> hash:2138562661"->"{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:if $r2 != null goto return hash:1868914109";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:if $r2 != null goto return hash:1868914109"->"{[]={}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = null hash:2059515584";
+    "{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:if $r2 != null goto return hash:1868914109"->"{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+$r3=>[]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:return hash:155129334";
+    "{[]={}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = null hash:2059515584"->"{[]={}}
+{[]=[]}
+circular_references:if $r0 == $r0 goto return hash:1486273013";
+    "{[]={}}
+{[]=[]}
+circular_references:if $r0 == $r0 goto return hash:1486273013"->"{[]={}}
+{[]=[]}
+circular_references:$r3 = $r1.<MyTest: MyTest f> hash:1957019376";
+    "{[]={}}
+{[]=[]}
+circular_references:if $r0 == $r0 goto return hash:1486273013"->"{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+$r3=>[]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:return hash:155129334";
+    "{[]={}}
+{[]=[]}
+circular_references:$r3 = $r1.<MyTest: MyTest f> hash:1957019376"->"{[]={$r3=>[]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r3 hash:1757718624";
+    "{[]={$r3=>[]
+}}
+{[]=[]}
+circular_references:$r0.<MyTest: MyTest f> = $r3 hash:1757718624"->"{[]={new02_circular_references.f=>[new00_circular_references]
+$r0=>[new00_circular_references]
+$r1=>[new02_circular_references]
+$r2=>[new00_circular_references]
+$r3=>[]
+new00_circular_references.f=>[new00_circular_references]
+}}
+{[]=[]}
+circular_references:return hash:155129334";
+}

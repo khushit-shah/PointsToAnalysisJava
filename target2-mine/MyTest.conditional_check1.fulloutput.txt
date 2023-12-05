@@ -1,0 +1,20 @@
+conditional_check1: in01: @ => $r0: {conditional_check1.new00}
+
+conditional_check1: in00: @ => $r0: {conditional_check1.new00}
+
+conditional_check1: in00: @ => $r0: {conditional_check1.new00}
+conditional_check1: in00: @ => conditional_check1.new00.f: {null}
+
+conditional_check1: in00: @ => $r0: {conditional_check1.new00}
+conditional_check1: in00: @ => $r1: {null}
+conditional_check1: in00: @ => conditional_check1.new00.f: {null}
+
+conditional_check1: in00: @ => $r0: {conditional_check1.new00}
+conditional_check1: in00: @ => $r1: {null}
+conditional_check1: in00: @ => conditional_check1.new00.f: {null}
+
+conditional_check1: in00: @ => $r0: {conditional_check1.new00}
+conditional_check1: in00: @ => $r1: {null}
+conditional_check1: in00: @ => conditional_check1.new00.f: {null}
+
+

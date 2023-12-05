@@ -1,0 +1,32 @@
+test21: in01: @ => $r0: {test21.new00}
+
+test21: in00: @ => $r0: {test21.new00}
+
+test21: in01: @ => $r0: {test21.new00}
+
+test21: in00: @ => $r1: {test21.new03}
+
+test21: in00: @ => $r1: {test21.new03}
+
+test21: in00: @ => $r0: {test21.new00}
+test21: in00: @ => $r1: {test21.new03}
+test21: in00: @ => test21.new03.f: {null}
+
+test21: in00: @ => $r0: {test21.new00}
+test21: in00: @ => $r1: {test21.new03}
+test21: in00: @ => test21.new03.f: {null}
+test21: in01: @ => $r0: {test21.new00}
+test21: in01: @ => $r1: {test21.new03}
+test21: in01: @ => test21.new03.f: {null}
+
+test21: in00: @ => $r0: {test21.new00}
+test21: in00: @ => $r1: {test21.new03}
+test21: in00: @ => test21.new00.f: {null}
+test21: in00: @ => test21.new03.f: {null}
+
+test21: in00: @ => $r0: {test21.new00}
+test21: in00: @ => $r1: {test21.new03}
+test21: in00: @ => test21.new00.f: {null,test21.new00}
+test21: in00: @ => test21.new03.f: {null}
+
+

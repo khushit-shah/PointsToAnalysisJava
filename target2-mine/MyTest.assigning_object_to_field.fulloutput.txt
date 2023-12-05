@@ -1,0 +1,43 @@
+assigning_object_to_field: in01: @ => $r0: {assigning_object_to_field.new00}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r2: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r2: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => assigning_object_to_field.new00.f: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r2: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r3: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => assigning_object_to_field.new00.f: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r2: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r3: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => assigning_object_to_field.new00.f: {assigning_object_to_field.new02}
+assigning_object_to_field: in01: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in01: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in01: @ => $r2: {assigning_object_to_field.new02}
+assigning_object_to_field: in01: @ => $r3: {assigning_object_to_field.new02}
+assigning_object_to_field: in01: @ => assigning_object_to_field.new00.f: {assigning_object_to_field.new02}
+
+assigning_object_to_field: in00: @ => $r0: {assigning_object_to_field.new00}
+assigning_object_to_field: in00: @ => $r1: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r2: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => $r3: {assigning_object_to_field.new02}
+assigning_object_to_field: in00: @ => assigning_object_to_field.new00.f: {assigning_object_to_field.new00,assigning_object_to_field.new02}
+
+

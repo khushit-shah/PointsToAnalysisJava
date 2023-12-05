@@ -1,0 +1,36 @@
+object_comparision: in01: @ => $r0: {object_comparision.new00}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+object_comparision: in00: @ => $r2: {object_comparision.new04}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+object_comparision: in00: @ => $r2: {object_comparision.new04}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+object_comparision: in00: @ => $r2: {object_comparision.new04}
+
+object_comparision: in00: @ => $r0: {object_comparision.new00}
+object_comparision: in00: @ => $r1: {object_comparision.new02}
+object_comparision: in00: @ => $r2: {object_comparision.new04}
+object_comparision: in01: @ => $r0: {object_comparision.new00}
+object_comparision: in01: @ => $r1: {object_comparision.new02}
+object_comparision: in01: @ => $r2: {object_comparision.new04}
+
+
+object_comparision: in01: @ => $r0: {object_comparision.new00}
+object_comparision: in01: @ => $r1: {object_comparision.new02}
+object_comparision: in01: @ => $r2: {object_comparision.new04}
+
+
+

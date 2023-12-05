@@ -1,0 +1,100 @@
+digraph "./target2-mine/MyTest.conditional_check1" {
+    "{[]={}}
+{[]=[]}
+conditional_check1:$r0 = new00_conditional_check1 hash:1188958603";
+    "{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:698133256";
+    "{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:594822442";
+    "{[]={$r0=>[new00_conditional_check1]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r1 = $r0.<MyTest: MyTest f> hash:1311135309";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:if $r1 != null goto return hash:1109622904";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:1241385933";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:return hash:1810419227";
+    "{[]={}}
+{[]=[]}
+conditional_check1:$r0 = new00_conditional_check1 hash:1188958603"->"{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:698133256";
+    "{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:specialinvoke $r0.<MyTest: void <init>()>() hash:698133256"->"{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:594822442";
+    "{[]={$r0=>[new00_conditional_check1]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:594822442"->"{[]={$r0=>[new00_conditional_check1]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r1 = $r0.<MyTest: MyTest f> hash:1311135309";
+    "{[]={$r0=>[new00_conditional_check1]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r1 = $r0.<MyTest: MyTest f> hash:1311135309"->"{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:if $r1 != null goto return hash:1109622904";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:if $r1 != null goto return hash:1109622904"->"{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:1241385933";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:if $r1 != null goto return hash:1109622904"->"{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:return hash:1810419227";
+    "{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:$r0.<MyTest: MyTest f> = null hash:1241385933"->"{[]={$r0=>[new00_conditional_check1]
+$r1=>[null]
+new00_conditional_check1.f=>[null]
+}}
+{[]=[]}
+conditional_check1:return hash:1810419227";
+}

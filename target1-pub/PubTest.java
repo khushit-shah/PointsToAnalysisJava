@@ -248,7 +248,6 @@ public class PubTest {
         v2.f=v1.f;
         v2.f= test13_fun1(v1.f,v2.f);
         v2=v2.f.f;
-
     }
 
     static PubTest test13_fun1(PubTest v1, PubTest v2)
@@ -381,6 +380,24 @@ public class PubTest {
         v1=null;
         return v1;
     }
+
+    static void  test21()
+    {
+        int a=0;
+        PubTest v1= new PubTest();
+
+        if(v1==null)
+        {
+            PubTest v2= new PubTest();
+            v2.f=null;
+        }
+        if(a==a)
+        v1.f=null;
+
+        if(null==null)v1.f=v1;
+        else v1.f=null;
+        
+    }
     static PubTest fibonnaci(int i, PubTest p1, PubTest p2) {
         PubTest p3 = new PubTest();
         PubTest p4 = new PubTest();
@@ -420,30 +437,5 @@ public class PubTest {
         v1.f = v2;
         return v1;
     }
-
-<<<<<<< HEAD
-
-
-=======
-    static PubTest test11() {
-        PubTest v1 = new PubTest();
-        PubTest v2 = new PubTest();
-        int a = 10;
-        // v1=v2;
-        test11_fun1(v1, v2, a);
-        PubTest v3 = new PubTest();
-        v2 = null;
-        v3.f = v2;
-        return null;
-    }
-
-    static void test11_fun1(PubTest v1, PubTest v2, int a) {
-        if (a == 10)
-            v1.f = v2.f = null;
-        test11_fun1(v2, v1, a);
-        PubTest v3 = new PubTest();
-        v3.f = v3;
-    }
->>>>>>> a82a9ec6f410e2e31ed52efdf61cf9fa511d2ffd
 }
 

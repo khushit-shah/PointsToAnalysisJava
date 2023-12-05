@@ -1,0 +1,28 @@
+digraph "./target2-mine/MyTest.implict_type_conversion.intra.debug" {
+    "d0 = (double) 42 hash: 488322592";
+    "$r0 = new01_implict_type_conversion hash: 580212331";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1403032934";
+    "$r1 = new03_implict_type_conversion hash: 1943679038";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 844185066";
+    "$d1 = (double) 42 hash: 1868914109";
+    "$b0 = d0 cmpl $d1 hash: 1415611350";
+    "if $b0 != 0 goto $r0.<MyTest: MyTest f> = null hash: 2059515584";
+    "$r1.<MyTest: MyTest f> = $r1 hash: 1957019376";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 1757718624";
+    "goto [?= return] hash: 91286940";
+    "$r0.<MyTest: MyTest f> = null hash: 1345611807";
+    "return hash: 595239111";
+    "d0 = (double) 42 hash: 488322592"->"$r0 = new01_implict_type_conversion hash: 580212331";
+    "$r0 = new01_implict_type_conversion hash: 580212331"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1403032934";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1403032934"->"$r1 = new03_implict_type_conversion hash: 1943679038";
+    "$r1 = new03_implict_type_conversion hash: 1943679038"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 844185066";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 844185066"->"$d1 = (double) 42 hash: 1868914109";
+    "$d1 = (double) 42 hash: 1868914109"->"$b0 = d0 cmpl $d1 hash: 1415611350";
+    "$b0 = d0 cmpl $d1 hash: 1415611350"->"if $b0 != 0 goto $r0.<MyTest: MyTest f> = null hash: 2059515584";
+    "if $b0 != 0 goto $r0.<MyTest: MyTest f> = null hash: 2059515584"->"$r1.<MyTest: MyTest f> = $r1 hash: 1957019376";
+    "if $b0 != 0 goto $r0.<MyTest: MyTest f> = null hash: 2059515584"->"$r0.<MyTest: MyTest f> = null hash: 1345611807";
+    "$r1.<MyTest: MyTest f> = $r1 hash: 1957019376"->"$r0.<MyTest: MyTest f> = $r1 hash: 1757718624";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 1757718624"->"goto [?= return] hash: 91286940";
+    "goto [?= return] hash: 91286940"->"return hash: 595239111";
+    "$r0.<MyTest: MyTest f> = null hash: 1345611807"->"return hash: 595239111";
+}

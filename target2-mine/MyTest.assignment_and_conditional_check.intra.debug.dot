@@ -1,0 +1,37 @@
+digraph "./target2-mine/MyTest.assignment_and_conditional_check.intra.debug" {
+    "$r0 = new00_assignment_and_conditional_check hash: 832152066";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1852287168";
+    "$r1 = new02_assignment_and_conditional_check hash: 1911013695";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 390994841";
+    "$r2 = new04_assignment_and_conditional_check hash: 347042785";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 604405894";
+    "$r1.<MyTest: MyTest f> = $r2 hash: 1868914109";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 1415611350";
+    "$r4 = $r0.<MyTest: MyTest f> hash: 980751669";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 2142777203";
+    "if $r4 != $r3 goto $r1.<MyTest: MyTest f> = $r0 hash: 789998945";
+    "$r5 = $r1.<MyTest: MyTest f> hash: 1486273013";
+    "if $r5 != $r2 goto $r1.<MyTest: MyTest f> = $r0 hash: 1255723887";
+    "$r1.<MyTest: MyTest f> = null hash: 1757718624";
+    "goto [?= return] hash: 91286940";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 534798335";
+    "return hash: 486965279";
+    "$r0 = new00_assignment_and_conditional_check hash: 832152066"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1852287168";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1852287168"->"$r1 = new02_assignment_and_conditional_check hash: 1911013695";
+    "$r1 = new02_assignment_and_conditional_check hash: 1911013695"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 390994841";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 390994841"->"$r2 = new04_assignment_and_conditional_check hash: 347042785";
+    "$r2 = new04_assignment_and_conditional_check hash: 347042785"->"specialinvoke $r2.<MyTest: void <init>()>() hash: 604405894";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 604405894"->"$r1.<MyTest: MyTest f> = $r2 hash: 1868914109";
+    "$r1.<MyTest: MyTest f> = $r2 hash: 1868914109"->"$r0.<MyTest: MyTest f> = $r2 hash: 1415611350";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 1415611350"->"$r4 = $r0.<MyTest: MyTest f> hash: 980751669";
+    "$r4 = $r0.<MyTest: MyTest f> hash: 980751669"->"$r3 = $r1.<MyTest: MyTest f> hash: 2142777203";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 2142777203"->"if $r4 != $r3 goto $r1.<MyTest: MyTest f> = $r0 hash: 789998945";
+    "if $r4 != $r3 goto $r1.<MyTest: MyTest f> = $r0 hash: 789998945"->"$r5 = $r1.<MyTest: MyTest f> hash: 1486273013";
+    "if $r4 != $r3 goto $r1.<MyTest: MyTest f> = $r0 hash: 789998945"->"$r1.<MyTest: MyTest f> = $r0 hash: 534798335";
+    "$r5 = $r1.<MyTest: MyTest f> hash: 1486273013"->"if $r5 != $r2 goto $r1.<MyTest: MyTest f> = $r0 hash: 1255723887";
+    "if $r5 != $r2 goto $r1.<MyTest: MyTest f> = $r0 hash: 1255723887"->"$r1.<MyTest: MyTest f> = null hash: 1757718624";
+    "if $r5 != $r2 goto $r1.<MyTest: MyTest f> = $r0 hash: 1255723887"->"$r1.<MyTest: MyTest f> = $r0 hash: 534798335";
+    "$r1.<MyTest: MyTest f> = null hash: 1757718624"->"goto [?= return] hash: 91286940";
+    "goto [?= return] hash: 91286940"->"return hash: 486965279";
+    "$r1.<MyTest: MyTest f> = $r0 hash: 534798335"->"return hash: 486965279";
+}

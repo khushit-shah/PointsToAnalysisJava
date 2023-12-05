@@ -1,0 +1,25 @@
+digraph "./target2-mine/MyTest.some_test.intra.debug" {
+    "$r0 = new00_some_test hash: 1411932985";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1140430871";
+    "$r1 = new02_some_test hash: 837923432";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 674480275";
+    "$r2 = new04_some_test hash: 1256806576";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 1341158560";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 159851247";
+    "$r1.<MyTest: MyTest f> = $r2 hash: 265722243";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 308434156";
+    "$r0.<MyTest: MyTest f> = $r3 hash: 660144865";
+    "r4 = $r2.<MyTest: MyTest f> hash: 719068804";
+    "return r4 hash: 1169734591";
+    "$r0 = new00_some_test hash: 1411932985"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 1140430871";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 1140430871"->"$r1 = new02_some_test hash: 837923432";
+    "$r1 = new02_some_test hash: 837923432"->"specialinvoke $r1.<MyTest: void <init>()>() hash: 674480275";
+    "specialinvoke $r1.<MyTest: void <init>()>() hash: 674480275"->"$r2 = new04_some_test hash: 1256806576";
+    "$r2 = new04_some_test hash: 1256806576"->"specialinvoke $r2.<MyTest: void <init>()>() hash: 1341158560";
+    "specialinvoke $r2.<MyTest: void <init>()>() hash: 1341158560"->"$r0.<MyTest: MyTest f> = $r1 hash: 159851247";
+    "$r0.<MyTest: MyTest f> = $r1 hash: 159851247"->"$r1.<MyTest: MyTest f> = $r2 hash: 265722243";
+    "$r1.<MyTest: MyTest f> = $r2 hash: 265722243"->"$r3 = $r1.<MyTest: MyTest f> hash: 308434156";
+    "$r3 = $r1.<MyTest: MyTest f> hash: 308434156"->"$r0.<MyTest: MyTest f> = $r3 hash: 660144865";
+    "$r0.<MyTest: MyTest f> = $r3 hash: 660144865"->"r4 = $r2.<MyTest: MyTest f> hash: 719068804";
+    "r4 = $r2.<MyTest: MyTest f> hash: 719068804"->"return r4 hash: 1169734591";
+}

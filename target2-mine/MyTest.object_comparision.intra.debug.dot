@@ -1,0 +1,27 @@
+digraph "./target2-mine/MyTest.object_comparision.intra.debug" {
+    "$r0 = new00_object_comparision hash: 1241385933";
+    "specialinvoke $r0.<java.lang.Object: void <init>()>() hash: 1676585156";
+    "$r1 = new02_object_comparision hash: 894584137";
+    "specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 671967776";
+    "$r2 = new04_object_comparision hash: 832152066";
+    "specialinvoke $r2.<java.lang.Object: void <init>()>() hash: 500580931";
+    "$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash: 341829803";
+    "if $z0 == 0 goto (branch) hash: 993293369";
+    "goto [?= (branch)] hash: 93720343";
+    "if $r0 != $r1 goto return hash: 2138562661";
+    "goto [?= return] hash: 2059515584";
+    "return hash: 1486273013";
+    "$r0 = new00_object_comparision hash: 1241385933"->"specialinvoke $r0.<java.lang.Object: void <init>()>() hash: 1676585156";
+    "specialinvoke $r0.<java.lang.Object: void <init>()>() hash: 1676585156"->"$r1 = new02_object_comparision hash: 894584137";
+    "$r1 = new02_object_comparision hash: 894584137"->"specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 671967776";
+    "specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 671967776"->"$r2 = new04_object_comparision hash: 832152066";
+    "$r2 = new04_object_comparision hash: 832152066"->"specialinvoke $r2.<java.lang.Object: void <init>()>() hash: 500580931";
+    "specialinvoke $r2.<java.lang.Object: void <init>()>() hash: 500580931"->"$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash: 341829803";
+    "$z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1) hash: 341829803"->"if $z0 == 0 goto (branch) hash: 993293369";
+    "if $z0 == 0 goto (branch) hash: 993293369"->"goto [?= (branch)] hash: 93720343";
+    "if $z0 == 0 goto (branch) hash: 993293369"->"if $r0 != $r1 goto return hash: 2138562661";
+    "goto [?= (branch)] hash: 93720343"->"if $r0 != $r1 goto return hash: 2138562661";
+    "if $r0 != $r1 goto return hash: 2138562661"->"goto [?= return] hash: 2059515584";
+    "if $r0 != $r1 goto return hash: 2138562661"->"return hash: 1486273013";
+    "goto [?= return] hash: 2059515584"->"return hash: 1486273013";
+}

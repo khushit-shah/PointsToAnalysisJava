@@ -1,0 +1,5 @@
+digraph "./target2-mine/MyTest.getTest" {
+    "{[]={}}
+{[]=[]}
+getTest:return null hash:694103323";
+}

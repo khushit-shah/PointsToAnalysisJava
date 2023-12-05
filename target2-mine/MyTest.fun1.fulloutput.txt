@@ -1,0 +1,161 @@
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in01: @ => $r0: {fun1.new02}
+fun1: in01: @ => r6: {fun1.new02}
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in01: @ => $r0: {fun1.new02}
+fun1: in01: @ => $r1: {fun1.new07}
+fun1: in01: @ => r6: {fun1.new02}
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+fun1: in01: @ => $r0: {fun1.new02}
+fun1: in01: @ => $r1: {fun1.new07}
+fun1: in01: @ => r6: {fun1.new02}
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+fun1: in01: @ => $r0: {fun1.new02}
+fun1: in01: @ => $r1: {fun1.new07}
+fun1: in01: @ => r6: {fun1.new02}
+fun1: in02: @ => $r0: {fun1.new02}
+fun1: in02: @ => $r1: {fun1.new07}
+fun1: in02: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => r6: {fun1.new02}
+fun1: in01: @ => $r0: {fun1.new02}
+fun1: in01: @ => $r1: {fun1.new07}
+fun1: in01: @ => r6: {fun1.new02}
+fun1: in02: @ => $r0: {fun1.new02}
+fun1: in02: @ => $r1: {fun1.new07}
+fun1: in02: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => r6: {fun1.new28}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => r6: {fun1.new02,fun1.new28}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => r6: {fun1.new02}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => r6: {fun1.new02,fun1.new28,fun1.new32}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => $r7: {fun1.new35}
+fun1: in00: @ => r6: {fun1.new02,fun1.new28,fun1.new32}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => $r7: {fun1.new35}
+fun1: in00: @ => r6: {fun1.new02,fun1.new28,fun1.new32}
+
+fun1: in00: @ => $r0: {fun1.new02}
+fun1: in00: @ => $r1: {fun1.new07}
+fun1: in00: @ => $r3: {fun1.new32}
+fun1: in00: @ => $r4: {fun1.new28}
+fun1: in00: @ => $r7: {fun1.new35}
+fun1: in00: @ => fun1.new02.f: {fun1.new35}
+fun1: in00: @ => fun1.new28.f: {fun1.new35}
+fun1: in00: @ => fun1.new32.f: {fun1.new35}
+fun1: in00: @ => r6: {fun1.new02,fun1.new28,fun1.new32}
+
+

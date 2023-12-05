@@ -1,0 +1,22 @@
+digraph "./target2-mine/MyTest.assigning_object_to_field.intra.debug" {
+    "$r0 = new00_assigning_object_to_field hash: 1529070070";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 743901415";
+    "$r1 = new02_assigning_object_to_field hash: 1109622904";
+    "specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 1241385933";
+    "$r2 = (MyTest) $r1 hash: 14926701";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 964301023";
+    "$r3 = $r0.<MyTest: MyTest f> hash: 337509625";
+    "if $r3 != $r1 goto return hash: 175881660";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 429018901";
+    "return hash: 894584137";
+    "$r0 = new00_assigning_object_to_field hash: 1529070070"->"specialinvoke $r0.<MyTest: void <init>()>() hash: 743901415";
+    "specialinvoke $r0.<MyTest: void <init>()>() hash: 743901415"->"$r1 = new02_assigning_object_to_field hash: 1109622904";
+    "$r1 = new02_assigning_object_to_field hash: 1109622904"->"specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 1241385933";
+    "specialinvoke $r1.<java.lang.Object: void <init>()>() hash: 1241385933"->"$r2 = (MyTest) $r1 hash: 14926701";
+    "$r2 = (MyTest) $r1 hash: 14926701"->"$r0.<MyTest: MyTest f> = $r2 hash: 964301023";
+    "$r0.<MyTest: MyTest f> = $r2 hash: 964301023"->"$r3 = $r0.<MyTest: MyTest f> hash: 337509625";
+    "$r3 = $r0.<MyTest: MyTest f> hash: 337509625"->"if $r3 != $r1 goto return hash: 175881660";
+    "if $r3 != $r1 goto return hash: 175881660"->"$r0.<MyTest: MyTest f> = $r0 hash: 429018901";
+    "if $r3 != $r1 goto return hash: 175881660"->"return hash: 894584137";
+    "$r0.<MyTest: MyTest f> = $r0 hash: 429018901"->"return hash: 894584137";
+}

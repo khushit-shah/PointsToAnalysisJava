@@ -1,0 +1,41 @@
+nullnullother: in01: @ => $r0: {nullnullother.new00}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+nullnullother: in00: @ => $r2: {nullnullother.new05}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+nullnullother: in00: @ => $r2: {nullnullother.new05}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+nullnullother: in00: @ => $r2: {nullnullother.new05}
+
+nullnullother: in00: @ => r3: {nullnullother.new08}
+
+nullnullother: in00: @ => r3: {nullnullother.new08}
+
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+nullnullother: in00: @ => $r2: {nullnullother.new05}
+nullnullother: in00: @ => r4: {nullnullother.new11}
+
+nullnullother: in00: @ => $r0: {nullnullother.new00}
+nullnullother: in00: @ => $r1: {nullnullother.new02}
+nullnullother: in00: @ => $r2: {nullnullother.new05}
+nullnullother: in00: @ => r4: {nullnullother.new11}
+
+

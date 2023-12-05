@@ -1,0 +1,263 @@
+digraph "./target2-mine/MyTest.chained_assignments" {
+    "{[]={}}
+{[]=[]}
+chained_assignments:$r0 = new00_chained_assignments hash:1622945931";
+    "{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r0.<MyTest: void <init>()>() hash:1972950645";
+    "{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r1 = new02_chained_assignments hash:2087202342";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r1.<MyTest: void <init>()>() hash:873447850";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2 = new04_chained_assignments hash:1167987211";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r2.<MyTest: void <init>()>() hash:574790161";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r3 = new06_chained_assignments hash:477662472";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r3.<MyTest: void <init>()>() hash:714734087";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2.<MyTest: MyTest f> = null hash:853264965";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r1.<MyTest: MyTest f> = null hash:1749755575";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r0.<MyTest: MyTest f> = null hash:770164810";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4 = $r2.<MyTest: MyTest f> hash:2006056784";
+    "{[]={$r0=>[new00_chained_assignments]
+r4=>[null]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4.<MyTest: MyTest f> = null hash:1432888450";
+    "{[]={$r0=>[new00_chained_assignments]
+r4=>[null]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:return hash:2040509534";
+    "{[]={}}
+{[]=[]}
+chained_assignments:$r0 = new00_chained_assignments hash:1622945931"->"{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r0.<MyTest: void <init>()>() hash:1972950645";
+    "{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r0.<MyTest: void <init>()>() hash:1972950645"->"{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r1 = new02_chained_assignments hash:2087202342";
+    "{[]={$r0=>[new00_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r1 = new02_chained_assignments hash:2087202342"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r1.<MyTest: void <init>()>() hash:873447850";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r1.<MyTest: void <init>()>() hash:873447850"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2 = new04_chained_assignments hash:1167987211";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2 = new04_chained_assignments hash:1167987211"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r2.<MyTest: void <init>()>() hash:574790161";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r2.<MyTest: void <init>()>() hash:574790161"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r3 = new06_chained_assignments hash:477662472";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r3 = new06_chained_assignments hash:477662472"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r3.<MyTest: void <init>()>() hash:714734087";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:specialinvoke $r3.<MyTest: void <init>()>() hash:714734087"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2.<MyTest: MyTest f> = null hash:853264965";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+}}
+{[]=[]}
+chained_assignments:$r2.<MyTest: MyTest f> = null hash:853264965"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r1.<MyTest: MyTest f> = null hash:1749755575";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r1.<MyTest: MyTest f> = null hash:1749755575"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r0.<MyTest: MyTest f> = null hash:770164810";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:$r0.<MyTest: MyTest f> = null hash:770164810"->"{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4 = $r2.<MyTest: MyTest f> hash:2006056784";
+    "{[]={$r0=>[new00_chained_assignments]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4 = $r2.<MyTest: MyTest f> hash:2006056784"->"{[]={$r0=>[new00_chained_assignments]
+r4=>[null]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4.<MyTest: MyTest f> = null hash:1432888450";
+    "{[]={$r0=>[new00_chained_assignments]
+r4=>[null]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:r4.<MyTest: MyTest f> = null hash:1432888450"->"{[]={$r0=>[new00_chained_assignments]
+r4=>[null]
+$r1=>[new02_chained_assignments]
+$r2=>[new04_chained_assignments]
+new00_chained_assignments.f=>[null]
+$r3=>[new06_chained_assignments]
+new02_chained_assignments.f=>[null]
+new04_chained_assignments.f=>[null]
+}}
+{[]=[]}
+chained_assignments:return hash:2040509534";
+}

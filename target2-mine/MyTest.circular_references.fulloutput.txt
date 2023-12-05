@@ -1,0 +1,41 @@
+circular_references: in01: @ => $r0: {circular_references.new00}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+circular_references: in00: @ => circular_references.new00.f: {circular_references.new00}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+circular_references: in00: @ => circular_references.new00.f: {circular_references.new00}
+circular_references: in00: @ => circular_references.new02.f: {circular_references.new00}
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+circular_references: in00: @ => $r2: {circular_references.new00}
+circular_references: in00: @ => circular_references.new00.f: {circular_references.new00}
+circular_references: in00: @ => circular_references.new02.f: {circular_references.new00}
+
+circular_references: in01: @ => $r0: {circular_references.new00}
+circular_references: in01: @ => $r1: {circular_references.new02}
+circular_references: in01: @ => $r2: {circular_references.new00}
+circular_references: in01: @ => circular_references.new00.f: {circular_references.new00}
+circular_references: in01: @ => circular_references.new02.f: {circular_references.new00}
+
+
+
+
+circular_references: in00: @ => $r0: {circular_references.new00}
+circular_references: in00: @ => $r1: {circular_references.new02}
+circular_references: in00: @ => $r2: {circular_references.new00}
+circular_references: in00: @ => circular_references.new00.f: {circular_references.new00}
+circular_references: in00: @ => circular_references.new02.f: {circular_references.new00}
+
+
