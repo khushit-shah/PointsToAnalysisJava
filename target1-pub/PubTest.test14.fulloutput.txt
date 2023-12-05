@@ -1,0 +1,17 @@
+
+
+
+test14: in00: [test14.in00] => $r0: {test14_fun1.new01}
+
+test14: in00: [test14.in00] => $r0: {test14_fun1.new01}
+
+test14: in00: [test14.in00] => $r0: {test14_fun1.new01}
+
+test14: in00: [test14.in00] => $r0: {test14_fun1.new01}
+
+test14: in00: [test14.in00] => $r0: {test14_fun1.new01}
+test14: in00: [test14.in00] => test14_fun1.new01.f: {test14_fun1.new01}
+
+test14: in00: @ => test14_fun1.new01.f: {test14_fun1.new01}
+
+

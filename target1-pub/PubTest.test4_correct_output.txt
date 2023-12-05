@@ -1,0 +1,4 @@
+test4: in03: @ => $r1: {test4.new02}
+test4: in04: @ => $r1: {test4.new02}
+test4: in05: @ => $r1: {test4.new02}
+test4: in06: @ => $r1: {test4.new02}

@@ -1,0 +1,18 @@
+
+test12: in00: @ => $r0: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+test12: in00: @ => test12.new01.f: {test12.new01}
+
+test12: in00: @ => $r0: {test12.new01}
+test12: in00: @ => test12.new01.f: {null,test12.new01}
+
+

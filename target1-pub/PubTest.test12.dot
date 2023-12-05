@@ -1,0 +1,94 @@
+digraph "./target1-pub/PubTest.test12" {
+    "{[]={}}
+{[]=[]}
+test12:r2 := @this: PubTest hash:1140430871";
+    "{[]={}}
+{[]=[]}
+test12:$r0 = new01_test12 hash:1341158560";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:specialinvoke $r0.<PubTest: void <init>()>() hash:660144865";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r1 = <java.lang.System: java.io.PrintStream out> hash:714734087";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>(\"Gnani\") hash:1169734591";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke r2.<PubTest: void test12_fun1(PubTest)>($r0) hash:1469217737";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = $r0 hash:853264965";
+    "{[]={$r0=>[new01_test12]
+new01_test12.f=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = null hash:1749755575";
+    "{[]={$r0=>[new01_test12]
+new01_test12.f=>[null, new01_test12]
+}}
+{[]=[]}
+test12:return hash:1099081297";
+    "{[]={}}
+{[]=[]}
+test12:r2 := @this: PubTest hash:1140430871"->"{[]={}}
+{[]=[]}
+test12:$r0 = new01_test12 hash:1341158560";
+    "{[]={}}
+{[]=[]}
+test12:$r0 = new01_test12 hash:1341158560"->"{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:specialinvoke $r0.<PubTest: void <init>()>() hash:660144865";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:specialinvoke $r0.<PubTest: void <init>()>() hash:660144865"->"{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r1 = <java.lang.System: java.io.PrintStream out> hash:714734087";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r1 = <java.lang.System: java.io.PrintStream out> hash:714734087"->"{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>(\"Gnani\") hash:1169734591";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>(\"Gnani\") hash:1169734591"->"{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke r2.<PubTest: void test12_fun1(PubTest)>($r0) hash:1469217737";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:virtualinvoke r2.<PubTest: void test12_fun1(PubTest)>($r0) hash:1469217737"->"{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = $r0 hash:853264965";
+    "{[]={$r0=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = $r0 hash:853264965"->"{[]={$r0=>[new01_test12]
+new01_test12.f=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = null hash:1749755575";
+    "{[]={$r0=>[new01_test12]
+new01_test12.f=>[new01_test12]
+}}
+{[]=[]}
+test12:$r0.<PubTest: PubTest f> = null hash:1749755575"->"{[]={$r0=>[new01_test12]
+new01_test12.f=>[null, new01_test12]
+}}
+{[]=[]}
+test12:return hash:1099081297";
+}

@@ -20,29 +20,17 @@ $r1=>[new02_test11]
 }}
 {[]=[]}
 test11:staticinvoke <PubTest: void test11_fun1(PubTest,PubTest,int)>($r0, $r1, 10) hash:931041456";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-}}
-{[]=[]}
+    "{}
+{}
 test11:$r2 = new05_test11 hash:919541414";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
+    "{}
+{}
 test11:specialinvoke $r2.<PubTest: void <init>()>() hash:2129636512";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
+    "{}
+{}
 test11:$r2.<PubTest: PubTest f> = null hash:1038907896";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-new05_test11.f=>[null]
-}}
-{[]=[]}
+    "{}
+{}
 test11:return null hash:347238032";
     "{[test11_fun1.in06, test11_fun1.in06]={new02_test11.f=>[null]
 new00_test11.f=>[null]
@@ -182,47 +170,20 @@ new00_test11.f=>[null]
 }, [test11.in04]={}}
 {[test11_fun1.in06, test11_fun1.in06]=[[new02_test11, new00_test11], [new02_test11, new00_test11], []], [test11.in04, test11_fun1.in06]=[[new02_test11], [new00_test11], []], [test11.in04]=[[new00_test11], [new02_test11], []]}
 test11_fun1:r1 := @parameter0: PubTest hash:1705294294";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-}}
-{[]=[]}
-test11:staticinvoke <PubTest: void test11_fun1(PubTest,PubTest,int)>($r0, $r1, 10) hash:931041456"->"{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-}}
-{[]=[]}
-test11:$r2 = new05_test11 hash:919541414";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-}}
-{[]=[]}
-test11:$r2 = new05_test11 hash:919541414"->"{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
+    "{}
+{}
+test11:$r2 = new05_test11 hash:919541414"->"{}
+{}
 test11:specialinvoke $r2.<PubTest: void <init>()>() hash:2129636512";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
-test11:specialinvoke $r2.<PubTest: void <init>()>() hash:2129636512"->"{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
+    "{}
+{}
+test11:specialinvoke $r2.<PubTest: void <init>()>() hash:2129636512"->"{}
+{}
 test11:$r2.<PubTest: PubTest f> = null hash:1038907896";
-    "{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-}}
-{[]=[]}
-test11:$r2.<PubTest: PubTest f> = null hash:1038907896"->"{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-$r2=>[new05_test11]
-new05_test11.f=>[null]
-}}
-{[]=[]}
+    "{}
+{}
+test11:$r2.<PubTest: PubTest f> = null hash:1038907896"->"{}
+{}
 test11:return null hash:347238032";
     "{[test11_fun1.in06, test11_fun1.in06]={new02_test11.f=>[null]
 new00_test11.f=>[null]
@@ -431,10 +392,8 @@ test11_fun1:$r2.<PubTest: PubTest f> = $r2 hash:1896461827"->"{}
 test11_fun1:return hash:699787227";
     "{}
 {}
-test11_fun1:return hash:699787227"->"{[]={$r0=>[new00_test11]
-$r1=>[new02_test11]
-}}
-{[]=[]}
+test11_fun1:return hash:699787227"->"{}
+{}
 test11:$r2 = new05_test11 hash:919541414";
     "{}
 {}

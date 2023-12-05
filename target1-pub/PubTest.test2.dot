@@ -1,39 +1,39 @@
 digraph "./target1-pub/PubTest.test2" {
     "{[]={}}
 {[]=[]}
-test2:$r0 = new00_test2 hash:1330447795";
+test2:$r0 = new00_test2 hash:1819665340";
     "{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:specialinvoke $r0.<PubTest: void <init>()>() hash:145825834";
+test2:specialinvoke $r0.<PubTest: void <init>()>() hash:1445443819";
     "{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:861255935";
-    "{[]={$r0=>[new00_test2]
-$r1=>[new00_test2, new03_test2]
-}}
-{[]=[]}
-test2:$r2 = new03_test2 hash:594579220";
+test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:1810419227";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
-$r2=>[new03_test2]
 }}
 {[]=[]}
-test2:specialinvoke $r2.<PubTest: void <init>()>() hash:754932387";
+test2:$r2 = new03_test2 hash:967337409";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 }}
 {[]=[]}
-test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1931691665";
+test2:specialinvoke $r2.<PubTest: void <init>()>() hash:175881660";
+    "{[]={$r0=>[new00_test2]
+$r1=>[new00_test2, new03_test2]
+$r2=>[new03_test2]
+}}
+{[]=[]}
+test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1645449962";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = null hash:2073830279";
+test2:r4 = null hash:671967776";
     "{[]={$r0=>[new00_test2]
 r4=>[null]
 $r1=>[new00_test2, new03_test2]
@@ -41,7 +41,7 @@ $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:if $r1 != $r3 goto return r4 hash:1315022947";
+test2:if $r1 != $r3 goto return r4 hash:1898469011";
     "{[]={$r0=>[new00_test2]
 r4=>[null]
 $r1=>[new00_test2, new03_test2]
@@ -49,7 +49,7 @@ $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = $r1 hash:803904123";
+test2:r4 = $r1 hash:1921417851";
     "{[]={$r0=>[new00_test2]
 r4=>[new00_test2, null, new03_test2]
 $r1=>[new00_test2, new03_test2]
@@ -57,141 +57,126 @@ $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:return r4 hash:1193744863";
+test2:return r4 hash:488322592";
     "{[test2.in02]={}, [test2.in05]={}}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:r0 := @parameter0: PubTest hash:673231721";
+foo2:r0 := @parameter0: PubTest hash:636094094";
     "{[test2.in02]={r0=>[new00_test2]
 }, [test2.in05]={r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:39296394";
+foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:1911551651";
     "{[test2.in02]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:return $r1 hash:989044347";
+foo2:return $r1 hash:759098586";
     "{[test2.in02, foo2.in01]={}, [test2.in05, foo2.in01]={}}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:r0 := @parameter0: PubTest hash:1980895595";
+bar2:r0 := @parameter0: PubTest hash:75340801";
     "{[test2.in02, foo2.in01]={r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:1038753484";
+bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:2020883928";
     "{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:return $r1 hash:148232830";
+bar2:return $r1 hash:903383636";
     "{[foo2.in01, bar2.in01]={}}
 {[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:r0 := @parameter0: PubTest hash:533353383";
+bar3:r0 := @parameter0: PubTest hash:1503837905";
     "{[foo2.in01, bar2.in01]={r0=>[new00_test2, new03_test2]
 }}
 {[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:return r0 hash:1603964380";
+bar3:return r0 hash:2080672560";
     "{[]={}}
 {[]=[]}
-test2:$r0 = new00_test2 hash:1330447795"->"{[]={$r0=>[new00_test2]
+test2:$r0 = new00_test2 hash:1819665340"->"{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:specialinvoke $r0.<PubTest: void <init>()>() hash:145825834";
+test2:specialinvoke $r0.<PubTest: void <init>()>() hash:1445443819";
     "{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:specialinvoke $r0.<PubTest: void <init>()>() hash:145825834"->"{[]={$r0=>[new00_test2]
+test2:specialinvoke $r0.<PubTest: void <init>()>() hash:1445443819"->"{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:861255935";
+test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:1810419227";
     "{[]={$r0=>[new00_test2]
 }}
 {[]=[]}
-test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:861255935"->"{[]={$r0=>[new00_test2]
-$r1=>[new00_test2, new03_test2]
-}}
-{[]=[]}
-test2:$r2 = new03_test2 hash:594579220";
-    "{[]={$r0=>[new00_test2]
-}}
-{[]=[]}
-test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:861255935"->"{[test2.in02]={}, [test2.in05]={}}
+test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:1810419227"->"{[test2.in02]={}, [test2.in05]={}}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:r0 := @parameter0: PubTest hash:673231721";
+foo2:r0 := @parameter0: PubTest hash:636094094";
+    "{[]={$r0=>[new00_test2]
+}}
+{[]=[]}
+test2:$r1 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r0) hash:1810419227"->"{[]={$r0=>[new00_test2]
+$r1=>[new00_test2, new03_test2]
+}}
+{[]=[]}
+test2:$r2 = new03_test2 hash:967337409";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:$r2 = new03_test2 hash:594579220"->"{[]={$r0=>[new00_test2]
+test2:$r2 = new03_test2 hash:967337409"->"{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 }}
 {[]=[]}
-test2:specialinvoke $r2.<PubTest: void <init>()>() hash:754932387";
-    "{[]={$r0=>[new00_test2]
-$r1=>[new00_test2, new03_test2]
-$r2=>[new03_test2]
-}}
-{[]=[]}
-test2:specialinvoke $r2.<PubTest: void <init>()>() hash:754932387"->"{[]={$r0=>[new00_test2]
-$r1=>[new00_test2, new03_test2]
-$r2=>[new03_test2]
-}}
-{[]=[]}
-test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1931691665";
+test2:specialinvoke $r2.<PubTest: void <init>()>() hash:175881660";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 }}
 {[]=[]}
-test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1931691665"->"{[]={$r0=>[new00_test2]
+test2:specialinvoke $r2.<PubTest: void <init>()>() hash:175881660"->"{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
-$r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = null hash:2073830279";
+test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1645449962";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 }}
 {[]=[]}
-test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1931691665"->"{[test2.in02]={}, [test2.in05]={}}
+test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1645449962"->"{[test2.in02]={}, [test2.in05]={}}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:r0 := @parameter0: PubTest hash:673231721";
+foo2:r0 := @parameter0: PubTest hash:636094094";
+    "{[]={$r0=>[new00_test2]
+$r1=>[new00_test2, new03_test2]
+$r2=>[new03_test2]
+}}
+{[]=[]}
+test2:$r3 = staticinvoke <PubTest: PubTest foo2(PubTest)>($r2) hash:1645449962"->"{[]={$r0=>[new00_test2]
+$r1=>[new00_test2, new03_test2]
+$r2=>[new03_test2]
+$r3=>[new00_test2, new03_test2]
+}}
+{[]=[]}
+test2:r4 = null hash:671967776";
     "{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = null hash:2073830279"->"{[]={$r0=>[new00_test2]
+test2:r4 = null hash:671967776"->"{[]={$r0=>[new00_test2]
 r4=>[null]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:if $r1 != $r3 goto return r4 hash:1315022947";
-    "{[]={$r0=>[new00_test2]
-r4=>[null]
-$r1=>[new00_test2, new03_test2]
-$r2=>[new03_test2]
-$r3=>[new00_test2, new03_test2]
-}}
-{[]=[]}
-test2:if $r1 != $r3 goto return r4 hash:1315022947"->"{[]={$r0=>[new00_test2]
-r4=>[null]
-$r1=>[new00_test2, new03_test2]
-$r2=>[new03_test2]
-$r3=>[new00_test2, new03_test2]
-}}
-{[]=[]}
-test2:r4 = $r1 hash:803904123";
+test2:if $r1 != $r3 goto return r4 hash:1898469011";
     "{[]={$r0=>[new00_test2]
 r4=>[null]
 $r1=>[new00_test2, new03_test2]
@@ -199,14 +184,29 @@ $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:if $r1 != $r3 goto return r4 hash:1315022947"->"{[]={$r0=>[new00_test2]
+test2:if $r1 != $r3 goto return r4 hash:1898469011"->"{[]={$r0=>[new00_test2]
+r4=>[null]
+$r1=>[new00_test2, new03_test2]
+$r2=>[new03_test2]
+$r3=>[new00_test2, new03_test2]
+}}
+{[]=[]}
+test2:r4 = $r1 hash:1921417851";
+    "{[]={$r0=>[new00_test2]
+r4=>[null]
+$r1=>[new00_test2, new03_test2]
+$r2=>[new03_test2]
+$r3=>[new00_test2, new03_test2]
+}}
+{[]=[]}
+test2:if $r1 != $r3 goto return r4 hash:1898469011"->"{[]={$r0=>[new00_test2]
 r4=>[new00_test2, null, new03_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:return r4 hash:1193744863";
+test2:return r4 hash:488322592";
     "{[]={$r0=>[new00_test2]
 r4=>[null]
 $r1=>[new00_test2, new03_test2]
@@ -214,115 +214,115 @@ $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = $r1 hash:803904123"->"{[]={$r0=>[new00_test2]
+test2:r4 = $r1 hash:1921417851"->"{[]={$r0=>[new00_test2]
 r4=>[new00_test2, null, new03_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:return r4 hash:1193744863";
+test2:return r4 hash:488322592";
     "{[test2.in02]={}, [test2.in05]={}}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:r0 := @parameter0: PubTest hash:673231721"->"{[test2.in02]={r0=>[new00_test2]
+foo2:r0 := @parameter0: PubTest hash:636094094"->"{[test2.in02]={r0=>[new00_test2]
 }, [test2.in05]={r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:39296394";
+foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:1911551651";
     "{[test2.in02]={r0=>[new00_test2]
 }, [test2.in05]={r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:39296394"->"{[test2.in02]={$r1=>[new00_test2, new03_test2]
+foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:1911551651"->"{[test2.in02, foo2.in01]={}, [test2.in05, foo2.in01]={}}
+{[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
+bar2:r0 := @parameter0: PubTest hash:75340801";
+    "{[test2.in02]={r0=>[new00_test2]
+}, [test2.in05]={r0=>[new03_test2]
+}}
+{[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
+foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:1911551651"->"{[test2.in02]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:return $r1 hash:989044347";
-    "{[test2.in02]={r0=>[new00_test2]
-}, [test2.in05]={r0=>[new03_test2]
-}}
-{[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:$r1 = staticinvoke <PubTest: PubTest bar2(PubTest)>(r0) hash:39296394"->"{[test2.in02, foo2.in01]={}, [test2.in05, foo2.in01]={}}
-{[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:r0 := @parameter0: PubTest hash:1980895595";
+foo2:return $r1 hash:759098586";
     "{[test2.in02]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:return $r1 hash:989044347"->"{[]={$r0=>[new00_test2]
+foo2:return $r1 hash:759098586"->"{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:$r2 = new03_test2 hash:594579220";
+test2:$r2 = new03_test2 hash:967337409";
     "{[test2.in02]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:return $r1 hash:989044347"->"{[]={$r0=>[new00_test2]
+foo2:return $r1 hash:759098586"->"{[]={$r0=>[new00_test2]
 $r1=>[new00_test2, new03_test2]
 $r2=>[new03_test2]
 $r3=>[new00_test2, new03_test2]
 }}
 {[]=[]}
-test2:r4 = null hash:2073830279";
+test2:r4 = null hash:671967776";
     "{[test2.in02, foo2.in01]={}, [test2.in05, foo2.in01]={}}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:r0 := @parameter0: PubTest hash:1980895595"->"{[test2.in02, foo2.in01]={r0=>[new00_test2]
+bar2:r0 := @parameter0: PubTest hash:75340801"->"{[test2.in02, foo2.in01]={r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:1038753484";
+bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:2020883928";
     "{[test2.in02, foo2.in01]={r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:1038753484"->"{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
+bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:2020883928"->"{[foo2.in01, bar2.in01]={}}
+{[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
+bar3:r0 := @parameter0: PubTest hash:1503837905";
+    "{[test2.in02, foo2.in01]={r0=>[new00_test2]
+}, [test2.in05, foo2.in01]={r0=>[new03_test2]
+}}
+{[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
+bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:2020883928"->"{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:return $r1 hash:148232830";
-    "{[test2.in02, foo2.in01]={r0=>[new00_test2]
-}, [test2.in05, foo2.in01]={r0=>[new03_test2]
-}}
-{[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:$r1 = staticinvoke <PubTest: PubTest bar3(PubTest)>(r0) hash:1038753484"->"{[foo2.in01, bar2.in01]={}}
-{[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:r0 := @parameter0: PubTest hash:533353383";
+bar2:return $r1 hash:903383636";
     "{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:return $r1 hash:148232830"->"{[test2.in02]={$r1=>[new00_test2, new03_test2]
+bar2:return $r1 hash:903383636"->"{[test2.in02]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02]=[[new00_test2]], [test2.in05]=[[new03_test2]]}
-foo2:return $r1 hash:989044347";
+foo2:return $r1 hash:759098586";
     "{[foo2.in01, bar2.in01]={}}
 {[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:r0 := @parameter0: PubTest hash:533353383"->"{[foo2.in01, bar2.in01]={r0=>[new00_test2, new03_test2]
+bar3:r0 := @parameter0: PubTest hash:1503837905"->"{[foo2.in01, bar2.in01]={r0=>[new00_test2, new03_test2]
 }}
 {[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:return r0 hash:1603964380";
+bar3:return r0 hash:2080672560";
     "{[foo2.in01, bar2.in01]={r0=>[new00_test2, new03_test2]
 }}
 {[foo2.in01, bar2.in01]=[[new00_test2, new03_test2]]}
-bar3:return r0 hash:1603964380"->"{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
+bar3:return r0 hash:2080672560"->"{[test2.in02, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new00_test2]
 }, [test2.in05, foo2.in01]={$r1=>[new00_test2, new03_test2]
 r0=>[new03_test2]
 }}
 {[test2.in02, foo2.in01]=[[new00_test2]], [test2.in05, foo2.in01]=[[new03_test2]]}
-bar2:return $r1 hash:148232830";
+bar2:return $r1 hash:903383636";
 }

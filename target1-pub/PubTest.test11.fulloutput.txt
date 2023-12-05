@@ -8,21 +8,9 @@ test11: in00: @ => $r1: {test11.new02}
 test11: in00: @ => $r0: {test11.new00}
 test11: in00: @ => $r1: {test11.new02}
 
-test11: in00: @ => $r0: {test11.new00}
-test11: in00: @ => $r1: {test11.new02}
 
-test11: in00: @ => $r0: {test11.new00}
-test11: in00: @ => $r1: {test11.new02}
-test11: in00: @ => $r2: {test11.new05}
 
-test11: in00: @ => $r0: {test11.new00}
-test11: in00: @ => $r1: {test11.new02}
-test11: in00: @ => $r2: {test11.new05}
 
-test11: in00: @ => $r0: {test11.new00}
-test11: in00: @ => $r1: {test11.new02}
-test11: in00: @ => $r2: {test11.new05}
-test11: in00: @ => test11.new05.f: {null}
 
 
 test11: in00: [test11.in04] => r1: {test11.new00}

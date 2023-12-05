@@ -110,10 +110,12 @@ public class PubTest {
         PubTest k4 = foo3(k1);
         PubTest k5 = k1;
         // k2 and k4 will point to both objects because the call depth was more than two
-        if (k2 != k4) {
-            k5 = k2;
-            k4=null;
+        if (k2 == k4) {
+            k5=null;
+            // k5 = k2;
+            
         }
+        else k1.f=null;
         return k5;
     }
 
@@ -123,8 +125,8 @@ public class PubTest {
         // PubTest k7 = bar2(k5);
         PubTest k7 = new PubTest();
         // under both both contexts, k7 will point to both objects. (I think so. Abshishek and Devansh: Please confirm).
-        // return k7;
-        return k5;
+        return k7;
+        // return k5;
     }
 
     static PubTest test7(){
@@ -223,8 +225,162 @@ public class PubTest {
         v3.f=v3;
     }
 
+     void test12()
+    {
+        PubTest v1= new PubTest();
+        System.out.println("Gnani");
+        this.test12_fun1(v1);
+        v1.f=v1;
+        v1.f=null;
+    }
+    void test12_fun1(PubTest v1)
+    {
+          v1.f=null;
+    }
 
 
+    static void test13()
+    {
+        PubTest v1=new PubTest();
+        v1.f=null;
+        v1.f=v1;
+        PubTest v2= new PubTest();
+        v2.f=v1.f;
+        v2.f= test13_fun1(v1.f,v2.f);
+        v2=v2.f.f;
+
+    }
+
+    static PubTest test13_fun1(PubTest v1, PubTest v2)
+    {
+        PubTest v3= new PubTest();
+        v2.f=v3;
+        return v2.f;
+    }
+
+    // Fixed the bug where null is not being passed to the fn
+    static  void test14()
+    {
+        test14_fun1(null);
+    }
+    static void test14_fun1(PubTest v1)
+    {
+        PubTest v2 = new PubTest();
+        v2.f=v1;
+        v2.f=v2;
+    }
+  
+
+    // As we are not  doing CP analysis  here this is correct we should not transfer  bot 
+    static  void test15()
+    {
+        PubTest v1= new PubTest();
+        int a =10;
+       
+        while(a==10){
+           test15();
+        }
+        v1.f=null;
+    }
+
+    // The below test case should not print anything in the o/p file
+    static PubTest test16(PubTest v1, PubTest v2 )
+    {     v1.f = v2;   
+          v1 = test16(v1, v2);   
+          v1.f = v2;
+          return v1;
+    }
+    
+     // indirect recursion checked 
+    static PubTest test17()
+    {
+        PubTest v1= new PubTest();
+        PubTest v2= new PubTest();
+        PubTest v3= new PubTest();
+        v3.f=test17_fun1(v1,v2);
+        return v1;
+    }
+
+    static PubTest test17_fun1(PubTest v1, PubTest v2)
+    {
+        PubTest v4= new PubTest();
+        v4.f=null;
+        v4.f=test17_fun2(v1,v2);
+        return null;
+    }
+
+    static PubTest test17_fun2(PubTest v1,PubTest v2)
+    {
+        
+        v1.f=null;
+        v1.f=test17();
+        return null;
+    }
+
+    // function call with depth 4 and more....
+    static PubTest test18()
+    {
+        PubTest v1=new PubTest();
+        test18_fun1(v1);
+        PubTest v4=new PubTest();
+        v1.f=v1;
+        v4=v1.f;
+        v4.f=v4;
+        return null;
+    }
+
+    static PubTest test18_fun1(PubTest v1)
+    {
+        PubTest v2= new PubTest();
+        v1.f=v2;
+        test18_fun2(v1,v2);
+        return v1;
+    }
+    static PubTest test18_fun2(PubTest v1,PubTest v2)
+    {
+        PubTest v3= new PubTest();
+        test18_fun3(v1,v2);
+        v1.f=v3;
+        return v1;
+    }
+
+    static PubTest test18_fun3(PubTest v1,PubTest v2)
+    {
+        PubTest v3= new PubTest();
+        v3=null;
+        v1.f=v3;
+        return v1;
+    }
+
+
+    static void test19()
+    {
+        int a=100;
+       PubTest v1= new PubTest();
+       test19_fun1(a-1,v1);
+       PubTest v2=new PubTest();
+       v2.f=null;
+    }
+    static void test19_fun1(int a,PubTest v1)
+    {
+        test19_fun1(a-1,v1);
+        v1.f=null;
+    }
+
+    static void test20()
+    {
+        PubTest v1= new PubTest();
+        PubTest v2=new PubTest();
+        v1.f=v1;
+        v1.f=test20_fun1(v1.f);
+        v2.f=v1.f;
+    }
+
+    static PubTest test20_fun1(PubTest v1)
+    {
+        v1=null;
+        return v1;
+    }
     static PubTest fibonnaci(int i, PubTest p1, PubTest p2) {
         PubTest p3 = new PubTest();
         PubTest p4 = new PubTest();

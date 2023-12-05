@@ -1,0 +1,8 @@
+test19: in01: @ => $r0: {test19.new00}
+test19: in02: @ => $r0: {test19.new00}
+test19_fun1: in02: [test19.in02,test19_fun1.in03] => r0: {test19.new00}
+test19_fun1: in02: [test19.in02] => r0: {test19.new00}
+test19_fun1: in02: [test19_fun1.in03,test19_fun1.in03] => r0: {test19.new00}
+test19_fun1: in03: [test19.in02,test19_fun1.in03] => r0: {test19.new00}
+test19_fun1: in03: [test19.in02] => r0: {test19.new00}
+test19_fun1: in03: [test19_fun1.in03,test19_fun1.in03] => r0: {test19.new00}

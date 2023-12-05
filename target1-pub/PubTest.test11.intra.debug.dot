@@ -24,7 +24,6 @@ digraph "./target1-pub/PubTest.test11.intra.debug" {
     "$r1 = new02_test11 hash: 181281800"->"specialinvoke $r1.<PubTest: void <init>()>() hash: 96591128";
     "specialinvoke $r1.<PubTest: void <init>()>() hash: 96591128"->"staticinvoke <PubTest: void test11_fun1(PubTest,PubTest,int)>($r0, $r1, 10) hash: 931041456";
     "staticinvoke <PubTest: void test11_fun1(PubTest,PubTest,int)>($r0, $r1, 10) hash: 931041456"->"r1 := @parameter0: PubTest hash: 1705294294";
-    "staticinvoke <PubTest: void test11_fun1(PubTest,PubTest,int)>($r0, $r1, 10) hash: 931041456"->"$r2 = new05_test11 hash: 919541414";
     "$r2 = new05_test11 hash: 919541414"->"specialinvoke $r2.<PubTest: void <init>()>() hash: 2129636512";
     "specialinvoke $r2.<PubTest: void <init>()>() hash: 2129636512"->"$r2.<PubTest: PubTest f> = null hash: 1038907896";
     "$r2.<PubTest: PubTest f> = null hash: 1038907896"->"return null hash: 347238032";

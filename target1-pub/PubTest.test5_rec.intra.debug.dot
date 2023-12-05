@@ -1,15 +1,14 @@
 digraph "./target1-pub/PubTest.test5_rec.intra.debug" {
-    "r2 := @parameter0: PubTest hash: 1563833544";
-    "r0 := @parameter1: PubTest hash: 1852287168";
-    "r2.<PubTest: PubTest f> = r0 hash: 1943679038";
-    "$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 980751669";
-    "$r1.<PubTest: PubTest f> = r0 hash: 1486273013";
-    "return $r1 hash: 1957019376";
-    "r2 := @parameter0: PubTest hash: 1563833544"->"r0 := @parameter1: PubTest hash: 1852287168";
-    "r0 := @parameter1: PubTest hash: 1852287168"->"r2.<PubTest: PubTest f> = r0 hash: 1943679038";
-    "r2.<PubTest: PubTest f> = r0 hash: 1943679038"->"$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 980751669";
-    "$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 980751669"->"$r1.<PubTest: PubTest f> = r0 hash: 1486273013";
-    "$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 980751669"->"r2 := @parameter0: PubTest hash: 1563833544";
-    "$r1.<PubTest: PubTest f> = r0 hash: 1486273013"->"return $r1 hash: 1957019376";
-    "return $r1 hash: 1957019376"->"$r1.<PubTest: PubTest f> = r0 hash: 1486273013";
+    "r2 := @parameter0: PubTest hash: 459482178";
+    "r0 := @parameter1: PubTest hash: 1915196011";
+    "r2.<PubTest: PubTest f> = r0 hash: 1357927175";
+    "$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 1066437568";
+    "$r1.<PubTest: PubTest f> = r0 hash: 1887389255";
+    "return $r1 hash: 1425241044";
+    "r2 := @parameter0: PubTest hash: 459482178"->"r0 := @parameter1: PubTest hash: 1915196011";
+    "r0 := @parameter1: PubTest hash: 1915196011"->"r2.<PubTest: PubTest f> = r0 hash: 1357927175";
+    "r2.<PubTest: PubTest f> = r0 hash: 1357927175"->"$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 1066437568";
+    "$r1 = staticinvoke <PubTest: PubTest test5_rec(PubTest,PubTest)>(r2, r0) hash: 1066437568"->"r2 := @parameter0: PubTest hash: 459482178";
+    "$r1.<PubTest: PubTest f> = r0 hash: 1887389255"->"return $r1 hash: 1425241044";
+    "return $r1 hash: 1425241044"->"$r1.<PubTest: PubTest f> = r0 hash: 1887389255";
 }
