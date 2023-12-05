@@ -421,7 +421,29 @@ public class PubTest {
         return v1;
     }
 
+<<<<<<< HEAD
 
 
+=======
+    static PubTest test11() {
+        PubTest v1 = new PubTest();
+        PubTest v2 = new PubTest();
+        int a = 10;
+        // v1=v2;
+        test11_fun1(v1, v2, a);
+        PubTest v3 = new PubTest();
+        v2 = null;
+        v3.f = v2;
+        return null;
+    }
+
+    static void test11_fun1(PubTest v1, PubTest v2, int a) {
+        if (a == 10)
+            v1.f = v2.f = null;
+        test11_fun1(v2, v1, a);
+        PubTest v3 = new PubTest();
+        v3.f = v3;
+    }
+>>>>>>> a82a9ec6f410e2e31ed52efdf61cf9fa511d2ffd
 }
 
