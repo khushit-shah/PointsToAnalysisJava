@@ -1,7 +1,0 @@
-test10: in01: @ => $r0: {test10.new00}
-test10: in02: @ => $r0: {test10.new00}
-test10: in03: @ => $r0: {test10.new00}
-test10: in03: @ => test10.new00.f: {null}
-test10: in04: @ => $r0: {test10.new00}
-test10: in04: @ => $r1: {null}
-test10: in04: @ => test10.new00.f: {null}

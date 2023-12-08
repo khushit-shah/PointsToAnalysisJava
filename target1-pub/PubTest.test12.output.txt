@@ -1,9 +1,0 @@
-test12: in02: @ => $r0: {test12.new01}
-test12: in03: @ => $r0: {test12.new01}
-test12: in04: @ => $r0: {test12.new01}
-test12: in05: @ => $r0: {test12.new01}
-test12: in06: @ => $r0: {test12.new01}
-test12: in07: @ => $r0: {test12.new01}
-test12: in07: @ => test12.new01.f: {test12.new01}
-test12: in08: @ => $r0: {test12.new01}
-test12: in08: @ => test12.new01.f: {null,test12.new01}
