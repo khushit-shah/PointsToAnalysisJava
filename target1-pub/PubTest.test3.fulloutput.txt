@@ -1,0 +1,93 @@
+test3: in01: @ => $r0: {test3.new00}
+
+test3: in00: @ => $r0: {test3.new00}
+
+test3: in00: @ => $r0: {test3.new00}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => r4: {null}
+
+test3: in01: @ => $r0: {test3.new00}
+test3: in01: @ => $r2: {test3.new03}
+test3: in01: @ => r4: {null}
+
+
+
+test3: in00: [test3.in02] => r0: {test3.new00}
+test3: in00: [test3.in05] => r0: {test3.new03}
+
+test3: in00: [test3.in02] => r0: {test3.new00}
+test3: in00: [test3.in05] => r0: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in01: @ => $r0: {test3.new00}
+test3: in01: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => r4: {null}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => r4: {null}
+
+
+test3: in00: [test3.in02,baz2.in01] => r0: {test3.new00}
+test3: in00: [test3.in05,baz2.in01] => r0: {test3.new03}
+
+test3: in00: [test3.in02] => $r1: {test3.new00}
+test3: in00: [test3.in02] => r0: {test3.new00}
+test3: in00: [test3.in05] => $r1: {test3.new03}
+test3: in00: [test3.in05] => r0: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in01: @ => $r0: {test3.new00}
+test3: in01: @ => $r2: {test3.new03}
+test3: in01: @ => $r3: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => $r3: {test3.new03}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => $r3: {test3.new03}
+test3: in00: @ => r4: {null}
+
+test3: in00: @ => $r0: {test3.new00}
+test3: in00: @ => $r1: {test3.new00}
+test3: in00: @ => $r2: {test3.new03}
+test3: in00: @ => $r3: {test3.new03}
+test3: in00: @ => r4: {null}
+
+

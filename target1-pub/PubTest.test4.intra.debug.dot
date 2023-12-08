@@ -1,0 +1,15 @@
+digraph "./target1-pub/PubTest.test4.intra.debug" {
+    "r0 := @parameter0: PubTest hash: 861520886";
+    "r3 := @parameter1: PubTest hash: 1027286826";
+    "$r1 = new02_test4 hash: 225273918";
+    "specialinvoke $r1.<PubTest: void <init>()>() hash: 1736826640";
+    "r0.<PubTest: PubTest f> = $r1 hash: 340017397";
+    "$r2 = r0.<PubTest: PubTest f> hash: 1447663489";
+    "return $r2 hash: 1140430871";
+    "r0 := @parameter0: PubTest hash: 861520886"->"r3 := @parameter1: PubTest hash: 1027286826";
+    "r3 := @parameter1: PubTest hash: 1027286826"->"$r1 = new02_test4 hash: 225273918";
+    "$r1 = new02_test4 hash: 225273918"->"specialinvoke $r1.<PubTest: void <init>()>() hash: 1736826640";
+    "specialinvoke $r1.<PubTest: void <init>()>() hash: 1736826640"->"r0.<PubTest: PubTest f> = $r1 hash: 340017397";
+    "r0.<PubTest: PubTest f> = $r1 hash: 340017397"->"$r2 = r0.<PubTest: PubTest f> hash: 1447663489";
+    "$r2 = r0.<PubTest: PubTest f> hash: 1447663489"->"return $r2 hash: 1140430871";
+}

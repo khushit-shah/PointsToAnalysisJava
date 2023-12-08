@@ -1,0 +1,12 @@
+test10: in01: @ => $r0: {test10.new00}
+
+test10: in00: @ => $r0: {test10.new00}
+
+test10: in00: @ => $r0: {test10.new00}
+test10: in00: @ => test10.new00.f: {null}
+
+test10: in00: @ => $r0: {test10.new00}
+test10: in00: @ => $r1: {null}
+test10: in00: @ => test10.new00.f: {null}
+
+

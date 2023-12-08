@@ -1,0 +1,764 @@
+digraph "./target1-pub/PubTest.test22" {
+    "{[]={}}
+{[]=[]}
+test22:$r0 = new00_test22 hash:1447663489";
+    "{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r0.<PubTest: void <init>()>() hash:1229342812";
+    "{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:$r1 = new02_test22 hash:1341158560";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r1.<PubTest: void <init>()>() hash:883110723";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r0 hash:265722243";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+new00_test22.f=>[new00_test22]
+}}
+{[]=[]}
+test22:$r2 = staticinvoke <PubTest: PubTest test22_fun1(PubTest,PubTest)>($r0, $r1) hash:308434156";
+    "{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r2 hash:660144865";
+    "{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3 = $r0.<PubTest: PubTest f> hash:719068804";
+    "{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r4 = $r0.<PubTest: PubTest f> hash:1169734591";
+    "{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r1.<PubTest: PubTest f> = $r4 hash:1469217737";
+    "{[]={new02_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3.<PubTest: PubTest f> = $r4 hash:842988286";
+    "{[]={new02_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:return hash:750996693";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1 := @parameter0: PubTest hash:823672546";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0 := @parameter1: PubTest hash:1676883562";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0.<PubTest: PubTest f> = r0 hash:1890212065";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r2 = r0.<PubTest: PubTest f> hash:620301055";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1.<PubTest: PubTest f> = $r2 hash:119876571";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r4 = r1.<PubTest: PubTest f> hash:1289280305";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r3 = r0.<PubTest: PubTest f> hash:538611367";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r5 = staticinvoke <PubTest: PubTest test22_fun2(PubTest,PubTest)>($r4, $r3) hash:248447628";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+$r5=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:return $r5 hash:2070199213";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0 := @parameter0: PubTest hash:861500069";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r1 := @parameter1: PubTest hash:1503837905";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0.<PubTest: PubTest f> = r1 hash:1296845588";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:$r2 = staticinvoke <PubTest: PubTest test22_fun3(PubTest,PubTest)>(r0, r1) hash:286720552";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:return $r2 hash:1190031379";
+    "{[test22_fun1.in07, test22_fun2.in03]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r2 := @parameter0: PubTest hash:1958731110";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r3 := @parameter1: PubTest hash:1875372072";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0 = new02_test22_fun3 hash:1633439396";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:specialinvoke $r0.<PubTest: void <init>()>() hash:872877010";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = $r0 hash:2121705071";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = null hash:96858414";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r1 = $r0.<PubTest: PubTest f> hash:1760992419";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:return $r1 hash:31676014";
+    "{[]={}}
+{[]=[]}
+test22:$r0 = new00_test22 hash:1447663489"->"{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r0.<PubTest: void <init>()>() hash:1229342812";
+    "{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r0.<PubTest: void <init>()>() hash:1229342812"->"{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:$r1 = new02_test22 hash:1341158560";
+    "{[]={$r0=>[new00_test22]
+}}
+{[]=[]}
+test22:$r1 = new02_test22 hash:1341158560"->"{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r1.<PubTest: void <init>()>() hash:883110723";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:specialinvoke $r1.<PubTest: void <init>()>() hash:883110723"->"{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r0 hash:265722243";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r0 hash:265722243"->"{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+new00_test22.f=>[new00_test22]
+}}
+{[]=[]}
+test22:$r2 = staticinvoke <PubTest: PubTest test22_fun1(PubTest,PubTest)>($r0, $r1) hash:308434156";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+new00_test22.f=>[new00_test22]
+}}
+{[]=[]}
+test22:$r2 = staticinvoke <PubTest: PubTest test22_fun1(PubTest,PubTest)>($r0, $r1) hash:308434156"->"{[test22.in05]={new00_test22.f=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1 := @parameter0: PubTest hash:823672546";
+    "{[]={$r0=>[new00_test22]
+$r1=>[new02_test22]
+new00_test22.f=>[new00_test22]
+}}
+{[]=[]}
+test22:$r2 = staticinvoke <PubTest: PubTest test22_fun1(PubTest,PubTest)>($r0, $r1) hash:308434156"->"{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r2 hash:660144865";
+    "{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r2 hash:660144865"->"{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3 = $r0.<PubTest: PubTest f> hash:719068804";
+    "{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3 = $r0.<PubTest: PubTest f> hash:719068804"->"{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r4 = $r0.<PubTest: PubTest f> hash:1169734591";
+    "{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r4 = $r0.<PubTest: PubTest f> hash:1169734591"->"{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r1.<PubTest: PubTest f> = $r4 hash:1469217737";
+    "{[]={new02_test22.f=>[new02_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r1.<PubTest: PubTest f> = $r4 hash:1469217737"->"{[]={new02_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3.<PubTest: PubTest f> = $r4 hash:842988286";
+    "{[]={new02_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:r3.<PubTest: PubTest f> = $r4 hash:842988286"->"{[]={new02_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+r3=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+$r4=>[new02_test22_fun3, null, new02_test22, new00_test22]
+new00_test22.f=>[new02_test22_fun3, null, new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:return hash:750996693";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1 := @parameter0: PubTest hash:823672546"->"{[test22.in05]={new00_test22.f=>[new00_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0 := @parameter1: PubTest hash:1676883562";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0 := @parameter1: PubTest hash:1676883562"->"{[test22.in05]={new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0.<PubTest: PubTest f> = r0 hash:1890212065";
+    "{[test22.in05]={new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r0.<PubTest: PubTest f> = r0 hash:1890212065"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r2 = r0.<PubTest: PubTest f> hash:620301055";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r2 = r0.<PubTest: PubTest f> hash:620301055"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1.<PubTest: PubTest f> = $r2 hash:119876571";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:r1.<PubTest: PubTest f> = $r2 hash:119876571"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r4 = r1.<PubTest: PubTest f> hash:1289280305";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r4 = r1.<PubTest: PubTest f> hash:1289280305"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r3 = r0.<PubTest: PubTest f> hash:538611367";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r3 = r0.<PubTest: PubTest f> hash:538611367"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r5 = staticinvoke <PubTest: PubTest test22_fun2(PubTest,PubTest)>($r4, $r3) hash:248447628";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r5 = staticinvoke <PubTest: PubTest test22_fun2(PubTest,PubTest)>($r4, $r3) hash:248447628"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0 := @parameter0: PubTest hash:861500069";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:$r5 = staticinvoke <PubTest: PubTest test22_fun2(PubTest,PubTest)>($r4, $r3) hash:248447628"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+$r5=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:return $r5 hash:2070199213";
+    "{[test22.in05]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+$r5=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:return $r5 hash:2070199213"->"{[]={new02_test22.f=>[new02_test22]
+$r0=>[new00_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[]=[]}
+test22:$r0.<PubTest: PubTest f> = $r2 hash:660144865";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0 := @parameter0: PubTest hash:861500069"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r1 := @parameter1: PubTest hash:1503837905";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r1 := @parameter1: PubTest hash:1503837905"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0.<PubTest: PubTest f> = r1 hash:1296845588";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:r0.<PubTest: PubTest f> = r1 hash:1296845588"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:$r2 = staticinvoke <PubTest: PubTest test22_fun3(PubTest,PubTest)>(r0, r1) hash:286720552";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:$r2 = staticinvoke <PubTest: PubTest test22_fun3(PubTest,PubTest)>(r0, r1) hash:286720552"->"{[test22_fun1.in07, test22_fun2.in03]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r2 := @parameter0: PubTest hash:1958731110";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:$r2 = staticinvoke <PubTest: PubTest test22_fun3(PubTest,PubTest)>(r0, r1) hash:286720552"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:return $r2 hash:1190031379";
+    "{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:return $r2 hash:1190031379"->"{[test22.in05]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22]
+$r3=>[new02_test22]
+$r4=>[new02_test22, new00_test22]
+$r5=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22]
+r1=>[new00_test22]
+}}
+{[test22.in05]=[[new00_test22], [new02_test22]]}
+test22_fun1:return $r5 hash:2070199213";
+    "{[test22_fun1.in07, test22_fun2.in03]={new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r2 := @parameter0: PubTest hash:1958731110"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r3 := @parameter1: PubTest hash:1875372072";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:r3 := @parameter1: PubTest hash:1875372072"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0 = new02_test22_fun3 hash:1633439396";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0 = new02_test22_fun3 hash:1633439396"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:specialinvoke $r0.<PubTest: void <init>()>() hash:872877010";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:specialinvoke $r0.<PubTest: void <init>()>() hash:872877010"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = $r0 hash:2121705071";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = $r0 hash:2121705071"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = null hash:96858414";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r0.<PubTest: PubTest f> = null hash:96858414"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r1 = $r0.<PubTest: PubTest f> hash:1760992419";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:$r1 = $r0.<PubTest: PubTest f> hash:1760992419"->"{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:return $r1 hash:31676014";
+    "{[test22_fun1.in07, test22_fun2.in03]={r2=>[new02_test22, new00_test22]
+new02_test22.f=>[new02_test22]
+r3=>[new02_test22]
+$r0=>[new02_test22_fun3]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r1=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+}}
+{[test22_fun1.in07, test22_fun2.in03]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun3:return $r1 hash:31676014"->"{[test22.in05, test22_fun1.in07]={new02_test22.f=>[new02_test22]
+new02_test22_fun3.f=>[new02_test22_fun3, null]
+$r2=>[new02_test22_fun3, null]
+new00_test22.f=>[new02_test22, new00_test22]
+r0=>[new02_test22, new00_test22]
+r1=>[new02_test22]
+}}
+{[test22.in05, test22_fun1.in07]=[[new02_test22, new00_test22], [new02_test22]]}
+test22_fun2:return $r2 hash:1190031379";
+}

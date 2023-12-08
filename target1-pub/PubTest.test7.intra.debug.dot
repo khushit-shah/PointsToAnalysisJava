@@ -1,0 +1,22 @@
+digraph "./target1-pub/PubTest.test7.intra.debug" {
+    "$r0 = new00_test7 hash: 1908321704";
+    "specialinvoke $r0.<PubTest: void <init>()>() hash: 688392165";
+    "$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash: 1140430871";
+    "$r0.<PubTest: PubTest f> = $r1 hash: 707238050";
+    "$r2 = new04_test7 hash: 837923432";
+    "specialinvoke $r2.<PubTest: void <init>()>() hash: 674480275";
+    "r3 = $r0.<PubTest: PubTest f> hash: 1256806576";
+    "return r3 hash: 1341158560";
+    "r0 := @parameter0: PubTest hash: 780764854";
+    "return null hash: 1477752059";
+    "$r0 = new00_test7 hash: 1908321704"->"specialinvoke $r0.<PubTest: void <init>()>() hash: 688392165";
+    "specialinvoke $r0.<PubTest: void <init>()>() hash: 688392165"->"$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash: 1140430871";
+    "$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash: 1140430871"->"r0 := @parameter0: PubTest hash: 780764854";
+    "$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash: 1140430871"->"$r0.<PubTest: PubTest f> = $r1 hash: 707238050";
+    "$r0.<PubTest: PubTest f> = $r1 hash: 707238050"->"$r2 = new04_test7 hash: 837923432";
+    "$r2 = new04_test7 hash: 837923432"->"specialinvoke $r2.<PubTest: void <init>()>() hash: 674480275";
+    "specialinvoke $r2.<PubTest: void <init>()>() hash: 674480275"->"r3 = $r0.<PubTest: PubTest f> hash: 1256806576";
+    "r3 = $r0.<PubTest: PubTest f> hash: 1256806576"->"return r3 hash: 1341158560";
+    "r0 := @parameter0: PubTest hash: 780764854"->"return null hash: 1477752059";
+    "return null hash: 1477752059"->"$r0.<PubTest: PubTest f> = $r1 hash: 707238050";
+}

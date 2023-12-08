@@ -1,0 +1,28 @@
+digraph "./target1-pub/PubTest.test19.intra.debug" {
+    "$r0 = new00_test19 hash: 714734087";
+    "specialinvoke $r0.<PubTest: void <init>()>() hash: 502296269";
+    "staticinvoke <PubTest: void test19_fun1(int,PubTest)>(99, $r0) hash: 750996693";
+    "$r1 = new03_test19 hash: 770164810";
+    "specialinvoke $r1.<PubTest: void <init>()>() hash: 2006056784";
+    "$r1.<PubTest: PubTest f> = null hash: 17608784";
+    "return hash: 1333502127";
+    "i0 := @parameter0: int hash: 210204797";
+    "r0 := @parameter1: PubTest hash: 29271984";
+    "$i1 = i0 - 1 hash: 1179268144";
+    "staticinvoke <PubTest: void test19_fun1(int,PubTest)>($i1, r0) hash: 1003412230";
+    "r0.<PubTest: PubTest f> = null hash: 1926148075";
+    "return hash: 686366573";
+    "$r0 = new00_test19 hash: 714734087"->"specialinvoke $r0.<PubTest: void <init>()>() hash: 502296269";
+    "specialinvoke $r0.<PubTest: void <init>()>() hash: 502296269"->"staticinvoke <PubTest: void test19_fun1(int,PubTest)>(99, $r0) hash: 750996693";
+    "staticinvoke <PubTest: void test19_fun1(int,PubTest)>(99, $r0) hash: 750996693"->"i0 := @parameter0: int hash: 210204797";
+    "$r1 = new03_test19 hash: 770164810"->"specialinvoke $r1.<PubTest: void <init>()>() hash: 2006056784";
+    "specialinvoke $r1.<PubTest: void <init>()>() hash: 2006056784"->"$r1.<PubTest: PubTest f> = null hash: 17608784";
+    "$r1.<PubTest: PubTest f> = null hash: 17608784"->"return hash: 1333502127";
+    "i0 := @parameter0: int hash: 210204797"->"r0 := @parameter1: PubTest hash: 29271984";
+    "r0 := @parameter1: PubTest hash: 29271984"->"$i1 = i0 - 1 hash: 1179268144";
+    "$i1 = i0 - 1 hash: 1179268144"->"staticinvoke <PubTest: void test19_fun1(int,PubTest)>($i1, r0) hash: 1003412230";
+    "staticinvoke <PubTest: void test19_fun1(int,PubTest)>($i1, r0) hash: 1003412230"->"i0 := @parameter0: int hash: 210204797";
+    "r0.<PubTest: PubTest f> = null hash: 1926148075"->"return hash: 686366573";
+    "return hash: 686366573"->"$r1 = new03_test19 hash: 770164810";
+    "return hash: 686366573"->"r0.<PubTest: PubTest f> = null hash: 1926148075";
+}

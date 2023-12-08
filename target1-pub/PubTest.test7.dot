@@ -1,0 +1,143 @@
+digraph "./target1-pub/PubTest.test7" {
+    "{[]={}}
+{[]=[]}
+test7:$r0 = new00_test7 hash:1908321704";
+    "{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:specialinvoke $r0.<PubTest: void <init>()>() hash:688392165";
+    "{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash:1140430871";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+}}
+{[]=[]}
+test7:$r0.<PubTest: PubTest f> = $r1 hash:707238050";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:$r2 = new04_test7 hash:837923432";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:specialinvoke $r2.<PubTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:r3 = $r0.<PubTest: PubTest f> hash:1256806576";
+    "{[]={r3=>[null]
+$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:return r3 hash:1341158560";
+    "{[test7.in02]={}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:r0 := @parameter0: PubTest hash:780764854";
+    "{[test7.in02]={r0=>[new00_test7]
+}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:return null hash:1477752059";
+    "{[]={}}
+{[]=[]}
+test7:$r0 = new00_test7 hash:1908321704"->"{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:specialinvoke $r0.<PubTest: void <init>()>() hash:688392165";
+    "{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:specialinvoke $r0.<PubTest: void <init>()>() hash:688392165"->"{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash:1140430871";
+    "{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash:1140430871"->"{[test7.in02]={}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:r0 := @parameter0: PubTest hash:780764854";
+    "{[]={$r0=>[new00_test7]
+}}
+{[]=[]}
+test7:$r1 = staticinvoke <PubTest: PubTest test7_foo2(PubTest)>($r0) hash:1140430871"->"{[]={$r0=>[new00_test7]
+$r1=>[null]
+}}
+{[]=[]}
+test7:$r0.<PubTest: PubTest f> = $r1 hash:707238050";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+}}
+{[]=[]}
+test7:$r0.<PubTest: PubTest f> = $r1 hash:707238050"->"{[]={$r0=>[new00_test7]
+$r1=>[null]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:$r2 = new04_test7 hash:837923432";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:$r2 = new04_test7 hash:837923432"->"{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:specialinvoke $r2.<PubTest: void <init>()>() hash:674480275";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:specialinvoke $r2.<PubTest: void <init>()>() hash:674480275"->"{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:r3 = $r0.<PubTest: PubTest f> hash:1256806576";
+    "{[]={$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:r3 = $r0.<PubTest: PubTest f> hash:1256806576"->"{[]={r3=>[null]
+$r0=>[new00_test7]
+$r1=>[null]
+$r2=>[new04_test7]
+new00_test7.f=>[null]
+}}
+{[]=[]}
+test7:return r3 hash:1341158560";
+    "{[test7.in02]={}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:r0 := @parameter0: PubTest hash:780764854"->"{[test7.in02]={r0=>[new00_test7]
+}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:return null hash:1477752059";
+    "{[test7.in02]={r0=>[new00_test7]
+}}
+{[test7.in02]=[[new00_test7]]}
+test7_foo2:return null hash:1477752059"->"{[]={$r0=>[new00_test7]
+$r1=>[null]
+}}
+{[]=[]}
+test7:$r0.<PubTest: PubTest f> = $r1 hash:707238050";
+}
