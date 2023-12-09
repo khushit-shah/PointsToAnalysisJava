@@ -1,4 +1,3 @@
-import fj.Hash;
 import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
@@ -12,6 +11,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     // for each call string store the state, the parameter passes to the function.
     HashMap<LinkedList<String>, PointsToLatticeElement> state = new HashMap<>();
     HashMap<LinkedList<String>, ArrayList<HashSet<String>>> parameters = new HashMap<>();
+
 
     InterProcPointsToLatticeElement() {
 

@@ -1,0 +1,8 @@
+test24: in01: @ => $r0: {test24.new00}
+test24: in02: @ => $r0: {test24.new00}
+test24: in03: @ => $r0: {test24.new00}
+test24: in03: @ => test24.new00.f: {null}
+test24_in: in01: [test24.in02] => r0: {test24.new00}
+test24_in: in03: [test24.in02] => r0: {test24.new00}
+test24_in: in04: [test24.in02] => r0: {test24.new00}
+test24_in: in04: [test24.in02] => test24.new00.f: {null}
