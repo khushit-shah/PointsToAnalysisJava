@@ -48,7 +48,7 @@ Look at the following example.
     }
 ```
 
-#### The need of single return per method.
+#### The need of single return per method for preciseness
 
 Consider the following code.
 
