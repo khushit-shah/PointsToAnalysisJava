@@ -48,6 +48,28 @@ Look at the following example.
     }
 ```
 
+#### The need of single return per method.
+
+Consider the following code.
+
+```
+   static void test24() {
+        // multiple returns
+        test24_in(new PubTest());
+    }
+
+    static void test24_in(PubTest v1) {
+        if(null != null) {
+            return; // return here is unreachable, if we return unreachable-return, the state passed from return at A will also be lost, refer to the following state diagram. 
+        }
+
+        v1.f = null;
+        return; // A
+    }
+```
+
+
+As we can see from the figure, if there are multiple return in a function we can't return the state unreachable-return, so the most precise result we can get is to set the state to unreachable.
 
 
 ## Program Flow
