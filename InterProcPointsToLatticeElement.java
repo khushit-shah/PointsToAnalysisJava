@@ -166,7 +166,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
 //            System.out.println(newVal);
             // if the current state is unreachable, for the given callstring, do nothing.
-            if (paramList.size() <= paramIndex ) { // || newVal.equals(AnalysisInfo.unreachableState) || newVal.equals(AnalysisInfo.returnUnreachableState)
+            if (paramList.size() <= paramIndex) { // || newVal.equals(AnalysisInfo.unreachableState) || newVal.equals(AnalysisInfo.returnUnreachableState)
                 newState.put(newKey, new PointsToLatticeElement()); // empty set, this should never happen.
                 continue;
             }
@@ -306,7 +306,8 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
                 PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                if (newVal.equals(AnalysisInfo.unreachableState)) {
+                // if there is only one return to the given method, then only send unreachable return.
+                if (newVal.equals(AnalysisInfo.unreachableState) && AnalysisInfo.methodEnd.get(pt.method.getName()).size() == 1) {
                     newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
                 }
 
@@ -322,7 +323,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
                     PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                    if (newVal.equals(AnalysisInfo.unreachableState)) {
+                    if (newVal.equals(AnalysisInfo.unreachableState) && AnalysisInfo.methodEnd.get(pt.method.getName()).size() == 1) {
                         newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
                     }
 
@@ -401,7 +402,9 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                 PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
                 if (newVal.equals(AnalysisInfo.unreachableState)) {
-                    newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                    if (AnalysisInfo.methodEnd.get(pt.method.getName()).size() == 1) {
+                        newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                    }
                 } else {
                     newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
                 }
@@ -420,7 +423,9 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                     PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
                     if (newVal.equals(AnalysisInfo.unreachableState)) {
-                        newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                        if (AnalysisInfo.methodEnd.get(pt.method.getName()).size() == 1) {
+                            newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                        }
                     } else {
                         newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
                     }
