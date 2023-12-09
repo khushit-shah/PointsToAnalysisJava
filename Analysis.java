@@ -246,6 +246,9 @@ public class Analysis extends PAVBase {
                         }
                         // add the index of this statement
                         pendingMethodSuccessors.add(new Helper.Point(prevPointSize + finalIndex, invokedMethod));
+                    } else if(rightOp instanceof InvokeExpr && (((InvokeExpr) rightOp).getMethod().getReturnType() instanceof RefType)) {
+                        // Other type of invoke are treated as new...
+                        stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex) + "_" + method.getName(), ((InvokeExpr) rightOp).getMethod().getReturnType()));
                     }
                     if (rightOp instanceof NewExpr) { // x = new ...
                         stmt.setRightOp(Jimple.v().newLocal("new" + String.format("%02d", finalIndex) + "_" + method.getName(), ((NewExpr) rightOp).getBaseType()));

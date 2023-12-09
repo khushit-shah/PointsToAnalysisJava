@@ -473,9 +473,11 @@ public class PubTest {
     static void test23(int x) {
         PubTest v1 = new PubTest();
         if(x <= 10) {
+            v1.f = new PubTest();
             check_rec(null, null);
             v1.f = new PubTest();
         } else {
+            v1.f = new PubTest();
             check_rec(new PubTest(), null);
             v1.f = new PubTest();
         }
@@ -502,6 +504,36 @@ public class PubTest {
 
         v1.f = null;
         return;
+    }
+
+
+    public static void test25() {
+        PubTest a = new PubTest();
+        PubTest b = new PubTest();
+
+        a.f = null;
+        b.f = null;
+
+        PubTest t =new PubTest();
+
+        testP(a);
+
+        t =a.f;
+
+//        System.out.println("t: " + t);
+    }
+
+    public static void testP(PubTest a) {
+        if (a.f != null) {
+            a.f = a;
+            testP(a);
+            a.f = a;
+            PubTest t = a.f;
+
+        } else {
+            a.f=a;
+            return;
+        }
     }
 }
 
