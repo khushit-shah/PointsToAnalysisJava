@@ -1,3 +1,4 @@
+import fj.Hash;
 import soot.RefType;
 import soot.Value;
 import soot.jimple.*;
@@ -86,6 +87,19 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         return new InterProcPointsToLatticeElement(cloneX(this.state), cloneX(this.parameters, 1));
     }
 
+    private LatticeElement tf_nop_stmt(ProgramPoint pt) {
+        // replace the unreachable-return with unreachable state.
+        HashMap<LinkedList<String>, PointsToLatticeElement> newState = new HashMap<>();
+        for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
+            if (entry.getValue().equals(AnalysisInfo.returnUnreachableState)) {
+                newState.put(cloneX(entry.getKey()), new PointsToLatticeElement(AnalysisInfo.unreachableState.state));
+            } else {
+                newState.put(cloneX(entry.getKey()), cloneX(entry.getValue()));
+            }
+        }
+        return new InterProcPointsToLatticeElement(newState, cloneX(this.parameters, 1));
+    }
+
 
     @Override
     public LatticeElement tf_assign_stmt(ProgramPoint pt, int edgeIndex) {
@@ -121,7 +135,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         Value leftOp = identityStmt.getLeftOp();
         Value rightOp = identityStmt.getRightOp();
 
-        System.out.println("here");
+//        System.out.println("here");
 
         // not the type of prarmaterRef.
         if (!(rightOp instanceof ParameterRef)) return tf_identity_fn();
@@ -137,28 +151,29 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         HashMap<LinkedList<String>, PointsToLatticeElement> newState = new HashMap<>();
         HashMap<LinkedList<String>, ArrayList<HashSet<String>>> newParams = cloneX(this.parameters, 1);
 
-        System.out.println("here");
-        System.out.println(lhsStr);
-        System.out.println(this.parameters);
+//        System.out.println("here");
+//        System.out.println(lhsStr);
+//        System.out.println(this.parameters);
 
         for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry : this.state.entrySet()) {
             ArrayList<HashSet<String>> paramList = this.parameters.getOrDefault(entry.getKey(), new ArrayList<>());
 
-            System.out.println(entry.getKey());
-            System.out.println(paramList);
+//            System.out.println(entry.getKey());
+//            System.out.println(paramList);
 
             LinkedList<String> newKey = cloneX(entry.getKey());
             PointsToLatticeElement newVal = entry.getValue().clone();
 
-            System.out.println(newVal);
-            if (paramList.size() <= paramIndex) {
-                newState.put(newKey, new PointsToLatticeElement()); // empty set, this should not happen.
+//            System.out.println(newVal);
+            // if the current state is unreachable, for the given callstring, do nothing.
+            if (paramList.size() <= paramIndex ) { // || newVal.equals(AnalysisInfo.unreachableState) || newVal.equals(AnalysisInfo.returnUnreachableState)
+                newState.put(newKey, new PointsToLatticeElement()); // empty set, this should never happen.
                 continue;
             }
 
             newVal = newVal.put(lhsStr, cloneX(paramList.get(paramIndex)));
 
-            System.out.println(newVal);
+//            System.out.println(newVal);
 
             newState.put(newKey, newVal);
         }
@@ -197,10 +212,23 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             // from the entry, remove all local variable except of the once's starting with "new".
             PointsToLatticeElement newValue = entry.getValue().removeLocalVar();
 
-            newState.put(newCallString, newValue);
+            if (entry.getValue().equals(AnalysisInfo.unreachableState)) {
+                // for the given callstring, the function call is unreachable, dont put the new call string into the
+                // the call state.
+                // NOTE: this unreachable state will reach the successor using kildall's join, as no value for the given
+                // state will be recieved from the function call.
+                continue;
+            }
 
-            System.out.println("here");
-            System.out.println(args);
+            // if the state already contains
+            if (newState.containsKey(newCallString)) {
+                newState.put(newCallString, newState.get(newCallString).join_op(newValue));
+            } else {
+                newState.put(newCallString, newValue);
+            }
+
+//            System.out.println("here");
+//            System.out.println(args);
             // add the param values.
             ArrayList<HashSet<String>> paramList = new ArrayList<>();
             for (Value v : args) {
@@ -208,7 +236,7 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                     paramList.add(new HashSet<>());
                 } else {
                     String argName = Helper.getSimplifiedVarName(v);
-                    System.out.println(argName);
+//                    System.out.println(argName);
                     paramList.add(entry.getValue().getFactOf(argName));
                 }
             }
@@ -262,12 +290,12 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
             newKey.removeLast();
 
-            ArrayList<String> possiblePrevCallEdge;
+            HashSet<String> possiblePrevCallEdge;
 
             if (newKey.isEmpty()) {
-                possiblePrevCallEdge = new ArrayList<>();
+                possiblePrevCallEdge = new HashSet<>();
             } else {
-                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new ArrayList<>());
+                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new HashSet<>());
             }
 
             if (possiblePrevCallEdge.isEmpty()) {
@@ -276,8 +304,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                 // get the state before call.
 //                PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
-                // JOIN the prev state with the global vars of the current state.
                 PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
+
+                if (newVal.equals(AnalysisInfo.unreachableState)) {
+                    newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                }
 
                 newState.put(newCallString, newVal);
             } else {
@@ -289,8 +320,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                     // get the state before call.
 //                    PointsToLatticeElement prevState = wholePrevState.state.getOrDefault(newCallString, new PointsToLatticeElement());
 
-                    // JOIN the prev state with the global vars of the current state.
                     PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
+
+                    if (newVal.equals(AnalysisInfo.unreachableState)) {
+                        newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                    }
 
                     newState.put(newCallString, newVal);
                 }
@@ -349,12 +383,12 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
 
             newKey.removeLast();
 
-            ArrayList<String> possiblePrevCallEdge;
+            HashSet<String> possiblePrevCallEdge;
 
             if (newKey.isEmpty()) {
-                possiblePrevCallEdge = new ArrayList<>();
+                possiblePrevCallEdge = new HashSet<>();
             } else {
-                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new ArrayList<>());
+                possiblePrevCallEdge = AnalysisInfo.possiblePrevCallEdge.getOrDefault(newKey.getFirst().substring(0, newKey.getFirst().lastIndexOf(".in")), new HashSet<>());
             }
 
             if (possiblePrevCallEdge.isEmpty()) {
@@ -366,7 +400,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                 // JOIN the prev state with the global vars of the current state.
                 PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                if (newVal.equals(AnalysisInfo.unreachableState)) {
+                    newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                } else {
+                    newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                }
 
                 newState.put(newCallString, newVal);
             } else {
@@ -381,7 +419,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
                     // JOIN the prev state with the global vars of the current state.
                     PointsToLatticeElement newVal = entry.getValue().removeLocalVar();
 
-                    newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                    if (newVal.equals(AnalysisInfo.unreachableState)) {
+                        newVal = new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+                    } else {
+                        newVal = newVal.assign(lhsStr, entry.getValue().getFactOf(retVal)); // add the fact to the newVal.
+                    }
 
                     newState.put(newCallString, newVal);
                 }
@@ -395,12 +437,15 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
     public LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex) {
         Stmt stmt = pt.stmt;
 
-        System.out.println("State:");
-        System.out.println(this.state);
-        System.out.println("Param:");
-        System.out.println(this.parameters);
-        System.out.println("Statement:");
-        System.out.println(stmt);
+//        System.out.println("State:");
+//        System.out.println(this.state);
+//        System.out.println("Param:");
+//        System.out.println(this.parameters);
+//        System.out.println("Statement:");
+//        System.out.println(stmt);
+
+        // We need to convert all returnUnreachable state to unreachable state.
+
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
             public void caseAssignStmt(AssignStmt stmt) {
@@ -433,6 +478,11 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
             }
 
             @Override
+            public void caseNopStmt(NopStmt stmt) {
+                setResult(tf_nop_stmt(pt));
+            }
+
+            @Override
             public void defaultCase(Object obj) {
                 // for any other type of statement apply the identity function.
                 setResult(tf_identity_fn());
@@ -440,12 +490,12 @@ public class InterProcPointsToLatticeElement implements LatticeElement {
         };
         stmt.apply(stmtSwitch);
 
-        System.out.println("New State:");
-        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).state);
-        System.out.println("New Param:");
-        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).parameters);
+//        System.out.println("New State:");
+//        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).state);
+//        System.out.println("New Param:");
+//        System.out.println(((InterProcPointsToLatticeElement) stmtSwitch.getResult()).parameters);
 
-        System.out.println("===========================================================================================");
+//        System.out.println("===========================================================================================");
         return stmtSwitch.getResult();
     }
 

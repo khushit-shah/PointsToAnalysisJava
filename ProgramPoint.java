@@ -17,6 +17,8 @@ public class ProgramPoint {
     public int indexInPoints;
     public int callingEdge;
 
+    public boolean toPrint = true;
+
     ProgramPoint(Stmt stmt) {
         this.stmt = stmt;
         this.successors = new ArrayList<>();

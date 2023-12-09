@@ -18,7 +18,6 @@ import soot.util.dot.DotGraph;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -31,7 +30,6 @@ public class Analysis extends PAVBase {
     }
 
     public static void main(String[] args) {
-
         String targetDirectory = args[0];
         String mClass = args[1];
         String tClass = args[2];
@@ -80,22 +78,44 @@ public class Analysis extends PAVBase {
         if (methodFound) {
             printInfo(targetMethod);
 
+            // stores list of calls in all the methods, which is later mapped to first node of called method.
+            // and successor to the current node is added return of the method.
             ArrayList<Helper.Point> pendingMethodSuccessors = new ArrayList<>();
 
+            // BFS, process every called method.
             Queue<SootMethod> queue = new LinkedList<>();
             queue.add(targetMethod);
-
-
             while (!queue.isEmpty()) {
                 SootMethod curMethod = queue.remove();
                 AnalysisInfo.processedMethods.add(curMethod);
+
+                // add the statements of methods to points,
+                // find method start and method end indices.
+                // add the points which call methods to pendingMethodSuccessors.
                 preprocessMethod(AnalysisInfo.points, curMethod, queue, AnalysisInfo.processedMethods, pendingMethodSuccessors, AnalysisInfo.methodStart, AnalysisInfo.methodEnd);
             }
-            ArrayList<ArrayList<Integer>> sudoSuccessors = new ArrayList<>();
-            for (int i = 0; i < pendingMethodSuccessors.size(); i++) {
-                sudoSuccessors.add(new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors));
 
+            // stores list of successor in local method of a call edge.
+            // in reality, this successor does not exist.
+            // as on call, the call edge will be the next edge in the path.
+            // but adding this edges helps in propagating local state, to the next instruction after the call.
+            ArrayList<Integer> sudoSuccessors = new ArrayList<>();
+
+            // removes all the local successors,
+            // add the method start successor to call points.
+            // corresponding return edge is also added.
+            for (int i = 0; i < pendingMethodSuccessors.size(); i++) {
+                // store the current successor.
                 ArrayList<Integer> curSuccessors = new ArrayList<>(AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).successors);
+
+                ProgramPoint nop = new ProgramPoint(Jimple.v().newNopStmt());
+                nop.successors = new ArrayList<>(curSuccessors);
+                nop.toPrint = false;
+                nop.indexInPoints = AnalysisInfo.points.size();
+                nop.method = AnalysisInfo.points.get(pendingMethodSuccessors.get(i).index).method;
+
+                sudoSuccessors.add(nop.indexInPoints);
+
                 int callingStatementIndex = pendingMethodSuccessors.get(i).index;
                 SootMethod calledMethod = pendingMethodSuccessors.get(i).method;
 
@@ -116,40 +136,45 @@ public class Analysis extends PAVBase {
 
                 // add the return edges.
                 for (Integer end : methodEnds) {
-                    for (Integer succs : curSuccessors) {
-                        AnalysisInfo.points.get(end).successors.add(succs);
-                    }
+//                    for (Integer succs : curSuccessors) {
+                    AnalysisInfo.points.get(end).successors.add(nop.indexInPoints);
+//                    }
                 }
 
 
-                for (Integer succs : curSuccessors) {
-                    AnalysisInfo.points.get(succs).callEdge = AnalysisInfo.points.get(succs).method.getName() + ".in" + String.format("%02d", callingStatementIndex - AnalysisInfo.methodStart.get(AnalysisInfo.points.get(callingStatementIndex).method.getName()));
-                }
-                ArrayList<String> curPrefixes = AnalysisInfo.possiblePrevCallEdge.getOrDefault(calledMethod.getName(), new ArrayList<>());
+                // set appropriate call edge required on return.
+//                for (Integer succs : curSuccessors) {
+                nop.callEdge = nop.method.getName() + ".in" + String.format("%02d", callingStatementIndex - AnalysisInfo.methodStart.get(AnalysisInfo.points.get(callingStatementIndex).method.getName()));
+//                }
+
+                AnalysisInfo.points.add(nop);
+
+                // add the current call-edge to possible prefix of the calling method.
+                HashSet<String> curPrefixes = AnalysisInfo.possiblePrevCallEdge.getOrDefault(calledMethod.getName(), new HashSet<>());
 
                 curPrefixes.add(AnalysisInfo.points.get(callingStatementIndex).method.getName() + ".in" + String.format("%02d", callingStatementIndex));
 
                 AnalysisInfo.possiblePrevCallEdge.put(calledMethod.getName(), curPrefixes);
             }
 
+
+            // now, only add sudo edges to the local successors if the local successor is reachable by the called function.
+            // so if unconditional infinite recursion is present, no sudo edges will be added.
             for (int i = 0; i < sudoSuccessors.size(); i++) {
-                ArrayList<Integer> curSuccessors = sudoSuccessors.get(i);
+                Integer curSuccessors = sudoSuccessors.get(i);
 
                 int callingStatementIndex = pendingMethodSuccessors.get(i).index;
                 SootMethod calledMethod = pendingMethodSuccessors.get(i).method;
                 int methodStartIndex = AnalysisInfo.methodStart.get(calledMethod.getName());
 
                 // check  if we can reach the successor.
-                for (int succ : curSuccessors) {
-                    if (isSuccReachable(methodStartIndex, succ, AnalysisInfo.points)) {
-                        // add the sudo edge.
-                        AnalysisInfo.points.get(callingStatementIndex).successors.add(succ);
-                    }
+                if (isSuccReachable(methodStartIndex, curSuccessors, AnalysisInfo.points)) {
+                    // add the sudo edge.
+                    AnalysisInfo.points.get(callingStatementIndex).successors.add(curSuccessors);
                 }
             }
 
             drawIntraProceduralUnAnalyzedCFG(AnalysisInfo.points, targetDirectory + File.separator + tClass + "." + tMethod + ".intra.debug");
-
 
             InterProcPointsToLatticeElement d0 = new InterProcPointsToLatticeElement();
             d0.state.put(new LinkedList<>(), new PointsToLatticeElement());
@@ -169,7 +194,6 @@ public class Analysis extends PAVBase {
     }
 
     private static boolean isSuccReachable(int methodStartIndex, int succ, ArrayList<ProgramPoint> points) {
-
         HashSet<Integer> visited = new HashSet<>();
 
         Queue<Integer> queue = new LinkedList<>();
@@ -206,7 +230,6 @@ public class Analysis extends PAVBase {
             ProgramPoint curPoint = new ProgramPoint(cur);
             curPoint.indexInPoints = prevPointSize + index;
             curPoint.method = method;
-
             if (index == 0) {
                 methodStart.put(method.getName(), prevPointSize);
             }
@@ -308,6 +331,10 @@ public class Analysis extends PAVBase {
             Set<ResultTuple> data = new HashSet<>();
             int index = 0;
             for (int j = 0; j < iteration.size(); j++) {
+                if (!points.get(index).toPrint) {
+                    index++;
+                    continue;
+                }
                 InterProcPointsToLatticeElement e_ = (InterProcPointsToLatticeElement) iteration.get(j);
                 if (i != 0 && e_.equals(output.get(i - 1).get(j)))
                     continue; // only output the states that changed from previous iterations.
@@ -355,6 +382,10 @@ public class Analysis extends PAVBase {
         Set<ResultTuple> data = new HashSet<>();
         int index = 0;
         for (LatticeElement e : output) {
+            if (!points.get(index).toPrint) {
+                index++;
+                continue;
+            }
             InterProcPointsToLatticeElement e_ = (InterProcPointsToLatticeElement) e;
             for (Map.Entry<LinkedList<String>, PointsToLatticeElement> entry1 : e_.state.entrySet()) {
                 for (Map.Entry<String, HashSet<String>> entry2 : entry1.getValue().state.entrySet()) {
@@ -394,14 +425,14 @@ public class Analysis extends PAVBase {
 
 
             for (ProgramPoint p : points) {
-                d.drawNode(p.state + "\n" + p.method.getName() + ":" + p.stmt.toString() + " hash:" + p.stmt.hashCode());
+                d.drawNode(p.indexInPoints + ":" + p.state + "\n" + p.method.getName() + ":" + p.stmt.toString() + " hash:" + p.stmt.hashCode());
             }
 
             for (ProgramPoint p : points) {
                 List<Integer> successors = p.successors;
                 for (Integer vI : successors) {
                     ProgramPoint v = points.get(vI);
-                    d.drawEdge(p.state + "\n" + p.method.getName() + ":" + p.stmt.toString() + " hash:" + p.stmt.hashCode(), v.state + "\n" + v.method.getName() + ":" + v.stmt.toString() + " hash:" + v.stmt.hashCode());
+                    d.drawEdge(p.indexInPoints + ":" + p.state + "\n" + p.method.getName() + ":" + p.stmt.toString() + " hash:" + p.stmt.hashCode(), v.indexInPoints + ":" + v.state + "\n" + v.method.getName() + ":" + v.stmt.toString() + " hash:" + v.stmt.hashCode());
                 }
             }
             d.plot(filename + ".dot");

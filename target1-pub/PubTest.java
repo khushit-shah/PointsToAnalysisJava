@@ -310,7 +310,6 @@ public class PubTest {
 
     static PubTest test17_fun2(PubTest v1,PubTest v2)
     {
-        
         v1.f=null;
         v1.f=test17();
         return null;
@@ -398,7 +397,6 @@ public class PubTest {
 
         if(null==null)v1.f=v1;
         else v1.f=null;
-        
     }
 
     static void test22()
@@ -470,6 +468,40 @@ public class PubTest {
         MyTest2(v1, v2);
         v1.f = v2;
         return v1;
+    }
+
+    static void test23(int x) {
+        PubTest v1 = new PubTest();
+        if(x <= 10) {
+            check_rec(null, null);
+            v1.f = new PubTest();
+        } else {
+            check_rec(new PubTest(), null);
+            v1.f = new PubTest();
+        }
+    }
+
+    static void check_rec(PubTest v1, PubTest v2) {
+        if(v1 == v2) {
+            check_rec(v1, v2);
+        }
+        return;
+    }
+
+
+
+    static void test24() {
+        // multiple returns
+        test24_in(new PubTest());
+    }
+
+    static void test24_in(PubTest v1) {
+        if(null != null) {
+            return;
+        }
+
+        v1.f = null;
+        return;
     }
 }
 

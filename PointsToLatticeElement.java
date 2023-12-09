@@ -24,7 +24,7 @@ public class PointsToLatticeElement implements LatticeElement {
     }
 
     PointsToLatticeElement(HashMap<String, HashSet<String>> state) {
-        this.state = state;
+        this.state = clone(state);
         nullOnlySet.add("null");
     }
 
@@ -45,8 +45,14 @@ public class PointsToLatticeElement implements LatticeElement {
      */
     @Override
     public PointsToLatticeElement join_op(LatticeElement r) {
+
+
         PointsToLatticeElement other = (PointsToLatticeElement) r;
         HashMap<String, HashSet<String>> new_state = new HashMap<>();
+
+        if (this.equals(AnalysisInfo.returnUnreachableState) || other.equals(AnalysisInfo.returnUnreachableState)) {
+            return new PointsToLatticeElement(AnalysisInfo.returnUnreachableState.state);
+        }
 
         // adds all entries in this to the new state.
         for (Map.Entry<String, HashSet<String>> entry : state.entrySet()) {
@@ -63,7 +69,11 @@ public class PointsToLatticeElement implements LatticeElement {
 
             new_state.put(entry.getKey(), base);
         }
-
+        
+        // remove unreachable if there are other states over here.
+        if(new_state.containsKey("unreachable") && new_state.size() != 1) {
+            new_state.remove("unreachable");
+        }
         return new PointsToLatticeElement(new_state);
     }
 
@@ -103,6 +113,11 @@ public class PointsToLatticeElement implements LatticeElement {
      */
     @Override
     public LatticeElement tf_assign_stmt(ProgramPoint pt, int edgeIndex) {
+        // if this is unreachable, make the new state unreachable.
+        if(this.equals(AnalysisInfo.unreachableState) || this.equals(AnalysisInfo.returnUnreachableState)) {
+            return new PointsToLatticeElement(AnalysisInfo.unreachableState.state);
+        }
+
         Stmt st = pt.stmt;
         AssignStmt assignStmt = (AssignStmt) st;
 
@@ -222,6 +237,11 @@ public class PointsToLatticeElement implements LatticeElement {
      */
     @Override
     public LatticeElement tf_if_stmt(ProgramPoint pt, boolean taken) {
+        // if this is unreachable, make the new state unreachable.
+        if(this.equals(AnalysisInfo.unreachableState) || this.equals(AnalysisInfo.returnUnreachableState)) {
+            return new PointsToLatticeElement(AnalysisInfo.unreachableState.state);
+        }
+
         Stmt st = pt.stmt;
         IfStmt ifStmt = (IfStmt) st;
 
@@ -278,14 +298,14 @@ public class PointsToLatticeElement implements LatticeElement {
         // null == null
         if (op1Str.equals("null") && op2Str.equals("null")) {
             if (taken) return tf_identity_fn(); // if taken then it's just identity function.
-            else return new PointsToLatticeElement(); // if in false branch, we can never be here so bot.
+            else return new PointsToLatticeElement(AnalysisInfo.unreachableState.state); // if in false branch, we can never be here so bot.
         }
 
         // both of the above conditions can be merged into one, but kept separate for readability.
         // a == a, both op1 and op2 are same variable, then in each program execution path, the branch is always taken.
         if (op1Str.equals(op2Str)) {
             if (taken) return tf_identity_fn(); // so, if the branch is taken, it is identity function.
-            else return new PointsToLatticeElement(); // if branch is not taken it is bot.
+            else return new PointsToLatticeElement(AnalysisInfo.unreachableState.state); // if branch is not taken it is bot.
         }
 
         // ensure that op1 always not null.
@@ -309,7 +329,7 @@ public class PointsToLatticeElement implements LatticeElement {
             lhsSet.retainAll(RhsSet); // intersection.
 
             if (lhsSet.isEmpty()) { // if there is no common element, then true branch is bot.
-                return new PointsToLatticeElement();
+                return new PointsToLatticeElement(AnalysisInfo.unreachableState.state);
             } else { // set both op1 and op2 to point to the intersection of both.
                 HashMap<String, HashSet<String>> newState = clone(state);
 
@@ -331,7 +351,7 @@ public class PointsToLatticeElement implements LatticeElement {
             }
             if (op1Set.size() == 1 && op2Set.size() == 1) {
                 if (op1Set.equals(nullOnlySet) && op2Set.equals(nullOnlySet)) { // both of them are null, false branch is not legit.
-                    return new PointsToLatticeElement();
+                    return new PointsToLatticeElement(AnalysisInfo.unreachableState.state);
                 }
             }
 
@@ -352,6 +372,9 @@ public class PointsToLatticeElement implements LatticeElement {
      */
     @Override
     public LatticeElement transfer(ProgramPoint pt, boolean isConditional, boolean conditionTaken, int edgeIndex) {
+        
+        // if current state is unreachable, 
+        
         Stmt stmt = pt.stmt;
         AbstractStmtSwitch<LatticeElement> stmtSwitch = new AbstractStmtSwitch<LatticeElement>() {
             @Override
@@ -432,7 +455,7 @@ public class PointsToLatticeElement implements LatticeElement {
         for (Map.Entry<String, HashSet<String>> entry : this.state.entrySet()) {
             HashSet<String> base = clone(entry.getValue());
 
-            if (entry.getKey().startsWith("new")) newState.put(entry.getKey(), base);
+            if (entry.getKey().startsWith("new") || entry.getKey().startsWith("unreachable")) newState.put(entry.getKey(), base);
         }
 
         return new PointsToLatticeElement(newState);
